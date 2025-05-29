@@ -91,7 +91,7 @@ const HeroSection: React.FC = () => {
         >
           <div className="flex flex-col items-center text-center">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-center md:text-left text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 mb-6">
-              <span className="block dark:text-white text-black">
+              <span className="block font-serif dark:text-white text-black">
                 Hello, I'm
               </span>
               <span className="block mt-2">
@@ -127,18 +127,38 @@ const HeroSection: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <a
-                href="#projects"
-                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 1.5,
+                  type: "spring",
+                  stiffness: 200,
+                }}
               >
-                View My Work
-              </a>
-              <a
-                href="#contact"
-                className="px-8 py-4 bg-transparent border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-gray-900 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1"
+                <a
+                  href="#projects"
+                  className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  View My Work
+                </a>
+              </motion.div>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 1.0,
+                  type: "spring",
+                  stiffness: 200,
+                }}
               >
-                Contact Me
-              </a>
+                <a
+                  href="#contact"
+                  className="px-8 py-4 bg-transparent border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-gray-900 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  Contact Me
+                </a>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -159,13 +179,6 @@ const HeroSection: React.FC = () => {
         <div className="mt-28 p-10 h-[80vh] relative">
           <ProfileWithAnimatedRing />
         </div>
-        {/* <div
-          className={`container hidden md:block md:mt-28 mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-all duration-1000 transform ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <PhoneTyping />
-        </div> */}
       </section>
     </>
   );

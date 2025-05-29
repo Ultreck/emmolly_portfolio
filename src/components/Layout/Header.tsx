@@ -36,7 +36,7 @@ console.log(theme);
       <div className="mx-auto w-[80%] container px-4 sm:px-6 lg:px-5">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex-shrink-0">
-            <a href="#home" className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+            <a href="#home" className="text-2xl font-mono font-bold text-indigo-600 dark:text-indigo-400">
               Oluwatayese
             </a>
           </div>
