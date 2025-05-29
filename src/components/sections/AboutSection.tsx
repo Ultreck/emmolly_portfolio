@@ -1,6 +1,5 @@
 import React from 'react';
 import { Code, PenTool, Server, Globe } from 'lucide-react';
-import PhoneTyping from '../PhoneTyping';
 
 const AboutSection: React.FC = () => {
   return (
@@ -15,9 +14,8 @@ const AboutSection: React.FC = () => {
             I'm a passionate developer with a keen eye for detail and a dedication to creating exceptional user experiences.
           </p>
         </div>
-<PhoneTyping/>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="space-y-6 ">
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               Hello! I'm <span className="font-semibold text-indigo-600 dark:text-indigo-400">Your Name</span>, a frontend developer based in San Francisco. I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.
             </p>

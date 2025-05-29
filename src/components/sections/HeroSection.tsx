@@ -5,8 +5,8 @@ import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@heroui/card";
 import Typed from "typed.js";
-
-
+import PhoneTyping from "../PhoneTyping";
+import img from "../../assets/my profile.jpg";
 
 const allMessages = [
   { id: 1, text: "Hey! How are you?", sender: "other" },
@@ -18,7 +18,9 @@ const allMessages = [
 const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [chat, setChat] = useState<{ id: number; text: string; sender: string }[]>([]);
+  const [chat, setChat] = useState<
+    { id: number; text: string; sender: string }[]
+  >([]);
   const [index, setIndex] = useState(0);
   const el = React.useRef<HTMLSpanElement | null>(null);
   const typed = React.useRef<Typed | null>(null);
@@ -27,7 +29,7 @@ const HeroSection: React.FC = () => {
     setIsVisible(true);
   }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     if (index < allMessages.length) {
       const timer = setTimeout(() => {
         setChat((prev) => [...prev, allMessages[index]]);
@@ -39,14 +41,12 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     const options = {
-      strings: [
-       allMessages.map((msg) => msg.text).join(" "),
-      ],
+      strings: [allMessages.map((msg) => msg.text).join(" ")],
       typeSpeed: 100,
       backSpeed: 50,
       loop: true,
     };
-     if (!el.current) return; 
+    if (!el.current) return;
     typed.current = new Typed(el.current as Element, options);
 
     return () => {
@@ -56,7 +56,12 @@ const HeroSection: React.FC = () => {
     };
   }, []);
 
-  const data = ["Full Stack Developer", "Software Engineer", "Web Developer", "UI/UX Designer"];
+  const data = [
+    "Full Stack Developer",
+    "Software Engineer",
+    "Web Developer",
+    "UI/UX Designer",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -75,152 +80,101 @@ const HeroSection: React.FC = () => {
 
   return (
     <>
-      <Card>
-        <section
-          id="home"
-          className="min-h-screen mx-auto lg:w-[85%] relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950 grid grid-cols-2"
+      <section
+        id="home"
+        className="min-h-screen mx-auto lg:w-[85%] relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950 grid md:grid-cols-2"
+      >
+        <div
+          className={`container md:mt-28 mt-6 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
         >
-          <div
-            className={`container mt-28 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
-          >
-            <div className="flex flex-col items-center text-center">
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-left text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 mb-6">
-                <span className="block dark:text-white text-black">Hello, I'm</span>
-                <span className="block mt-2">
-                  {/* <span ref={el}></span> */}
-                  <span>Emmanuel Oluwatayese</span>
-                </span>
-              </h1>
+          <div className="flex flex-col items-center text-center">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-center md:text-left text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 mb-6">
+              <span className="block dark:text-white text-black">
+                Hello, I'm
+              </span>
+              <span className="block mt-2">
+                {/* <span ref={el}></span> */}
+                <span>Emmanuel Oluwatayese</span>
+              </span>
+            </h1>
 
-              <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 rounded-full mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 rounded-full mb-6"></div>
 
-              <div className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl my-8 font-semibold text-center px-4">
-                <span className="mr-2">A</span>
-                <span className="inline-block max-w-full whitespace-nowrap">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={currentIndex}
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.5 }}
-                      className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300"
-                    >
-                      {data[currentIndex]}
-                    </motion.span>
-                  </AnimatePresence>
-                </span>
-                <span className="ml-2">
-                  specializing in crafting seamless user interfaces and building
-                  scalable backend systems. I transform ideas into complete,
-                  high-performing web applications that deliver powerful digital
-                  experiences.
-                </span>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                <a
-                  href="#projects"
-                  className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  View My Work
-                </a>
-                <a
-                  href="#contact"
-                  className="px-8 py-4 bg-transparent border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-gray-900 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  Contact Me
-                </a>
-              </div>
+            <div className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl md:my-8 my-5 font-semibold md:text-start px-4">
+              <span className="mr-2">A</span>
+              <span className="inline-block max-w-full whitespace-nowrap">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentIndex}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300"
+                  >
+                    {data[currentIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+              <span className="ml-2 text-start">
+                specializing in crafting seamless user interfaces and building
+                scalable backend systems. I transform ideas into complete,
+                high-performing web applications that deliver powerful digital
+                experiences.
+              </span>
             </div>
-          </div>
 
-          {/* Decorative elements */}
-          <div className="absolute top-1/4 left-10 w-64 h-64 bg-indigo-300 dark:bg-indigo-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob"></div>
-          <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-blue-300 dark:bg-blue-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-300 dark:bg-purple-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
-
-          {/* Scroll down indicator */}
-          <button
-            onClick={scrollToNextSection}
-            className="absolute bottom-8 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"
-            aria-label="Scroll down"
-          >
-            <ArrowDown size={24} />
-          </button>
-            <div
-            className={`container mt-28 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
-          >
-          
-    <div className="min-h-screen flex justify-center">
-      <div className="w-[350px] h-[612px] dark:bg-white bg-slate-700 rounded-[2.5rem] shadow-xl border-4 border-gray-300 overflow-hidden flex flex-col">
-        
-        {/* Status Bar */}
-        <div className="flex items-center justify-between px-4 py-2 text-xs text-gray-500 dark:bg-white bg-slate-700 border-b">
-          <span className="text-white dark:text-black">9:41</span>
-          <div className="flex items-center gap-1">
-            <span>📶</span>
-            <span>📡</span>
-            <span>🔋</span>
-          </div>
-        </div>
-
-        {/* Chat Header */}
-        <div className="dark:bg-white bg-slate-700 px-4 py-3 border-b text-center font-semibold text-white dark:text-gray-800">
-          Chat with John
-        </div>
-
-        {/* Chat Body */}
-        <div className="flex-1 px-4 py-2 space-y-3 overflow-y-auto bg-gray-50">
-          {chat.map((msg) => (
-            <div
-              key={msg.id}
-              className={`flex ${
-                msg.sender === "me" ? "justify-end" : "justify-start"
-              }`}
-            >
-              {msg.sender === "other" && (
-                <div className="w-6 h-6 rounded-full bg-gray-400 mr-2 mt-auto"></div>
-              )}
-              <div
-                className={`max-w-[70%] px-4 py-2 rounded-2xl text-sm leading-snug ${
-                  msg.sender === "me"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-900"
-                }`}
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <a
+                href="#projects"
+                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                {/* {msg.text} */}
-                <span ref={el} />
-              </div>
+                View My Work
+              </a>
+              <a
+                href="#contact"
+                className="px-8 py-4 bg-transparent border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-gray-900 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1"
+              >
+                Contact Me
+              </a>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Input Box */}
-        <div className="p-3 bg-white border-t flex items-center gap-2">
-          <input
-            type="text"
-            placeholder="Message..."
-            className="flex-1 px-4 py-2 text-sm border border-gray-300 rounded-full focus:outline-none"
-            disabled
-          />
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm">
-            Send
-          </button>
-        </div>
-      </div>
-    </div>
+        {/* Decorative elements */}
+        <div className="absolute top-1/4 left-10 w-64 h-64 bg-indigo-300 dark:bg-indigo-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob"></div>
+        <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-blue-300 dark:bg-blue-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-300 dark:bg-purple-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+
+        {/* Scroll down indicator */}
+        <button
+          onClick={scrollToNextSection}
+          className="absolute bottom-8 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"
+          aria-label="Scroll down"
+        >
+          <ArrowDown size={24} />
+        </button>
+        <div className="border my-20 h-[80vh] p-10 relative">
+          <div className="text absolute p-8 border w-full h-full">
           </div>
-        </section>
-      </Card>
+            <div className="text p-8 border w-full h-full absolute">
+            </div>
+              <img
+                src={img}
+                alt=""
+                className="text object-contain ralative mx-auto mt-16"
+              />
+        </div>
+        {/* <div
+          className={`container hidden md:block md:mt-28 mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-all duration-1000 transform ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+        >
+          <PhoneTyping />
+        </div> */}
+      </section>
     </>
   );
 };
