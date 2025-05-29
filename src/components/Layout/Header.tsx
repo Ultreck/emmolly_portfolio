@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { navItems } from '../../constants';
 import { useTheme } from '../../context/ThemeContex';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
-console.log(theme);
+  const {hash} = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +35,7 @@ console.log(theme);
       }`}
     >
       <div className="mx-auto w-[80%] container px-4 sm:px-6 lg:px-5">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex  items-center justify-between h-16 sm:h-20">
           <div className="flex-shrink-0">
             <a href="#home" className="text-2xl font-mono font-bold text-indigo-600 dark:text-indigo-400">
               Oluwatayese
@@ -45,13 +45,13 @@ console.log(theme);
           <div className="hidden md:block">
             <nav className="ml-10 flex items-center space-x-8">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.href}
-                  to={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                  href={item.href}
+                  className={` hover:text-indigo-600  dark:hover:text-indigo-400 px-3 py-2 text-sm  transition-colors duration-200 ${item.href === hash? 'text-[#EC4899] font-bold underline underline-offset-4' :  'text-gray-700 dark:text-gray-300 font-medium'}`}
                 >
                   {item.label}
-                </Link>
+                </a>
               ))}
               <button 
                 onClick={toggleTheme}

@@ -113,10 +113,13 @@ const HeroSection: React.FC = () => {
 
             <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 rounded-full mb-6"></div>
 
-            <motion.div  initial="hidden"
-        whileInView="show"
-        viewport={{ margin: "-20%" }}
-        variants={fadeIn("up", "spring", 0.2, 1.2)} className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl md:my-8 my-5 font-semibold md:text-start px-4">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ margin: "-20%" }}
+              variants={fadeIn("up", "spring", 0.2, 1.2)}
+              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl md:my-8 my-5 font-semibold md:text-start px-4"
+            >
               <span className="mr-2">A</span>
               <span className="inline-block max-w-full whitespace-nowrap">
                 <AnimatePresence mode="wait">
@@ -188,12 +191,17 @@ const HeroSection: React.FC = () => {
           className="absolute bottom-8 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"
           aria-label="Scroll down"
         >
-          <ArrowDown size={24} />
+          <a key={"#about"} href={"#about"}>
+            <ArrowDown size={24} />
+          </a>
         </button>
-        <motion.div  initial="hidden"
-        whileInView="show"
-        viewport={{ margin: "-20%" }}
-        variants={fadeIn("left", "spring", 0.4, 1.5)} className="mt-28 p-10 h-[80vh] relative">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ margin: "-20%" }}
+          variants={fadeIn("left", "spring", 0.4, 1.5)}
+          className="mt-28 p-10 h-[80vh] relative"
+        >
           <ProfileWithAnimatedRing />
         </motion.div>
       </motion.section>
