@@ -190,9 +190,12 @@ const HeroSection: React.FC = () => {
         >
           <ArrowDown size={24} />
         </button>
-        <div className="mt-28 p-10 h-[80vh] relative">
+        <motion.div  initial="hidden"
+        whileInView="show"
+        viewport={{ margin: "-20%" }}
+        variants={fadeIn("left", "spring", 0.4, 1.5)} className="mt-28 p-10 h-[80vh] relative">
           <ProfileWithAnimatedRing />
-        </div>
+        </motion.div>
       </motion.section>
     </>
   );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { navItems } from '../../constants';
 import { useTheme } from '../../context/ThemeContex';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,13 +45,13 @@ console.log(theme);
           <div className="hidden md:block">
             <nav className="ml-10 flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <button 
                 onClick={toggleTheme}

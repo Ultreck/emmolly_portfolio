@@ -8,6 +8,7 @@ import ContactSection from "./components/sections/ContactSection";
 import { ThemeProvider } from "./context/ThemeContex";
 import ProjectsSection from "./components/sections/ProjectSection";
 import { HeroUIProvider } from "@heroui/system";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -16,11 +17,13 @@ function App() {
         <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main>
-            <HeroSection />
-            <AboutSection />
-            <SkillsSection />
-            <ProjectsSection />
-            <ContactSection />
+            <Routes>
+              <Route path="/" element={<HeroSection />} />
+              <Route path="/about" element={<AboutSection />} />
+              <Route path="/skills" element={<SkillsSection />} />
+              <Route path="/projects" element={<ProjectsSection />} />
+              <Route path="/contacts" element={<ContactSection />} />
+            </Routes>
           </main>
           <Footer />
         </div>
