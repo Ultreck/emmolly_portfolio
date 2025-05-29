@@ -45,13 +45,13 @@ const ProfileWithAnimatedRing: React.FC<React.PropsWithChildren<{}>> = () => {
   }, []);
 
   return (
-    <div className="relative text-center border w-full h-full mx-auto">
+    <div className="relative text-center w-full h-full mx-auto">
       {/* Profile Picture */}
-      <div className="absolute inset-0 rounded-full overflow-hidden z-10">
+      <div className="absolute flex justify-center items-center inset-0 rounded-full overflow-hidden z-10">
         <img
           src={img}
-          alt=""
-          className="object-scale-down w-full h-full rounded-full shadow-lg"
+          alt="Profile picture"
+          className="w-3/4 rounded-full shadow-lg"
         />
       </div>
 
@@ -64,7 +64,7 @@ const ProfileWithAnimatedRing: React.FC<React.PropsWithChildren<{}>> = () => {
           r="245"
           fill="none"
           stroke="url(#gradient)"
-          strokeWidth="4"
+          strokeWidth="3"
           strokeDasharray="150 50" // Creates dash pattern
           strokeLinecap="round"
           style={

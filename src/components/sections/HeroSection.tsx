@@ -156,7 +156,7 @@ const HeroSection: React.FC = () => {
         >
           <ArrowDown size={24} />
         </button>
-        <div className="border mt-20 p-10 h-[80vh] relative">
+        <div className="mt-28 p-10 h-[80vh] relative">
           <ProfileWithAnimatedRing />
         </div>
         {/* <div
