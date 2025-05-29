@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
-// import Typed from "typed.js";
-// import { Button } from "@heroui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Card } from "@heroui/card";
 import Typed from "typed.js";
-import PhoneTyping from "../PhoneTyping";
+// import PhoneTyping from "../PhoneTyping";
 import ProfileWithAnimatedRing from "../ProfileWithAnimatedRing";
+import { fadeIn } from "../../utils/variant";
 
 const allMessages = [
   { id: 1, text: "Hey! How are you?", sender: "other" },
@@ -18,9 +16,7 @@ const allMessages = [
 const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [chat, setChat] = useState<
-    { id: number; text: string; sender: string }[]
-  >([]);
+
   const [index, setIndex] = useState(0);
   const el = React.useRef<HTMLSpanElement | null>(null);
   const typed = React.useRef<Typed | null>(null);
@@ -32,7 +28,6 @@ const HeroSection: React.FC = () => {
   useEffect(() => {
     if (index < allMessages.length) {
       const timer = setTimeout(() => {
-        setChat((prev) => [...prev, allMessages[index]]);
         setIndex((prev) => prev + 1);
       }, 3000); // Change delay to control speed
       return () => clearTimeout(timer);
@@ -80,7 +75,11 @@ const HeroSection: React.FC = () => {
 
   return (
     <>
-      <section
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ margin: "-20%" }}
+        variants={fadeIn("down", "spring", 0.2, 1.2)}
         id="home"
         className="min-h-screen mx-auto lg:w-[85%] relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950 grid md:grid-cols-2"
       >
@@ -90,19 +89,34 @@ const HeroSection: React.FC = () => {
           }`}
         >
           <div className="flex flex-col items-center text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-center md:text-left text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 mb-6">
-              <span className="block font-serif dark:text-white text-black">
+            <motion.h1
+              initial="hidden"
+              whileInView="show"
+              viewport={{ margin: "-20%" }}
+              variants={fadeIn("right", "spring", 0.3, 1.3)}
+              className="text-4xl sm:text-5xl font-extrabold text-center md:text-left text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 mb-6"
+            >
+              <motion.span
+                initial="hidden"
+                whileInView="show"
+                viewport={{ margin: "-20%" }}
+                variants={fadeIn("left", "spring", 0.3, 1.3)}
+                className="block font-serif dark:text-white text-black"
+              >
                 Hello, I'm
-              </span>
+              </motion.span>
               <span className="block mt-2">
                 {/* <span ref={el}></span> */}
                 <span>Emmanuel Oluwatayese</span>
               </span>
-            </h1>
+            </motion.h1>
 
             <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 rounded-full mb-6"></div>
 
-            <div className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl md:my-8 my-5 font-semibold md:text-start px-4">
+            <motion.div  initial="hidden"
+        whileInView="show"
+        viewport={{ margin: "-20%" }}
+        variants={fadeIn("up", "spring", 0.2, 1.2)} className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl md:my-8 my-5 font-semibold md:text-start px-4">
               <span className="mr-2">A</span>
               <span className="inline-block max-w-full whitespace-nowrap">
                 <AnimatePresence mode="wait">
@@ -124,7 +138,7 @@ const HeroSection: React.FC = () => {
                 high-performing web applications that deliver powerful digital
                 experiences.
               </span>
-            </div>
+            </motion.div>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <motion.div
@@ -179,7 +193,7 @@ const HeroSection: React.FC = () => {
         <div className="mt-28 p-10 h-[80vh] relative">
           <ProfileWithAnimatedRing />
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };
