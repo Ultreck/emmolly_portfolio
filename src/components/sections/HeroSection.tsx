@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@heroui/card";
 import Typed from "typed.js";
 import PhoneTyping from "../PhoneTyping";
-import img from "../../assets/my profile.jpg";
+import ProfileWithAnimatedRing from "../ProfileWithAnimatedRing";
 
 const allMessages = [
   { id: 1, text: "Hey! How are you?", sender: "other" },
@@ -156,16 +156,8 @@ const HeroSection: React.FC = () => {
         >
           <ArrowDown size={24} />
         </button>
-        <div className="border my-20 h-[80vh] p-10 relative">
-          <div className="text absolute p-8 border w-full h-full">
-          </div>
-            <div className="text p-8 border w-full h-full absolute">
-            </div>
-              <img
-                src={img}
-                alt=""
-                className="text object-contain ralative mx-auto mt-16"
-              />
+        <div className="border mt-20 p-10 h-[80vh] relative">
+          <ProfileWithAnimatedRing />
         </div>
         {/* <div
           className={`container hidden md:block md:mt-28 mx-auto px-4 sm:px-6 lg:px-8 relative z-10 transition-all duration-1000 transform ${

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, PenTool, Server, Globe } from 'lucide-react';
+import ProfileWithAnimatedRing from '../ProfileWithAnimatedRing';
 
 const AboutSection: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const AboutSection: React.FC = () => {
             I'm a passionate developer with a keen eye for detail and a dedication to creating exceptional user experiences.
           </p>
         </div>
+        <ProfileWithAnimatedRing/>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-6 ">
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
