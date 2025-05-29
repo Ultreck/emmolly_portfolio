@@ -112,7 +112,7 @@ const HeroSection: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300"
+                    className="inline-block text-[#EC4899] bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300"
                   >
                     {data[currentIndex]}
                   </motion.span>

@@ -51,7 +51,7 @@ const ProfileWithAnimatedRing: React.FC<React.PropsWithChildren<{}>> = () => {
         <img
           src={img}
           alt="Profile picture"
-          className="w-3/4 rounded-full shadow-lg"
+          className="w-3/4 hover:scale-105 transition-all rounded-full shadow-lg"
         />
       </div>
 
@@ -65,7 +65,7 @@ const ProfileWithAnimatedRing: React.FC<React.PropsWithChildren<{}>> = () => {
           fill="none"
           stroke="url(#gradient)"
           strokeWidth="3"
-          strokeDasharray="150 50" // Creates dash pattern
+          strokeDasharray="150 50"
           strokeLinecap="round"
           style={
             {
