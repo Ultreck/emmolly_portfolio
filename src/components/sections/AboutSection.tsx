@@ -1,6 +1,6 @@
 import React from "react";
 import { Code, PenTool, Server, Globe, ArrowDown } from "lucide-react";
-import ProfileWithAnimatedRing from "../ProfileWithAnimatedRing";
+// import ProfileWithAnimatedRing from "../ProfileWithAnimatedRing";
 
 const AboutSection: React.FC = () => {
   const scrollToNextSection = () => {
