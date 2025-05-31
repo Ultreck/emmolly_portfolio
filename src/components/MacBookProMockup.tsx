@@ -5,7 +5,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
   const [tab, setTab] = useState(0);
   const [expTab, setExpTab] = useState(0);
   return (
-    <div className="flex justify-center w-full items-center min-h-screen bg-transparent">
+    <div className="flex justify-center overflow-hidden w-full items-center min-h-screen bg-transparent">
       <div className="relative w-full h-[970px]">
         <div className="absolute top-0 w-full h-[75%] bg-gray-800 rounded-t-[40px] md:border-[12px] border-[6px] border-gray-900 dark:border-gray-700 border-b-0 shadow-2xl">
           {/* Screen */}
@@ -165,6 +165,124 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             architectures and reusable UI components to promote
                             code maintainability and scalability in
                             collaboration with backend engineers.
+                          </p>
+                        </div>
+                      )}
+                      {expTab === 1 && (
+                        <div
+                          className={`text-start mt-5 font-sans overflow-y-auto`}
+                        >
+                          <h1 className="md:text-xl mt-7 md:mt-0 font-bold text-[#c7ddf9]">
+                            Frontend Engineer{" "}
+                            <span className="text-[#EC4899]">
+                              @ Lights on Heights
+                            </span>
+                          </h1>
+                          <p className="text font-semibold mt-2">
+                            August 2023 - Present
+                          </p>
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-14 md:w-5" />
+                            I Collaborated closely with product designers to
+                            translate design mockups and wireframes into
+                            interactive and visually appealing UI components
+                            using React.js. By providing technical insights and
+                            feedback during the design phase, contributed to the
+                            creation of user-centric solutions that aligned with
+                            both design aesthetics and frontend development best
+                            practices.
+                          </p>
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-16 md:w-5" />
+                            Acted as a bridge between backend engineers and
+                            product designers, facilitating cross-functional
+                            collaboration and ensuring alignment on project
+                            goals and requirements. By actively participating in
+                            brainstorming sessions, design reviews, and sprint
+                            planning meetings, fostered a collaborative work
+                            environment focused on delivering high-quality
+                            results that met both technical and design
+                            standards.
+                          </p>
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-20 md:w-7" />
+                            Implemented best practices and design patterns in
+                            React development, such as componentization, state
+                            management wih hooks or context API, and routing
+                            with React Router, leading to improved code
+                            maintainability and scalability as the website
+                            evolved and grew in complexity. Additionally,
+                            contributed to frontend design by ensuring adherence
+                            to UI/UX principles, including responsive design,
+                            accessibility standards, and consistent styling
+                            across the website, resulting in an aesthetically
+                            pleasing and user-friendly interface.
+                          </p>
+                        </div>
+                      )}
+                      {expTab === 0 && (
+                        <div className={`text-start mt-8 font-sans`}>
+                          <h1
+                            data-aos="fade-left"
+                            data-aos-duration="500"
+                            className="md:text-xl mt-7 md:mt-0 font-bold text-[#c7ddf9]"
+                          >
+                            Fullstack Engineer{" "}
+                            <span className="text-[#EC4899]">
+                              @ Clan africa
+                            </span>
+                          </h1>
+                          <p
+                            data-aos="fade-left"
+                            data-aos-duration="1000"
+                            className="text font-semibold mt-2"
+                          >
+                            June 2024 - May 2025
+                          </p>
+                          <p
+                            data-aos="fade-left"
+                            data-aos-duration="1200"
+                            className="text  flex my-4 gap-3"
+                          >
+                            <FaPlay className="text-[#EC4899] w-12 md:w-5" />{" "}
+                            I Worked closely with backend engineers to
+                            integrate frontend components with backend APIs,
+                            ensuring smooth data flow and seamless functionality
+                            across the website. By establishing clear
+                            communication channels and aligning on data
+                            requirements and API contracts, facilitated
+                            efficient development and integration processes.
+                          </p>
+                          <p
+                            data-aos="fade-left"
+                            data-aos-duration="1500"
+                            className="text flex my-4 gap-3"
+                          >
+                            <FaPlay className="text-[#EC4899] w-14 md:w-5" />
+                            I Collaborated closely with product designers to
+                            translate design mockups and wireframes into
+                            interactive and visually appealing UI components
+                            using React.js. By providing technical insights and
+                            feedback during the design phase, contributed to the
+                            creation of user-centric solutions that aligned with
+                            both design aesthetics and frontend development best
+                            practices.
+                          </p>
+                          <p
+                            data-aos="fade-left"
+                            data-aos-duration="2000"
+                            className="text flex my-4 gap-3"
+                          >
+                            <FaPlay className="text-[#EC4899] w-16 md:w-5" />
+                            Acted as a bridge between backend engineers and
+                            product designers, facilitating cross-functional
+                            collaboration and ensuring alignment on project
+                            goals and requirements. By actively participating in
+                            brainstorming sessions, design reviews, and sprint
+                            planning meetings, fostered a collaborative work
+                            environment focused on delivering high-quality
+                            results that met both technical and design
+                            standards.
                           </p>
                         </div>
                       )}
