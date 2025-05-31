@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Typed from "typed.js";
-// import PhoneTyping from "../PhoneTyping";
 import ProfileWithAnimatedRing from "../ProfileWithAnimatedRing";
 import { fadeIn } from "../../utils/variant";
 import { MdOutlineFileDownload } from "react-icons/md";
@@ -28,7 +27,6 @@ const HeroSection: React.FC = () => {
   const [index, setIndex] = useState(0);
   const el = React.useRef<HTMLSpanElement | null>(null);
   const typed = React.useRef<Typed | null>(null);
-  console.log(rounded);
 
   useEffect(() => {
     setIsVisible(true);

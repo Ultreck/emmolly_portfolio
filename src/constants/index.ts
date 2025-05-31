@@ -2,7 +2,7 @@ import type { NavItem, Project, Skill, SocialLink } from "../types";
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
+  { label: 'Resume', href: '#resume' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },

@@ -1,6 +1,10 @@
 import React from "react";
 import { Code, PenTool, Server, Globe, ArrowDown } from "lucide-react";
+import MacBookProMockup from "../MacBookProMockup";
 // import ProfileWithAnimatedRing from "../ProfileWithAnimatedRing";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/variant";
+import PhoneTyping from "../PhoneTyping";
 
 const AboutSection: React.FC = () => {
   const scrollToNextSection = () => {
@@ -11,19 +15,26 @@ const AboutSection: React.FC = () => {
   };
   return (
     <section
-      id="about"
-      className="py-20 mx-auto relative w-[80%] bg-white  dark:bg-gray-900"
+      id="resume"
+      className="py-20 mx-auto relative w-[85%] bg-white  dark:bg-gray-900"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            About Me
-          </h2>
-          <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            I'm a passionate developer with a keen eye for detail and a
-            dedication to creating exceptional user experiences.
-          </p>
+        <div className="w-3xl mx-auto text-center mb-16">
+         
+          {/* <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div> */}
+          <motion.div
+             initial="hidden"
+                  whileInView="show"
+                  viewport={{ margin: "-20%" }}
+                  variants={fadeIn("up", "spring", 0.2, 1.2)}
+          className="text w-full">
+          <MacBookProMockup>
+
+             <div className="text-gray-300 text-xl">
+                  <PhoneTyping/>
+                </div>
+          </MacBookProMockup>
+          </motion.div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-6 ">
@@ -43,6 +54,9 @@ const AboutSection: React.FC = () => {
               technologies and have had the privilege of working with some
               amazing clients and teams.
             </p>
+             <div className="text-gray-300 text-xl">
+                  <PhoneTyping/>
+                </div>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               When I'm not coding, you'll find me hiking, reading, or exploring
               new coffee shops. I believe in continuous learning and am always
