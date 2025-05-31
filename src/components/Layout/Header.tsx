@@ -37,7 +37,7 @@ const Header: React.FC = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto w-[80%] container px-4 sm:px-6 lg:px-5">
+      <div className="mx-auto lg:w-[80%] container px-4 sm:px-6 lg:px-5">
         <div className="flex  items-center justify-between h-16 sm:h-20">
           <div className="flex items-center gap-2">
             <motion.div
