@@ -157,11 +157,11 @@ const HeroSection: React.FC = () => {
             whileInView="show"
             viewport={{ margin: "-20%" }}
             variants={fadeIn("right", "spring", 1.0, 1.3)}
-            className="text xl:mt-8 flex items-center lg:gap-5 justify-center xl:gap-8 gap-2"
+            className="text xl:mt-8 flex items-center lg:gap-5 justify-center xl:gap-8 gap-1"
           >
             <Tooltip content="Download my cv" showArrow={true}>
-              <button className="flex dark:border-[#EC4899] border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400 hover:border-dashed hover:border-2 text-xs lg:text-base items-center lg:gap-2 gap-1 border rounded-full lg:px-5 sm:px-2 px-1 py-2">
-                 <span className="text">Download</span>
+              <button className="flex dark:border-[#EC4899] border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400 hover:border-dashed hover:border-2 text-xs lg:text-base items-center lg:gap-2 gap-1 border rounded-full lg:px-5 sm:px-2 px-1.5 py-2">
+                 <span className="text">Download cv</span>
                 <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899] dark:text-blue-500" />
               </button>
             </Tooltip>
