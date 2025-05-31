@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {Card} from "@heroui/react";
 
 const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
   const [tab, setTab] = useState(0);
@@ -22,24 +21,21 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     exceptional digital products.
                   </p>
                   <div className="text mt-10 grid gap-10">
-                    <Card>
-
                     <button
                       onClick={() => setTab(0)}
-                      className="text py-3 rounded-lg"
-                      >
+                      className="text border py-3 rounded-lg"
+                    >
                       Experience
                     </button>
-                        </Card>
                     <button
                       onClick={() => setTab(1)}
-                      className="text py-3 rounded-lg"
+                      className="text border py-3 rounded-lg"
                     >
                       Skills
                     </button>
                     <button
                       onClick={() => setTab(2)}
-                      className="text py-3 rounded-lg"
+                      className="text border py-3 rounded-lg"
                     >
                       About Me
                     </button>
