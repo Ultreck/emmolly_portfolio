@@ -54,12 +54,6 @@ const Header: React.FC = () => {
             </motion.div>
             <a
               href="#home"
-              className="text-2xl md:hidden font-mono font-bold text-indigo-600 dark:text-indigo-400"
-            >
-              Oluwatay...
-            </a>
-            <a
-              href="#home"
               className="text-2xl md:block hidden font-mono font-bold text-indigo-600 dark:text-indigo-400"
             >
               Oluwatayese
@@ -85,6 +79,7 @@ const Header: React.FC = () => {
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             </nav>
+            
           </div>
 
           <div className="md:hidden flex items-center">
