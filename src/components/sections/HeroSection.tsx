@@ -11,6 +11,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { CiYoutube } from "react-icons/ci";
+import { Tooltip } from "@heroui/tooltip";
+import { NumberCounter } from "../NumberCounter";
 
 const allMessages = [
   { id: 1, text: "Hey! How are you?", sender: "other" },
@@ -184,60 +186,125 @@ const HeroSection: React.FC = () => {
               </motion.div>
             </div> */}
           </div>
-            <motion.div 
+          <motion.div
             initial="hidden"
-              whileInView="show"
-              viewport={{ margin: "-20%" }}
-              variants={fadeIn("right", "spring", 1.0, 1.3)} className="text mt-8 flex items-center gap-8">
-              <button className="flex border-[#EC4899] text-[#EC4899] items-center gap-2 border rounded-full px-5 py-2">
-                  DOWNLOAD CV <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899]" />
-              </button>
-              <motion.a  initial={{ scale: 0 }}
+            whileInView="show"
+            viewport={{ margin: "-20%" }}
+            variants={fadeIn("right", "spring", 1.0, 1.3)}
+            className="text mt-8 flex items-center gap-8"
+          >
+            <button className="flex dark:border-[#EC4899] border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400  items-center gap-2 border rounded-full px-5 py-2">
+              DOWNLOAD CV{" "}
+              <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899] dark:text-blue-500" />
+            </button>
+            <Tooltip content="LinkedIn account" showArrow={true}>
+              <motion.a
+                initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{
                   delay: 1.3,
                   type: "spring",
                   stiffness: 200,
-                }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
+                }}
+                href="https://www.linkedin.com/in/oluwatayese-emmanuel-a-39254b218?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bq64WZR48RtG2XFs5lYMF6w%3D%3D"
+                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+              >
                 <FaLinkedin size={22} className="text-blue-500" />
               </motion.a>
-              <motion.a  initial={{ scale: 0 }}
+            </Tooltip>
+            <Tooltip content="Github account" showArrow={true}>
+              <motion.a
+                initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{
                   delay: 1.4,
                   type: "spring",
                   stiffness: 200,
-                }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
+                }}
+                href="https://github.com/Ultreck"
+                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+              >
                 <FaGithub size={22} className="text-red-500 border-0 " />
               </motion.a>
-                <motion.a  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{
-                    delay: 1.6,
-                    type: "spring",
-                    stiffness: 200,
-                  }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
-                  <FaWhatsapp size={22} className="text-green-500 border-0 " />
-                </motion.a>
-              <motion.a  initial={{ scale: 0 }}
+            </Tooltip>
+            <Tooltip content="WhatsApp account" showArrow={true}>
+              <motion.a
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 1.6,
+                  type: "spring",
+                  stiffness: 200,
+                }}
+                href="https://wa.me/2347064778921?text=Hi%20Emmanuel%2C%20I%20got%20your%20contact%20from%20your%20portfolio!
+"
+                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+              >
+                <FaWhatsapp size={22} className="text-green-500 border-0 " />
+              </motion.a>
+            </Tooltip>
+            <Tooltip content="Youtube account" showArrow={true}>
+              <motion.a
+                initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{
                   delay: 1.5,
                   type: "spring",
                   stiffness: 200,
-                }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
-                <CiYoutube size={22} className="text-red-500 border-0 " />
+                }}
+                href="https://www.youtube.com/channel/UCO1CNgEARCnuodUuy9JVaAw"
+                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+              >
+                <CiYoutube size={22} className="text-red-500 border-0" />
               </motion.a>
-              <motion.a  initial={{ scale: 0 }}
+            </Tooltip>
+            <Tooltip content="X account" showArrow={true}>
+              <motion.a
+                initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{
                   delay: 1.7,
                   type: "spring",
                   stiffness: 200,
-                }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
+                }}
+                href="https://x.com/AdetutuEmmanue6?t=2Dp_Fjr6izYH3tibEdd7bA&s=08"
+                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+              >
                 <FaTwitter size={22} className="text-blue-500 border-0 " />
               </motion.a>
-            </motion.div>
+            </Tooltip>
+          </motion.div>
+          
+          <section className="text mt-16 flex items-start justify-between">
+            <div className="text flex items-center gap-1">
+              <h1 className="text-6xl font-mono"><NumberCounter from={0} to={5} /></h1>
+              <p className="text grid">
+                <span className="text">Years</span>
+                <span className="text">of experience</span>
+              </p>
+            </div>
+            <div className="text flex items-center gap-1">
+              <h1 className="text-6xl font-mono"><NumberCounter from={0} to={10} /></h1>
+              <p className="text grid">
+                <span className="text">Completed</span>
+                <span className="text">projects</span>
+              </p>
+            </div>
+            <div className="text flex items-center gap-1">
+              <h1 className="text-6xl font-mono"><NumberCounter from={0} to={8} /></h1>
+              <p className="text grid">
+                <span className="text">Technologies</span>
+                <span className="text">mastered</span>
+              </p>
+            </div>
+            <div className="text flex items-center gap-1">
+              <h1 className="text-6xl font-mono">2k+</h1>
+              <p className="text grid">
+                <span className="text">Codes</span>
+                <span className="text">commits</span>
+              </p>
+            </div>
+          </section>
         </div>
 
         {/* Decorative elements */}
