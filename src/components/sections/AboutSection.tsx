@@ -30,7 +30,7 @@ const AboutSection: React.FC = () => {
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               Hello! I'm{" "}
               <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                Your Name
+                Emmanuel Oluwatayese A.
               </span>
               , a frontend developer based in San Francisco. I enjoy creating
               things that live on the internet, whether that be websites,

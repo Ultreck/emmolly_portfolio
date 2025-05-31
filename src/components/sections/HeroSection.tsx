@@ -24,10 +24,11 @@ const allMessages = [
 const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const [rounded, setRounded] = useState(0);
   const [index, setIndex] = useState(0);
   const el = React.useRef<HTMLSpanElement | null>(null);
   const typed = React.useRef<Typed | null>(null);
+  console.log(rounded);
 
   useEffect(() => {
     setIsVisible(true);
@@ -89,10 +90,10 @@ const HeroSection: React.FC = () => {
         viewport={{ margin: "-20%" }}
         variants={fadeIn("down", "spring", 0.2, 1.2)}
         id="home"
-        className="min-h-screen mx-auto lg:w-[85%] relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950 grid md:grid-cols-2"
+        className="min-h-screen mx-auto w-full lg:w-[85%] relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950 grid grid-cols-1 md:grid-cols-2 gri"
       >
         <div
-          className={`container md:mt-24 mt-6 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
+          className={`container md:mt-24 mt-8 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
@@ -126,7 +127,7 @@ const HeroSection: React.FC = () => {
               whileInView="show"
               viewport={{ margin: "-20%" }}
               variants={fadeIn("up", "spring", 0.2, 1.2)}
-              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl md:my-5 my-5 font-semibold md:text-start px-4"
+              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl lg:my-5 mb-5 lg:mb-0 font-semibold md:text-start px-4"
             >
               <span className="mr-2">A</span>
               <span className="inline-block max-w-full whitespace-nowrap">
@@ -143,60 +144,27 @@ const HeroSection: React.FC = () => {
                   </motion.span>
                 </AnimatePresence>
               </span>
-              <span className="ml-2 text-start">
+              <span className="ml-2 text-sm lg:text-xl text-start">
                 specializing in crafting seamless user interfaces and building
                 scalable backend systems. I transform ideas into complete,
                 high-performing web applications that deliver powerful digital
                 experiences.
               </span>
             </motion.div>
-
-            {/* <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{
-                  delay: 0.8,
-                  type: "spring",
-                  stiffness: 200,
-                }}
-              >
-                <a
-                  href="#projects"
-                  className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  View My Work
-                </a>
-              </motion.div>
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{
-                  delay: 1.0,
-                  type: "spring",
-                  stiffness: 200,
-                }}
-              >
-                <a
-                  href="#contact"
-                  className="px-8 py-4 bg-transparent border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-gray-900 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  Contact Me
-                </a>
-              </motion.div>
-            </div> */}
           </div>
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ margin: "-20%" }}
             variants={fadeIn("right", "spring", 1.0, 1.3)}
-            className="text mt-8 flex items-center gap-8"
+            className="text xl:mt-8 flex items-center lg:gap-5 justify-center xl:gap-8 gap-2"
           >
-            <button className="flex dark:border-[#EC4899] border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400  items-center gap-2 border rounded-full px-5 py-2">
-              DOWNLOAD CV{" "}
-              <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899] dark:text-blue-500" />
-            </button>
+            <Tooltip content="Download my cv" showArrow={true}>
+              <button className="flex dark:border-[#EC4899] border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400 hover:border-dashed hover:border-2 text-xs lg:text-base items-center lg:gap-2 gap-1 border rounded-full lg:px-5 sm:px-2 px-1 py-2">
+                Download cv{" "}
+                <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899] dark:text-blue-500" />
+              </button>
+            </Tooltip>
             <Tooltip content="LinkedIn account" showArrow={true}>
               <motion.a
                 initial={{ scale: 0 }}
@@ -207,7 +175,7 @@ const HeroSection: React.FC = () => {
                   stiffness: 200,
                 }}
                 href="https://www.linkedin.com/in/oluwatayese-emmanuel-a-39254b218?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bq64WZR48RtG2XFs5lYMF6w%3D%3D"
-                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+                className="text border hover:border-dashed hover:border-2 transition-transform border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
               >
                 <FaLinkedin size={22} className="text-blue-500" />
               </motion.a>
@@ -222,7 +190,7 @@ const HeroSection: React.FC = () => {
                   stiffness: 200,
                 }}
                 href="https://github.com/Ultreck"
-                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+                className="text border hover:border-dashed hover:border-2 border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
               >
                 <FaGithub size={22} className="text-red-500 border-0 " />
               </motion.a>
@@ -238,7 +206,7 @@ const HeroSection: React.FC = () => {
                 }}
                 href="https://wa.me/2347064778921?text=Hi%20Emmanuel%2C%20I%20got%20your%20contact%20from%20your%20portfolio!
 "
-                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+                className="text border hover:border-dashed hover:border-2 border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
               >
                 <FaWhatsapp size={22} className="text-green-500 border-0 " />
               </motion.a>
@@ -253,7 +221,7 @@ const HeroSection: React.FC = () => {
                   stiffness: 200,
                 }}
                 href="https://www.youtube.com/channel/UCO1CNgEARCnuodUuy9JVaAw"
-                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+                className="text border hover:border-dashed hover:border-2 border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
               >
                 <CiYoutube size={22} className="text-red-500 border-0" />
               </motion.a>
@@ -268,42 +236,94 @@ const HeroSection: React.FC = () => {
                   stiffness: 200,
                 }}
                 href="https://x.com/AdetutuEmmanue6?t=2Dp_Fjr6izYH3tibEdd7bA&s=08"
-                className="text border border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
+                className="text border hover:border-dashed hover:border-2 border-blue-500 dark:border-[#EC4899] p-2 rounded-full shadow-inner shadow-indigo-500 dark:shadow-red-400"
               >
                 <FaTwitter size={22} className="text-blue-500 border-0 " />
               </motion.a>
             </Tooltip>
           </motion.div>
-          
-          <section className="text mt-16 flex items-start justify-between">
-            <div className="text flex items-center gap-1">
-              <h1 className="text-6xl font-mono"><NumberCounter from={0} to={5} /></h1>
-              <p className="text grid">
+
+          <section className="text xl:mt-16 mt-5 px-2 lg:px-0 flex flex-wrap justify-between gap-2 items-center ">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              variants={fadeIn("up", "spring", 0.5, 1.3)}
+              className="text flex items-center gap-1"
+            >
+              <h1 className="md:text-6xl text-4xl font-mono">
+                <NumberCounter
+                  setRounded={setRounded}
+                  from={0}
+                  to={5}
+                  duration={3}
+                />
+              </h1>
+              <p className="lg:text-sm text-xs grid">
                 <span className="text">Years</span>
                 <span className="text">of experience</span>
               </p>
-            </div>
-            <div className="text flex items-center gap-1">
-              <h1 className="text-6xl font-mono"><NumberCounter from={0} to={10} /></h1>
-              <p className="text grid">
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              variants={fadeIn("up", "spring", 0.6, 1.3)}
+              className="text flex items-center gap-1"
+            >
+              <h1 className="md:text-6xl text-4xl font-mono">
+                <NumberCounter
+                  setRounded={setRounded}
+                  from={0}
+                  to={10}
+                  duration={3}
+                />
+              </h1>
+              <p className="lg:text-sm text-xs grid">
                 <span className="text">Completed</span>
                 <span className="text">projects</span>
               </p>
-            </div>
-            <div className="text flex items-center gap-1">
-              <h1 className="text-6xl font-mono"><NumberCounter from={0} to={8} /></h1>
-              <p className="text grid">
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              variants={fadeIn("up", "spring", 0.7, 1.3)}
+              className="text flex items-center gap-1"
+            >
+              <h1 className="md:text-6xl text-4xl font-mono">
+                <NumberCounter
+                  setRounded={setRounded}
+                  from={0}
+                  to={8}
+                  duration={3}
+                />
+              </h1>
+              <p className="lg:text-sm text-xs grid">
                 <span className="text">Technologies</span>
                 <span className="text">mastered</span>
               </p>
-            </div>
-            <div className="text flex items-center gap-1">
-              <h1 className="text-6xl font-mono">2k+</h1>
-              <p className="text grid">
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              variants={fadeIn("up", "spring", 0.8, 1.3)}
+              className="text flex items-center gap-1"
+            >
+              <h1 className="md:text-6xl text-4xl font-mono">
+                {rounded >= 2100 ? (
+                  "2k+"
+                ) : (
+                  <NumberCounter
+                    setRounded={setRounded}
+                    from={0}
+                    to={2500}
+                    duration={5}
+                  />
+                )}
+              </h1>
+              <p className="lg:text-sm text-xs grid">
                 <span className="text">Codes</span>
                 <span className="text">commits</span>
               </p>
-            </div>
+            </motion.div>
           </section>
         </div>
 
@@ -327,7 +347,7 @@ const HeroSection: React.FC = () => {
           whileInView="show"
           viewport={{ margin: "-20%" }}
           variants={fadeIn("left", "spring", 0.4, 1.5)}
-          className="mt-28 p-10 h-[80vh] relative"
+          className="mt-28 hidden md:block p-10 h-[80vh] relative"
         >
           <ProfileWithAnimatedRing />
         </motion.div>

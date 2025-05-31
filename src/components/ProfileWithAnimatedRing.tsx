@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import img from "../assets/my profile.jpg";
 const ProfileWithAnimatedRing: React.FC<React.PropsWithChildren<{}>> = () => {
   const ringRef = useRef<SVGCircleElement>(null);
@@ -44,10 +44,34 @@ const ProfileWithAnimatedRing: React.FC<React.PropsWithChildren<{}>> = () => {
     };
   }, []);
 
+
+    const [randomNumbers, setRandomNumbers] = useState<string>('');
+
+  // Function to generate random numbers and combine them
+  const generateRandomNumbers = () => {
+    const firstRand = Math.floor(Math.random() * 141) + 10; // 10-100 (100-10+1=91)
+    const secondRand = Math.floor(Math.random() * 41) + 10; // 10-50 (50-10+1=41)
+    return `${firstRand} ${secondRand}`;
+  };
+
+  // Generate numbers on component mount and whenever you want to refresh
+  useEffect(() => {
+    // Set initial value
+    setRandomNumbers(generateRandomNumbers());
+    
+    // Update every 2 seconds
+    const interval = setInterval(() => {
+      setRandomNumbers(generateRandomNumbers());
+    }, 5000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative text-center w-full h-full mx-auto">
       {/* Profile Picture */}
-      <div className="absolute flex justify-center items-center inset-0 rounded-full overflow-hidden z-10">
+      <div className="absolute flex justify-center  items-center inset-0 rounded-full overflow-hidden z-10">
         <img
           src={img}
           alt="Profile picture"
@@ -56,16 +80,16 @@ const ProfileWithAnimatedRing: React.FC<React.PropsWithChildren<{}>> = () => {
       </div>
 
       {/* Animated Ring */}
-      <svg className="absolute mx-auto inset-0 w-full h-full" viewBox="0 0 500 500">
+      <svg className="absolute mx-auto transition-all duration-500 ease-in-out inset-0 w-full h-full" viewBox="0 0 500 500">
         <circle
           ref={ringRef}
           cx="250"
           cy="250"
-          r="245"
+          r="250"
           fill="none"
           stroke="url(#gradient)"
           strokeWidth="3"
-          strokeDasharray="150 50"
+          strokeDasharray={randomNumbers}
           strokeLinecap="round"
           style={
             {

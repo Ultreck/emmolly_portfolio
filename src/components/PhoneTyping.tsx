@@ -1,5 +1,4 @@
-import { Card } from "@heroui/card";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 
 const messages = [
