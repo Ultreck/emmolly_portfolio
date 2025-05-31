@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { FaPlay } from "react-icons/fa";
 
 const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
   const [tab, setTab] = useState(0);
+  const [expTab, setExpTab] = useState(0);
   return (
     <div className="flex justify-center w-full items-center min-h-screen bg-transparent">
       <div className="relative w-full h-[970px]">
@@ -9,7 +11,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
           {/* Screen */}
           <div className="absolute inset-0 m-2 bg-gray-900 rounded-t-[28px] overflow-hidden">
             {/* Screen Content - Replace with your content */}
-            <div className="h-full dark:bg-gradient-to-br bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-blue-900 dark:to-[#EC4899]">
+            <div className="h-full dark:bg-gradient-to-br bg-gradient-to-r from-indigo-50 to-blue-50 dark:to-[#12014d] dark:from-[#66163e]">
               <div className="text-center gap-5 md:p-10 p-3  grid grid-cols-1 md:grid-cols-3">
                 <div className="text">
                   <h2 className="text-3xl sm:text-4xl font-semibold font-mono text-gray-900 dark:text-white mb-3 mt-7 md:mt-0">
@@ -41,12 +43,131 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     </button>
                   </div>
                 </div>
-                <div className="text grid col-span-2 border">
+                <div className="text px-5 grid col-span-2">
                   {tab === 0 && (
                     <div className="text">
                       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         My experience
                       </h2>
+                      <div className="text mx-auto border-b-2 border-gray-400 justify-between md:mt-10 mt-5 flex items-center">
+                        <button
+                          onClick={() => setExpTab(0)}
+                          className={`text ${expTab === 0 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 md:px-16  px-5 -mb-0.5 py-3`}
+                        >
+                          Clan
+                        </button>
+                        <button
+                          onClick={() => setExpTab(1)}
+                          className={`text ${expTab === 1 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 md:px-16  px-5 -mb-0.5 py-3`}
+                        >
+                          LonH
+                        </button>
+                        <button
+                          onClick={() => setExpTab(2)}
+                          className={`text ${expTab === 2 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 md:px-16  px-5 -mb-0.5 py-3`}
+                        >
+                          Medillery
+                        </button>
+                        <button
+                          onClick={() => setExpTab(3)}
+                          className={`text ${expTab === 3 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 md:px-16  px-5 -mb-0.5 py-3`}
+                        >
+                          Scict
+                        </button>
+                      </div>
+                      {expTab === 3 && (
+                        <div className={`text-start mt-5 font-sans`}>
+                          <h1
+                            data-aos="fade-left"
+                            data-aos-duration="500"
+                            className="md:text-xl mt-7 md:mt-0 font-bold text-[#c7ddf9]"
+                          >
+                            Backend Engineer{" "}
+                            <span className="text-[#EC4899]">@ Scict</span>
+                          </h1>
+                          <p
+                            data-aos="fade-left"
+                            data-aos-duration="1000"
+                            className="text font-semibold mt-2"
+                          >
+                            October 2020 - November 2021
+                          </p>
+
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-12 md:w-5" />I
+                            was responsible for architecting scalable backend
+                            solutions using Node.js, ensuring robustness and
+                            flexibility to accommodate growing user demands. By
+                            implementing microservices architecture and
+                            employing best practices, I facilitated seamless
+                            scalability, allowing our platform to handle
+                            increased traffic efficiently.
+                          </p>
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-12 md:w-5" />
+                            Leveraging the asynchronous nature of Node.js, I
+                            optimized critical backend processes to enhance
+                            overall system performance. By identifying and
+                            rectifying bottlenecks, I successfully reduced
+                            response times, leading to improved user experience
+                            and higher customer satisfaction.
+                          </p>
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-12 md:w-5" />
+                            My expertise in Node.js enabled me to develop robust
+                            APIs that served as the backbone of our
+                            applications. I collaborated closely with frontend
+                            teams to design API endpoints that aligned with
+                            frontend requirements, ensuring smooth communication
+                            between the client and server components.
+                          </p>
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-12 md:w-5" />I
+                            proficiently utilized Node.js frameworks like
+                            Express.js to interact with databases and manage
+                            data effectively. Through efficient database
+                            querying and schema design, I enhanced data
+                            retrieval speed and maintained data integrity,
+                            contributing to a stable and reliable backend
+                            infrastructure.
+                          </p>
+                        </div>
+                      )}
+                      {expTab === 2 && (
+                        <div className={`text-start mt-5 font-sans`}>
+                          <h1 className="md:text-xl mt-7 md:mt-0 font-bold text-[#c7ddf9]">
+                            Frontend Engineer{" "}
+                            <span className="text-[#EC4899]">@ Medillery</span>
+                          </h1>
+                          <p className="text font-semibold mt-2">
+                            June 2022 - May 2023
+                          </p>
+
+                          <p className="text  flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-8 md:w-3" />{" "}
+                            Spearheaded the development of intuitive and
+                            visually appealing frontend interfaces using
+                            JavaScript frameworks like React.js and AngularJS,
+                            ensuring optimal user experience across various
+                            devices and screen sizes
+                          </p>
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-8 md:w-3" />
+                            Optimized frontend performance through efficient
+                            coding practices and rigorous testing, resulting in
+                            improved page load times and rendering speeds across
+                            different browsers and platforms.
+                          </p>
+                          <p className="text flex my-4 gap-3">
+                            <FaPlay className="text-[#EC4899] w-8 md:w-3" />
+                            Integrated with backend APIs to dynamically fetch
+                            and visualize data, leveraging component-based
+                            architectures and reusable UI components to promote
+                            code maintainability and scalability in
+                            collaboration with backend engineers.
+                          </p>
+                        </div>
+                      )}
                     </div>
                   )}
                   {tab === 1 && (
