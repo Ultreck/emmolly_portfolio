@@ -36,6 +36,9 @@ const messages = [
 ];
 const PhoneTyping = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  // const [shownMessages, setShownMessages] = useState<
+  //   { from: string; text: string }[]
+  // >([]);
   const [isTyping, setIsTyping] = useState(false);
   const typedRef = useRef<HTMLSpanElement>(null);
   const typedInstance = useRef<Typed | null>(null);
@@ -82,13 +85,13 @@ const PhoneTyping = () => {
       typeSpeed: 50,
       showCursor: false,
       onComplete: () => {
-        setShownMessages((prev) => [...prev, messages[currentIndex]]);
+        // setShownMessages((prev) => [...prev, messages[currentIndex]]);
         setCurrentIndex((prev) => prev + 1);
       },
     });
   };
 
-  const bottomRef = useRef<HTMLDivElement | null>(null);
+  // const bottomRef = useRef<HTMLDivElement | null>(null);
   const chatBodyRef = useRef<HTMLDivElement>(null);
     const scrollToBottom = () => {
     if (chatBodyRef.current) {
