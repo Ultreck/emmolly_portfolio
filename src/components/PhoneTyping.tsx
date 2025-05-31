@@ -1,3 +1,4 @@
+import { Avatar } from "@heroui/avatar";
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 
@@ -137,7 +138,7 @@ const PhoneTyping = () => {
 
         {/* Header */}
         <div className="dark:bg-white bg-slate-700 px-4 py-3 border-b text-center font-semibold text-white dark:text-gray-800">
-          Chat with MD John
+           <Avatar isBordered color="success" src="https://i.pravatar.cc/150?u=a04258114e29026302d" /> John
         </div>
 
         {/* Chat Body (scrollable) */}
