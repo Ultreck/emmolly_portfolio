@@ -5,6 +5,12 @@ import Typed from "typed.js";
 // import PhoneTyping from "../PhoneTyping";
 import ProfileWithAnimatedRing from "../ProfileWithAnimatedRing";
 import { fadeIn } from "../../utils/variant";
+import { MdOutlineFileDownload } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { CiYoutube } from "react-icons/ci";
 
 const allMessages = [
   { id: 1, text: "Hey! How are you?", sender: "other" },
@@ -84,7 +90,7 @@ const HeroSection: React.FC = () => {
         className="min-h-screen mx-auto lg:w-[85%] relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950 grid md:grid-cols-2"
       >
         <div
-          className={`container md:mt-28 mt-6 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
+          className={`container md:mt-24 mt-6 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
@@ -118,7 +124,7 @@ const HeroSection: React.FC = () => {
               whileInView="show"
               viewport={{ margin: "-20%" }}
               variants={fadeIn("up", "spring", 0.2, 1.2)}
-              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl md:my-8 my-5 font-semibold md:text-start px-4"
+              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl md:my-5 my-5 font-semibold md:text-start px-4"
             >
               <span className="mr-2">A</span>
               <span className="inline-block max-w-full whitespace-nowrap">
@@ -143,12 +149,12 @@ const HeroSection: React.FC = () => {
               </span>
             </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            {/* <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{
-                  delay: 1.5,
+                  delay: 0.8,
                   type: "spring",
                   stiffness: 200,
                 }}
@@ -176,8 +182,62 @@ const HeroSection: React.FC = () => {
                   Contact Me
                 </a>
               </motion.div>
-            </div>
+            </div> */}
           </div>
+            <motion.div 
+            initial="hidden"
+              whileInView="show"
+              viewport={{ margin: "-20%" }}
+              variants={fadeIn("right", "spring", 1.0, 1.3)} className="text mt-8 flex items-center gap-8">
+              <button className="flex border-[#EC4899] text-[#EC4899] items-center gap-2 border rounded-full px-5 py-2">
+                  DOWNLOAD CV <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899]" />
+              </button>
+              <motion.a  initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 1.3,
+                  type: "spring",
+                  stiffness: 200,
+                }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
+                <FaLinkedin size={22} className="text-blue-500" />
+              </motion.a>
+              <motion.a  initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 1.4,
+                  type: "spring",
+                  stiffness: 200,
+                }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
+                <FaGithub size={22} className="text-red-500 border-0 " />
+              </motion.a>
+                <motion.a  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    delay: 1.6,
+                    type: "spring",
+                    stiffness: 200,
+                  }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
+                  <FaWhatsapp size={22} className="text-green-500 border-0 " />
+                </motion.a>
+              <motion.a  initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 1.5,
+                  type: "spring",
+                  stiffness: 200,
+                }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
+                <CiYoutube size={22} className="text-red-500 border-0 " />
+              </motion.a>
+              <motion.a  initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: 1.7,
+                  type: "spring",
+                  stiffness: 200,
+                }} href="" className="text border border-[#EC4899] p-2 rounded-full shadow-inner shadow-red-400">
+                <FaTwitter size={22} className="text-blue-500 border-0 " />
+              </motion.a>
+            </motion.div>
         </div>
 
         {/* Decorative elements */}
