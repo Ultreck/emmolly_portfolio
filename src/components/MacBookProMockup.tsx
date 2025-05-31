@@ -12,15 +12,15 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
       <div className="relative w-full h-[970px]">
         <div className="absolute top-0 w-full h-[75%] bg-gray-800 rounded-t-[40px] rounded-b-[40px] lg:rounded-b-none md:border-[12px] border-[6px] border-gray-900 dark:border-gray-700 md:border-b-0 shadow-2xl">
           {/* Screen */}
-          <div className="absolute inset-0 m-2 bg-gray-900 rounded-t-[28px] overflow-hidden">
+          <div className="absolute inset-0 m-2 bg-gray-900 rounded-b-[40px] rounded-t-[28px] overflow-hidden">
             {/* Screen Content - Replace with your content */}
-            <div className="h-full dark:bg-gradient-to-br bg-gradient-to-r from-indigo-50 to-blue-50 dark:to-[#0b0f33] dark:from-[#54123a]">
+            <div className="h-full dark:bg-gradient-to-br rounded-b-[40px] bg-gradient-to-r from-indigo-50 to-blue-50 dark:to-[#070a23] dark:from-[#36192d]">
               <div className="text-center gap-5 md:p-10 p-3  grid grid-cols-1 md:grid-cols-3">
                 <div className="text">
                   <motion.h2
                     initial="hidden"
                     whileInView="show"
-                    variants={fadeIn("up", "spring", 0.3, 1.2)}
+                    variants={fadeIn("right", "spring", 0.3, 1.2)}
                     className="text-3xl sm:text-4xl font-semibold font-mono text-gray-900 dark:text-white mb-3 mt-7 md:mt-10"
                   >
                     Why hire me?
@@ -28,7 +28,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                   <motion.p
                     initial="hidden"
                     whileInView="show"
-                    variants={fadeIn("right", "spring", 0.5, 1.2)}
+                    variants={fadeIn("left", "spring", 0.5, 2.0)}
                     className="text-start"
                   >
                     Full-stack proficiency meets creative problem-solving. I
@@ -39,7 +39,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ margin: "-20%" }}
-                    variants={fadeIn("down", "spring", 0.6, 1.2)}
+                    variants={fadeIn("up@", "spring", 0.6, 1.2)}
                     className="text md:mt-10 mt-5 gap-2 grid grid-cols-3 md:grid-cols-1 md:gap-10"
                   >
                     <motion.button
@@ -116,12 +116,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </button>
                       </div>
                       {expTab === 3 && (
-                        <ScrollShadow className="w-full h-[450px] xl:h-auto pb-24">
-                          <div className={`text-start mt-5 font-sans`}>
+                        <ScrollShadow className="w-full h-[450px] rounded-b-[40px] xl:h-auto pb-24">
+                          <div className={`text-start mt-5 font-sans rounded-b-[40px]`}>
                             <h1
                               data-aos="fade-left"
                               data-aos-duration="500"
-                              className="md:text-xl mt-7 md:mt-0 font-bold text-[#c7ddf9]"
+                              className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600"
                             >
                               Backend Engineer{" "}
                               <span className="text-[#EC4899]">@ Scict</span>
@@ -131,7 +131,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               data-aos-duration="1000"
                               className="text font-semibold mt-2"
                             >
-                              October 2020 - November 2021
+                              November 2019 - Febrary 2022
                             </p>
 
                             <p className="text flex my-4 gap-3">
@@ -178,8 +178,8 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       )}
                       {expTab === 2 && (
                         <ScrollShadow className="w-full h-[450px] xl:h-auto pb-24">
-                          <div className={`text-start mt-5 font-sans`}>
-                            <h1 className="md:text-xl mt-7 md:mt-0 font-bold text-[#c7ddf9]">
+                          <div className={`text-start mt-8 font-sans`}>
+                            <h1 className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600">
                               Frontend Engineer{" "}
                               <span className="text-[#EC4899]">
                                 @ Medillery
@@ -218,9 +218,9 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       {expTab === 1 && (
                         <ScrollShadow className="w-full h-[450px] xl:h-auto pb-24">
                           <div
-                            className={`text-start mt-5 font-sans overflow-y-auto`}
+                            className={`text-start mt-8 font-sans overflow-y-auto`}
                           >
-                            <h1 className="md:text-xl mt-7 md:mt-0 font-bold text-[#c7ddf9]">
+                            <h1 className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600">
                               Frontend Engineer{" "}
                               <span className="text-[#EC4899]">
                                 @ Lights on Heights
@@ -276,7 +276,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             <h1
                               data-aos="fade-left"
                               data-aos-duration="500"
-                              className="md:text-xl mt-7 md:mt-0 font-bold text-[#c7ddf9]"
+                              className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600"
                             >
                               Fullstack Engineer{" "}
                               <span className="text-[#EC4899]">
@@ -359,7 +359,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
             </div>
 
             {/* Camera Notch */}
-            <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-4 bg-gray-900 rounded-b-xl"></div>
+            <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-4 bg-gray-900 dark:bg-gray-600 rounded-b-xl"></div>
 
             {/* Screen Reflection Effect */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
@@ -367,7 +367,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
         </div>
 
         {/* HINGE */}
-        <div className="absolute top-[73%] left-1/2 transform -translate-x-1/2 w-[60%] h-2 bg-gradient-to-b from-gray-900 to-gray-800 rounded-t-sm z-10"></div>
+        <div className="absolute top-[73%] left-1/2 transform hidden lg:block -translate-x-1/2 w-[60%] h-2 bg-gradient-to-b from-gray-900 to-gray-800 rounded-t-sm z-10"></div>
       </div>
     </div>
   );
