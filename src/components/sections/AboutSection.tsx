@@ -14,7 +14,7 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="resume"
-      className="py-20 h-screen mx-auto relative w-[85%] bg-white  dark:bg-gray-900"
+      className="py-20 min-h-screen mx-auto relative lg:w-[85%] bg-white  dark:bg-gray-900"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="w-3xl mx-auto text-center mb-16">
