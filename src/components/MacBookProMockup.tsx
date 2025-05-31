@@ -138,7 +138,11 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               November 2019 - Febrary 2022
                             </motion.p>
 
-                            <p className="text flex my-4 gap-3">
+                            <motion.p 
+                             initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("down", "spring", 0.1, 1.2)}
+                            className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />I
                               was responsible for architecting scalable backend
                               solutions using Node.js, ensuring robustness and
@@ -147,8 +151,11 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               employing best practices, I facilitated seamless
                               scalability, allowing our platform to handle
                               increased traffic efficiently.
-                            </p>
-                            <p className="text flex my-4 gap-3">
+                            </motion.p>
+                            <motion.p  initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("up", "spring", 0.2, 1.2)}
+                              className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />
                               Leveraging the asynchronous nature of Node.js, I
                               optimized critical backend processes to enhance
@@ -156,8 +163,11 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               rectifying bottlenecks, I successfully reduced
                               response times, leading to improved user
                               experience and higher customer satisfaction.
-                            </p>
-                            <p className="text flex my-4 gap-3">
+                            </motion.p>
+                            <motion.p  initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("right", "spring", 0.3, 1.2)}
+                              className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />
                               My expertise in Node.js enabled me to develop
                               robust APIs that served as the backbone of our
@@ -166,8 +176,11 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               frontend requirements, ensuring smooth
                               communication between the client and server
                               components.
-                            </p>
-                            <p className="text flex my-4 gap-3">
+                            </motion.p>
+                            <motion.p  initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("left", "spring", 0.4, 1.2)}
+                              className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />I
                               proficiently utilized Node.js frameworks like
                               Express.js to interact with databases and manage
@@ -176,7 +189,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               retrieval speed and maintained data integrity,
                               contributing to a stable and reliable backend
                               infrastructure.
-                            </p>
+                            </motion.p>
                           </div>
                         </ScrollShadow>
                       )}
@@ -186,7 +199,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             <motion.h1
                               initial="hidden"
                               whileInView="show"
-                              variants={fadeIn("left", "spring", 0.1, 1.2)}
+                              variants={fadeIn("left", "spring", 0.4, 1.2)}
                               className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600"
                             >
                               Frontend Engineer{" "}
@@ -203,29 +216,38 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               June 2022 - May 2023
                             </motion.p>
 
-                            <p className="text  flex my-4 gap-3">
+                            <motion.p  initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("left", "spring", 0.1, 1.2)}
+                              className="text  flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-8 md:w-3" />{" "}
                               Spearheaded the development of intuitive and
                               visually appealing frontend interfaces using
                               JavaScript frameworks like React.js and AngularJS,
                               ensuring optimal user experience across various
                               devices and screen sizes
-                            </p>
-                            <p className="text flex my-4 gap-3">
+                            </motion.p>
+                            <motion.p  initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("up", "spring", 0.2, 1.2)}
+                              className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-8 md:w-3" />
                               Optimized frontend performance through efficient
                               coding practices and rigorous testing, resulting
                               in improved page load times and rendering speeds
                               across different browsers and platforms.
-                            </p>
-                            <p className="text flex my-4 gap-3">
+                            </motion.p>
+                            <motion.p  initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("right", "spring", 0.3, 1.2)}
+                              className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-8 md:w-3" />
                               Integrated with backend APIs to dynamically fetch
                               and visualize data, leveraging component-based
                               architectures and reusable UI components to
                               promote code maintainability and scalability in
                               collaboration with backend engineers.
-                            </p>
+                            </motion.p>
                           </div>
                         </ScrollShadow>
                       )}
@@ -253,7 +275,10 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             >
                               August 2023 - Present
                             </motion.p>
-                            <p className="text flex my-4 gap-3">
+                            <motion.p  initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("left", "spring", 0.1, 1.2)}
+                              className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-14 md:w-5" />I
                               Collaborated closely with product designers to
                               translate design mockups and wireframes into
@@ -263,8 +288,11 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               to the creation of user-centric solutions that
                               aligned with both design aesthetics and frontend
                               development best practices.
-                            </p>
-                            <p className="text flex my-4 gap-3">
+                            </motion.p>
+                            <motion.p  initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("right", "spring", 0.2, 1.2)}
+                              className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-16 md:w-5" />
                               Acted as a bridge between backend engineers and
                               product designers, facilitating cross-functional
@@ -275,8 +303,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               work environment focused on delivering
                               high-quality results that met both technical and
                               design standards.
-                            </p>
-                            <p className="text flex my-4 gap-3">
+                            </motion.p>
+                            <motion.p
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("up", "spring", 0.3, 1.2)}
+                              className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-20 md:w-7" />
                               Implemented best practices and design patterns in
                               React development, such as componentization, state
@@ -290,7 +322,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               consistent styling across the website, resulting
                               in an aesthetically pleasing and user-friendly
                               interface.
-                            </p>
+                            </motion.p>
                           </div>
                         </ScrollShadow>
                       )}
@@ -316,9 +348,10 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             >
                               June 2024 - May 2025
                             </motion.p>
-                            <p
-                              data-aos="fade-left"
-                              data-aos-duration="1200"
+                            <motion.p
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("right", "spring", 0.1, 1.2)}
                               className="text  flex my-4 gap-3"
                             >
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />{" "}
@@ -329,10 +362,11 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               clear communication channels and aligning on data
                               requirements and API contracts, facilitated
                               efficient development and integration processes.
-                            </p>
-                            <p
-                              data-aos="fade-left"
-                              data-aos-duration="1500"
+                            </motion.p>
+                            <motion.p
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("down", "spring", 0.2, 1.2)}
                               className="text flex my-4 gap-3"
                             >
                               <FaPlay className="text-[#EC4899] w-14 md:w-5" />I
@@ -344,10 +378,11 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               to the creation of user-centric solutions that
                               aligned with both design aesthetics and frontend
                               development best practices.
-                            </p>
-                            <p
-                              data-aos="fade-left"
-                              data-aos-duration="2000"
+                            </motion.p>
+                            <motion.p
+                               initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("left", "spring", 0.3, 1.2)}
                               className="text flex my-4 gap-3"
                             >
                               <FaPlay className="text-[#EC4899] w-16 md:w-5" />
@@ -360,7 +395,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               work environment focused on delivering
                               high-quality results that met both technical and
                               design standards.
-                            </p>
+                            </motion.p>
                           </div>
                         </ScrollShadow>
                       )}
