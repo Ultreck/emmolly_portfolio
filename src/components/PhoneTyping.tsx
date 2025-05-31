@@ -36,9 +36,6 @@ const messages = [
 ];
 const PhoneTyping = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [shownMessages, setShownMessages] = useState<
-    { from: string; text: string }[]
-  >([]);
   const [isTyping, setIsTyping] = useState(false);
   const typedRef = useRef<HTMLSpanElement>(null);
   const typedInstance = useRef<Typed | null>(null);
@@ -47,7 +44,6 @@ const PhoneTyping = () => {
     if (currentIndex >= messages.length) {
       // Wait a bit, then reset everything
       const resetTimeout = setTimeout(() => {
-        setShownMessages([]);
         setCurrentIndex(0);
       }, 2000); // 2-second pause before restarting
 
