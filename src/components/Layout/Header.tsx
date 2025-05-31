@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { navItems } from "../../constants";
 import { useTheme } from "../../context/ThemeContex";
-import { useLocation } from "react-router-dom";
 import img from "../../assets/my profile.jpg";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
@@ -11,7 +10,6 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { hash } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,7 +77,6 @@ const Header: React.FC = () => {
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
               </button>
             </nav>
-            
           </div>
 
           <div className="md:hidden flex items-center">
