@@ -66,7 +66,7 @@ const Header: React.FC = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className={` hover:text-indigo-600  dark:hover:text-indigo-400 px-3 py-2 text-sm  transition-colors duration-200 ${item.href === hash ? "text-[#EC4899] font-bold underline underline-offset-4" : "text-gray-700 dark:text-gray-300 font-medium"}`}
+                  className={` hover:text-indigo-600  dark:hover:text-indigo-400 px-3 py-2 text-sm  transition-colors duration-200 text-gray-700 dark:text-gray-300 font-medium`}
                 >
                   {item.label}
                 </a>

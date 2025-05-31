@@ -39,7 +39,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ margin: "-20%" }}
-                    variants={fadeIn("up@", "spring", 0.6, 1.2)}
+                    variants={fadeIn("up", "spring", 0.6, 1.2)}
                     className="text md:mt-10 mt-5 gap-2 grid grid-cols-3 md:grid-cols-1 md:gap-10"
                   >
                     <motion.button
@@ -83,13 +83,13 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     </motion.button>
                   </motion.div>
                 </div>
-                <div className="text lg:px-5 col-span-2">
+                <div className="text overflow-x-hidden lg:px-5 col-span-2">
                   {tab === 0 && (
-                    <div className="text mx-auto">
+                    <div className="text  mx-auto">
                       <h2 className="text-3xl hidden lg:block sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         My experience
                       </h2>
-                      <div className="text mx-auto border-b-2 border-gray-400 justify-between md:mt-10 mt-5 flex items-center">
+                      <motion.div className="text mx-auto border-b-2 border-gray-400 justify-between md:mt-10 mt-5 flex items-center">
                         <button
                           onClick={() => setExpTab(0)}
                           className={`text ${expTab === 0 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-16  px-4 -mb-0.5 py-3`}
@@ -114,25 +114,29 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         >
                           Scict
                         </button>
-                      </div>
+                      </motion.div>
                       {expTab === 3 && (
                         <ScrollShadow className="w-full h-[450px] rounded-b-[40px] xl:h-auto pb-24">
-                          <div className={`text-start mt-5 font-sans rounded-b-[40px]`}>
-                            <h1
-                              data-aos="fade-left"
-                              data-aos-duration="500"
+                          <div
+                            className={`text-start mt-5 font-sans rounded-b-[40px]`}
+                          >
+                            <motion.h1
+                               initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("left", "spring", 0.1, 1.2)}
                               className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600"
                             >
                               Backend Engineer{" "}
                               <span className="text-[#EC4899]">@ Scict</span>
-                            </h1>
-                            <p
-                              data-aos="fade-left"
-                              data-aos-duration="1000"
+                            </motion.h1>
+                            <motion.p
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("right", "spring", 0.1, 1.2)}
                               className="text font-semibold mt-2"
                             >
                               November 2019 - Febrary 2022
-                            </p>
+                            </motion.p>
 
                             <p className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />I
@@ -179,15 +183,25 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       {expTab === 2 && (
                         <ScrollShadow className="w-full h-[450px] xl:h-auto pb-24">
                           <div className={`text-start mt-8 font-sans`}>
-                            <h1 className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600">
+                            <motion.h1
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("left", "spring", 0.1, 1.2)}
+                              className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600"
+                            >
                               Frontend Engineer{" "}
                               <span className="text-[#EC4899]">
                                 @ Medillery
                               </span>
-                            </h1>
-                            <p className="text font-semibold mt-2">
+                            </motion.h1>
+                            <motion.p
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("right", "spring", 0.1, 1.2)}
+                              className="text font-semibold mt-2"
+                            >
                               June 2022 - May 2023
-                            </p>
+                            </motion.p>
 
                             <p className="text  flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-8 md:w-3" />{" "}
@@ -220,15 +234,25 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                           <div
                             className={`text-start mt-8 font-sans overflow-y-auto`}
                           >
-                            <h1 className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600">
+                            <motion.h1
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("left", "spring", 0.1, 1.2)}
+                              className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600"
+                            >
                               Frontend Engineer{" "}
                               <span className="text-[#EC4899]">
                                 @ Lights on Heights
                               </span>
-                            </h1>
-                            <p className="text font-semibold mt-2">
+                            </motion.h1>
+                            <motion.p
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("right", "spring", 0.1, 1.2)}
+                              className="text font-semibold mt-2"
+                            >
                               August 2023 - Present
-                            </p>
+                            </motion.p>
                             <p className="text flex my-4 gap-3">
                               <FaPlay className="text-[#EC4899] w-14 md:w-5" />I
                               Collaborated closely with product designers to
@@ -273,23 +297,25 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       {expTab === 0 && (
                         <ScrollShadow className="w-full h-[450px] xl:h-auto pb-24">
                           <div className={`text-start mt-8 font-sans`}>
-                            <h1
-                              data-aos="fade-left"
-                              data-aos-duration="500"
+                            <motion.h1
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("left", "spring", 0.1, 1.2)}
                               className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600"
                             >
                               Fullstack Engineer{" "}
                               <span className="text-[#EC4899]">
                                 @ Clan africa
                               </span>
-                            </h1>
-                            <p
-                              data-aos="fade-left"
-                              data-aos-duration="1000"
+                            </motion.h1>
+                            <motion.p
+                              initial="hidden"
+                              whileInView="show"
+                              variants={fadeIn("right", "spring", 0.1, 1.2)}
                               className="text font-semibold mt-2"
                             >
                               June 2024 - May 2025
-                            </p>
+                            </motion.p>
                             <p
                               data-aos="fade-left"
                               data-aos-duration="1200"
