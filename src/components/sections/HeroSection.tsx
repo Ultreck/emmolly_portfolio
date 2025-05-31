@@ -161,7 +161,7 @@ const HeroSection: React.FC = () => {
           >
             <Tooltip content="Download my cv" showArrow={true}>
               <button className="flex dark:border-[#EC4899] border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400 hover:border-dashed hover:border-2 text-xs lg:text-base items-center lg:gap-2 gap-1 border rounded-full lg:px-5 sm:px-2 px-1 py-2">
-                Download cv{" "}
+                 <span className="text">Download</span>
                 <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899] dark:text-blue-500" />
               </button>
             </Tooltip>
