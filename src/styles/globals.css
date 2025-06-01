@@ -4,18 +4,18 @@
 
 /* More visible version */
 .no-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 .no-scrollbar::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #EC4899;
   border-radius: 4px;
 }
 
 .no-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #15046f;
 }
 
 .dark .no-scrollbar::-webkit-scrollbar-thumb {
-  background: #aaa;
+  background: #EC4899;
 }

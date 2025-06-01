@@ -1,6 +1,4 @@
-import React from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
-import { skills } from "../../constants";
+
 import { Globe, PenTool, Server } from "lucide-react";
 import { FaCode } from "react-icons/fa";
 import { RiSeoLine } from "react-icons/ri";
@@ -10,37 +8,20 @@ import { FaDatabase } from "react-icons/fa6";
 import { TbMessageChatbot } from "react-icons/tb";
 
 const SkillsSection: React.FC = () => {
-  // Group skills by category
-  type Skill = (typeof skills)[number];
-  const skillsByCategory = skills.reduce<Record<string, Skill[]>>(
-    (acc, skill) => {
-      if (!acc[skill.category]) {
-        acc[skill.category] = [];
-      }
-      acc[skill.category].push(skill);
-      return acc;
-    },
-    {}
-  );
 
-  // Format category names for display
-  const formatCategoryName = (name: string) => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  };
-
-  const scrollToNextSection = () => {
-    const aboutSection = document.getElementById("resume");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const scrollToNextSection = () => {
+  //   const aboutSection = document.getElementById("resume");
+  //   if (aboutSection) {
+  //     aboutSection.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <section
       id="services"
       className="mx-auto lg:w-[85%] min-h-screen py-20 bg-gray-50 dark:bg-gray-900"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-2 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             My Services

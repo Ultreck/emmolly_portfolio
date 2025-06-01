@@ -152,7 +152,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </motion.button>
                       </motion.div>
                       {expTab === 3 && (
-                        <ScrollShadow className="w-full h-[500px] rounded-b-[40px] xl:h-auto pb-36 lg:pb-0">
+                        <ScrollShadow className="w-full h-[500px] no-scrollbar rounded-b-[40px] xl:h-auto pb-36 lg:pb-0">
                           <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
@@ -235,7 +235,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 2 && (
-                        <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
+                        <ScrollShadow className="w-full no-scrollbar h-[500px] xl:h-auto pb-36 lg:pb-0">
                           <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
@@ -299,7 +299,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 1 && (
-                        <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
+                        <ScrollShadow className="w-full no-scrollbar h-[500px] xl:h-auto pb-36 lg:pb-0">
                           <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
@@ -377,7 +377,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 0 && (
-                        <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
+                        <ScrollShadow className="w-full no-scrollbar h-[500px] xl:h-auto pb-36 lg:pb-0">
                           <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
