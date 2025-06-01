@@ -89,7 +89,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <h2 className="text-3xl hidden lg:block sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         My experience
                       </h2>
-                      <motion.div className="text border-b-2 border-gray-400 overflow-x-hidden justify-between md:mt-10 overflow-y-hidden mt-5 flex items-center">
+                      <motion.div className="text border-b-2 border-gray-400 overflow-x-hidden justify-between overflow-y-hidden md:mt-5 mt-3 flex items-center">
                         <button
                           onClick={() => setExpTab(0)}
                           className={`text ${expTab === 0 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
