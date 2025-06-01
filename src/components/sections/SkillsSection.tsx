@@ -37,7 +37,7 @@ const SkillsSection: React.FC = () => {
           >
             My Services
           </motion.h2>
-          <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6">Hey there</div>
+          <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6">Hey ther</div>
         </div>
         <section className="text grid gridcols-1 lg:grid-cols-2 gap-5 mb-10">
           <motion.div
