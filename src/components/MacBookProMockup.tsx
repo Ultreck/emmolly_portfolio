@@ -4,6 +4,7 @@ import { ScrollShadow } from "@heroui/react";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
 import SkillsCard from "./SkillsCard";
+import AboutSectionPart from "./AboutSection";
 
 const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
   const [tab, setTab] = useState(0);
@@ -482,6 +483,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         About me
                       </h2>
+                      <AboutSectionPart/>
                     </div>
                   )}
                 </div>
