@@ -42,7 +42,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     whileInView="show"
                     viewport={{ margin: "-20%" }}
                     variants={fadeIn("up", "spring", 0.6, 1.2)}
-                    className="text md:mt-10 mt-5 gap-2 grid grid-cols-3 md:grid-cols-1 md:gap-10"
+                    className="text md:mt-10 mt-5 gap-2 flex justify-between lg:grid lg:grid-cols-1 md:gap-10"
                   >
                     <motion.button
                       initial={{ scale: 0 }}
@@ -53,7 +53,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         stiffness: 200,
                       }}
                       onClick={() => setTab(0)}
-                      className={`text ${tab === 0 ? "bg-blue-600 text-white" : "border border-gray-400"}   py-3 rounded-lg`}
+                      className={`text lg:px-0 px-5 ${tab === 0 ? "bg-blue-600 text-white" : "border border-gray-400"}   py-2 md:py-3 rounded-lg`}
                     >
                       Experience
                     </motion.button>
@@ -66,7 +66,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         stiffness: 200,
                       }}
                       onClick={() => setTab(1)}
-                      className={`text ${tab === 1 ? "bg-blue-600 text-white" : "border border-gray-400"} py-3 rounded-lg`}
+                      className={`text lg:px-0 px-5 ${tab === 1 ? "bg-blue-600 text-white" : "border border-gray-400"} py-2 md:py-3 rounded-lg`}
                     >
                       Skills
                     </motion.button>
@@ -79,7 +79,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         stiffness: 200,
                       }}
                       onClick={() => setTab(2)}
-                      className={`text ${tab === 2 ? "bg-blue-600 text-white" : "border border-gray-400"} py-3 rounded-lg`}
+                      className={`text lg:px-0 px-5 ${tab === 2 ? "bg-blue-600 text-white" : "border border-gray-400"} py-2 md:py-3 rounded-lg`}
                     >
                       About Me
                     </motion.button>
