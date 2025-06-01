@@ -11,7 +11,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
   const [expTab, setExpTab] = useState(0);
   return (
     <div className="flex justify-center overflow-hidden w-full items-center min-h-screen bg-transparent">
-      <div className="relative w-full h-[970px]">
+      <div className="relative w-full h-[970px] lg:h-[720px]">
         <div className="absolute top-0 w-full h-full bg-gray-800 rounded-t-[40px] rounded-b-[40px] lg:rounded-b-none md:border-[12px] border-[6px] border-gray-900 dark:border-gray-700 md:border-b-0 shadow-2xl">
           {/* Screen */}
           <div className="absolute inset-0 m-2 bg-gray-900 lg:rounded-none rounded-b-[40px] rounded-t-[28px] overflow-hidden">
@@ -506,7 +506,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
         </div>
 
         {/* HINGE */}
-        <div className="absolute top-[73%] left-1/2 transform hidden lg:block -translate-x-1/2 w-[60%] h-2 bg-gradient-to-b from-gray-900 to-gray-800 rounded-t-sm z-10"></div>
+        <div className="absolute bottom-10 left-1/2 transform hidden lg:block -translate-x-1/2 w-[60%] h-2 bg-gradient-to-b from-gray-900 to-gray-800 rounded-t-sm z-10"></div>
       </div>
     </div>
   );

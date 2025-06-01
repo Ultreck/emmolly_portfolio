@@ -4,7 +4,7 @@
 
 /* More visible version */
 .no-scrollbar::-webkit-scrollbar {
-  width: 5px;
+  width: 2px;
 }
 
 .no-scrollbar::-webkit-scrollbar-thumb {
