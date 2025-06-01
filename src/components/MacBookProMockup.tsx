@@ -87,34 +87,68 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                 <div className="text-start overflow-x-hidden lg:px-5 col-span-2">
                   {tab === 0 && (
                     <div className="text overflow-x-hidden mx-auto">
-                      <h2 className="text-3xl hidden lg:block sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                      <motion.h2
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ margin: "-20%" }}
+                        variants={fadeIn("left", "spring", 0.3, 1.3)}
+                        className="text-3xl hidden lg:block sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                      >
                         My experience
-                      </h2>
+                      </motion.h2>
                       <motion.div className="text border-b-2 border-gray-400 overflow-x-hidden justify-between overflow-y-hidden md:mt-5 mt-3 flex items-center">
-                        <button
+                        <motion.button
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{
+                            delay: 0.1,
+                            type: "spring",
+                            stiffness: 200,
+                          }}
                           onClick={() => setExpTab(0)}
                           className={`text ${expTab === 0 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Clan
-                        </button>
-                        <button
+                        </motion.button>
+                        <motion.button
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{
+                            delay: 0.2,
+                            type: "spring",
+                            stiffness: 200,
+                          }}
                           onClick={() => setExpTab(1)}
                           className={`text ${expTab === 1 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           LonH
-                        </button>
-                        <button
+                        </motion.button>
+                        <motion.button
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{
+                            delay: 0.3,
+                            type: "spring",
+                            stiffness: 200,
+                          }}
                           onClick={() => setExpTab(2)}
                           className={`text ${expTab === 2 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Medillery
-                        </button>
-                        <button
+                        </motion.button>
+                        <motion.button
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{
+                            delay: 0.4,
+                            type: "spring",
+                            stiffness: 200,
+                          }}
                           onClick={() => setExpTab(3)}
                           className={`text ${expTab === 3 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Scict
-                        </button>
+                        </motion.button>
                       </motion.div>
                       {expTab === 3 && (
                         <ScrollShadow className="w-full h-[500px] rounded-b-[40px] xl:h-auto pb-36 lg:pb-0">
@@ -418,14 +452,26 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                   )}
                   {tab === 1 && (
                     <div className="text p-2 text-start">
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                      <motion.h2
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ margin: "-20%" }}
+                        variants={fadeIn("left", "spring", 0.2, 1.3)}
+                        className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                      >
                         My skills
-                      </h2>
-                      <p className="text">
+                      </motion.h2>
+                      <motion.p
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ margin: "-20%" }}
+                        variants={fadeIn("up", "spring", 0.3, 1.3)}
+                        className="text"
+                      >
                         Below are the technologies I specialize in and have
                         hands-on experience with across both frontend and
                         backend development
-                      </p>
+                      </motion.p>
                       <div className="text mt-8">
                         <SkillsCard />
                       </div>
