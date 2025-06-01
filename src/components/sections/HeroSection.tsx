@@ -114,7 +114,7 @@ const HeroSection: React.FC = () => {
               </motion.span>
               <span className="block mt-2">
                 {/* <span ref={el}></span> */}
-                <span>Emmanuel Oluwatayese</span>
+                <span>Emmanuel Oluwatayese A.</span>
               </span>
             </motion.h1>
 

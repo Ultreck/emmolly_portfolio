@@ -22,7 +22,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     initial="hidden"
                     whileInView="show"
                     variants={fadeIn("right", "spring", 0.3, 1.2)}
-                    className="text-3xl sm:text-4xl font-semibold font-mono text-gray-900 dark:text-white mb-3 mt-7 md:mt-1"
+                    className="text-3xl sm:text-4xl font-semibold text-start font-mono text-gray-900 dark:text-white mb-3 mt-7 md:mt-1"
                   >
                     Why hire me?
                   </motion.h2>
@@ -84,7 +84,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     </motion.button>
                   </motion.div>
                 </div>
-                <div className="text overflow-x-hidden lg:px-5 col-span-2">
+                <div className="text-start overflow-x-hidden lg:px-5 col-span-2">
                   {tab === 0 && (
                     <div className="text overflow-x-hidden mx-auto">
                       <h2 className="text-3xl hidden lg:block sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -417,7 +417,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     </div>
                   )}
                   {tab === 1 && (
-                    <div className="text p-2 ">
+                    <div className="text p-2 text-start">
                       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         My skills
                       </h2>
