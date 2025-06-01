@@ -66,8 +66,8 @@ const SkillsCard = () => {
     {delay: 0.31, href: "https://getbootstrap.com/", name: "Bootstrap", icon: bootstrap },
   ];
   return (
-    <ScrollShadow className="w-full h-[500px] pb-16 lg:pb-0">
-      <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-5 p-5">
+    <ScrollShadow  size={0} className="w-full no-scrollbar h-[500px] pb-64 lg:pb-0">
+      <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-5 p-5">
         {stacks.map((stack, index) => (
           <Tooltip
             key={index}
@@ -92,7 +92,7 @@ const SkillsCard = () => {
                     alt=""
                     className="text rounded-tr-xl rounded-bl-xl text-white dark:bg-white"
                   />
-                  {/* <p className=" ">{stack?.name}</p> */}
+                  <p className="md:hidden text-center ">{stack?.name}</p>
                 </a>
               </Card>
             </motion.div>
