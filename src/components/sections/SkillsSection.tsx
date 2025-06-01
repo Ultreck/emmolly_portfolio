@@ -5,7 +5,7 @@ import PhoneTyping from "../PhoneTyping";
 import { Card } from "@heroui/card";
 import { FaDatabase } from "react-icons/fa6";
 import { TbMessageChatbot } from "react-icons/tb";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeIn } from "../../utils/variant";
 const SkillsSection: React.FC = () => {
   // const scrollToNextSection = () => {
