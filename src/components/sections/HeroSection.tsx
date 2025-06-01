@@ -271,7 +271,7 @@ const HeroSection: React.FC = () => {
                 <NumberCounter
                   setRounded={setRounded}
                   from={0}
-                  to={10}
+                  to={7}
                   duration={3}
                 />
               </h1>
@@ -290,7 +290,7 @@ const HeroSection: React.FC = () => {
                 <NumberCounter
                   setRounded={setRounded}
                   from={0}
-                  to={8}
+                  to={9}
                   duration={3}
                 />
               </h1>

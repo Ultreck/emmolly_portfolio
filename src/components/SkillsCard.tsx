@@ -90,7 +90,7 @@ const SkillsCard = () => {
                   <img
                     src={stack?.icon}
                     alt=""
-                    className="text rounded-tr-lg rounded-bl-lg text-white dark:bg-white"
+                    className="text rounded-tr-xl rounded-bl-xl text-white dark:bg-white"
                   />
                   {/* <p className=" ">{stack?.name}</p> */}
                 </a>
