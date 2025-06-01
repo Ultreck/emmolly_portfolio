@@ -118,7 +118,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       {expTab === 3 && (
                         <ScrollShadow className="w-full h-[500px] rounded-b-[40px] xl:h-auto pb-36 lg:pb-0">
                           <div
-                            className={`text-start overflow-x-hidden mt-5 font-sans rounded-b-[40px]`}
+                            className={`text-start mt-5 font-sans`}
                           >
                             <motion.h1
                                initial="hidden"
@@ -195,7 +195,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       )}
                       {expTab === 2 && (
                         <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
-                          <div className={`text-start overflow-x-hidden mt-8 font-sans`}>
+                          <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
                               whileInView="show"
@@ -254,7 +254,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       {expTab === 1 && (
                         <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
                           <div
-                            className={`text-start overflow-x-hidden mt-8 font-sans overflow-y-auto`}
+                            className={`text-start mt-5 font-sans`}
                           >
                             <motion.h1
                               initial="hidden"
@@ -328,7 +328,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       )}
                       {expTab === 0 && (
                         <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
-                          <div className={`text-start mt-8 font-sans`}>
+                          <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
                               whileInView="show"
