@@ -53,7 +53,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         stiffness: 200,
                       }}
                       onClick={() => setTab(0)}
-                      className={`text lg:px-0 px-5 ${tab === 0 ? "bg-blue-600 text-white" : "border border-gray-400"}   py-2 md:py-3 rounded-lg`}
+                      className={`text lg:px-0 px-2 ${tab === 0 ? "bg-blue-600 text-white" : "border border-gray-400"}   py-2 md:py-3 rounded-lg`}
                     >
                       Experience
                     </motion.button>
@@ -66,7 +66,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         stiffness: 200,
                       }}
                       onClick={() => setTab(1)}
-                      className={`text lg:px-0 px-5 ${tab === 1 ? "bg-blue-600 text-white" : "border border-gray-400"} py-2 md:py-3 rounded-lg`}
+                      className={`text lg:px-0 px-2 ${tab === 1 ? "bg-blue-600 text-white" : "border border-gray-400"} py-2 md:py-3 rounded-lg`}
                     >
                       Skills
                     </motion.button>
@@ -79,7 +79,20 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         stiffness: 200,
                       }}
                       onClick={() => setTab(2)}
-                      className={`text lg:px-0 px-5 ${tab === 2 ? "bg-blue-600 text-white" : "border border-gray-400"} py-2 md:py-3 rounded-lg`}
+                      className={`text lg:px-0 px-2 ${tab === 2 ? "bg-blue-600 text-white" : "border border-gray-400"} py-2 md:py-3 rounded-lg`}
+                    >
+                      School
+                    </motion.button>
+                    <motion.button
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        delay: 0.9,
+                        type: "spring",
+                        stiffness: 200,
+                      }}
+                      onClick={() => setTab(3)}
+                      className={`text lg:px-0 px-2 ${tab === 3 ? "bg-blue-600 text-white" : "border border-gray-400"} py-2 md:py-3 rounded-lg`}
                     >
                       About Me
                     </motion.button>
@@ -479,6 +492,37 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     </div>
                   )}
                   {tab === 2 && (
+                    <div className="text p-2 text-start">
+                      <motion.h2
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ margin: "-20%" }}
+                        variants={fadeIn("left", "spring", 0.2, 1.3)}
+                        className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                      >
+                        Schools
+                      </motion.h2>
+                      <motion.p
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ margin: "-20%" }}
+                        variants={fadeIn("up", "spring", 0.3, 1.3)}
+                        className="text gap-5"
+                      >
+                        <span className="text flex my-3 gap-1">
+                          <FaPlay className="text-[#EC4899] w-8 md:w-5" />
+                          Earned Bachelor of Science in Computer Science from
+                          the Federal University of Technology Akure (FUTA)
+                        </span>
+                        <span className="text flex my-3 gap-1">
+                          <FaPlay className="text-[#EC4899] w-8 md:w-5" />
+                          Acquired Full Stack Web Development skills through a
+                          program at SQI College of ICT.
+                        </span>
+                      </motion.p>
+                    </div>
+                  )}
+                  {tab === 3 && (
                     <div className="text">
                       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         About me
