@@ -467,7 +467,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         whileInView="show"
                         viewport={{ margin: "-20%" }}
                         variants={fadeIn("up", "spring", 0.3, 1.3)}
-                        className="text"
+                        className="text hidden lg:block"
                       >
                         Below are the technologies I specialize in and have
                         hands-on experience with across both frontend and
@@ -483,14 +483,19 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         About me
                       </h2>
-                      <motion.p 
+                      <motion.p
                         initial="hidden"
-                whileInView="show"
-                viewport={{ margin: "-20%" }}
-                variants={fadeIn("right", "spring", 0.1, 1.3)}className="tex">
-                        I'm a passionate full-stack developer with a strong foundation in both frontend and backend technologies. I enjoy building clean, scalable, and user-focused applications
+                        whileInView="show"
+                        viewport={{ margin: "-20%" }}
+                        variants={fadeIn("right", "spring", 0.1, 1.3)}
+                        className="text hidden lg:block"
+                      >
+                        I'm a passionate full-stack developer with a strong
+                        foundation in both frontend and backend technologies. I
+                        enjoy building clean, scalable, and user-focused
+                        applications
                       </motion.p>
-                      <AboutSectionPart/>
+                      <AboutSectionPart />
                     </div>
                   )}
                 </div>
