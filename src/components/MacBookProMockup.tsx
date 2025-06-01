@@ -12,7 +12,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
   return (
     <div className="flex justify-center overflow-hidden w-full items-center min-h-screen bg-transparent">
       <div className="relative w-full h-[970px]">
-        <div className="absolute top-0 w-full h-[75%] bg-gray-800 rounded-t-[40px] rounded-b-[40px] lg:rounded-b-none md:border-[12px] border-[6px] border-gray-900 dark:border-gray-700 md:border-b-0 shadow-2xl">
+        <div className="absolute top-0 w-full h-full bg-gray-800 rounded-t-[40px] rounded-b-[40px] lg:rounded-b-none md:border-[12px] border-[6px] border-gray-900 dark:border-gray-700 md:border-b-0 shadow-2xl">
           {/* Screen */}
           <div className="absolute inset-0 m-2 bg-gray-900 lg:rounded-none rounded-b-[40px] rounded-t-[28px] overflow-hidden">
             {/* Screen Content - Replace with your content */}
@@ -152,7 +152,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </motion.button>
                       </motion.div>
                       {expTab === 3 && (
-                        <ScrollShadow className="w-full h-[500px] no-scrollbar rounded-b-[40px] xl:h-auto pb-36 lg:pb-0">
+                        <ScrollShadow className="w-full h-[500px] overflow-x-hidden no-scrollbar rounded-b-[40px] xl:h-auto pb-5 lg:pb-0">
                           <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
@@ -235,7 +235,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 2 && (
-                        <ScrollShadow className="w-full no-scrollbar h-[500px] xl:h-auto pb-36 lg:pb-0">
+                        <ScrollShadow className="w-full no-scrollbar overflow-x-hidden h-[500px] xl:h-auto pb-5 lg:pb-0">
                           <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
@@ -299,7 +299,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 1 && (
-                        <ScrollShadow className="w-full no-scrollbar h-[500px] xl:h-auto pb-36 lg:pb-0">
+                        <ScrollShadow className="w-full no-scrollbar overflow-x-hidden h-[500px] xl:h-auto pb-5 lg:pb-0">
                           <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
@@ -377,7 +377,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 0 && (
-                        <ScrollShadow className="w-full no-scrollbar h-[500px] xl:h-auto pb-36 lg:pb-0">
+                        <ScrollShadow className="w-full no-scrollbar overflow-x-hidden h-[500px] xl:h-auto pb-5 lg:pb-0">
                           <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"

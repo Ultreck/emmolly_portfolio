@@ -17,7 +17,7 @@ const AboutSectionPart = () => {
       id="resume"
       className="py-10 min-h-screen mx-auto relative lg:w-[85%]"
     >
-      <ScrollShadow  size={0} className="w-full no-scrollbar h-[500px] pb-56 lg:pb-0">
+      <ScrollShadow  size={0} className="w-full no-scrollbar h-[500px] pb-5 lg:pb-0">
         <div className="w-3xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 text-center mb-16">
           {data.map((item, index) => (
             <motion.p
