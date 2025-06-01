@@ -125,10 +125,10 @@ const PhoneTyping = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-[300px] h-[512px] dark:bg-white bg-slate-700 rounded-[2.5rem] shadow-xl border-4 border-gray-300 flex flex-col overflow-hidden">
+      <div className="w-[360px] h-[590px] dark:bg-gray-700 bg-white rounded-[2.5rem] shadow-xl border-4 dark:border-gray-300 flex flex-col overflow-hidden">
         {/* Status Bar */}
-        <div className="flex items-center justify-between px-4 py-2 text-xs text-gray-500 dark:bg-white bg-slate-700 border-b">
-          <span className="text-white dark:text-black">{currentTime}</span>
+        <div className="flex items-center justify-between px-4 py-2 text-xs text-gray-500 dark:bg-gray-700 bg-white border-b">
+          <span className="text-black dark:text-white">{currentTime}</span>
           <div className="flex items-center gap-1">
             <span>📶</span>
             <span>📡</span>
@@ -137,14 +137,14 @@ const PhoneTyping = () => {
         </div>
 
         {/* Header */}
-        <div className="dark:bg-white bg-slate-700 px-4 py-3 border-b text-center font-semibold text-white dark:text-gray-800">
+        <div className="dark:bg-gray-700 bg-white px-4 py-3 flex items-center gap-3 border-b text-center font-semibold text-black dark:text-white">
            <Avatar isBordered color="success" src="https://i.pravatar.cc/150?u=a04258114e29026302d" /> John
         </div>
 
         {/* Chat Body (scrollable) */}
         <div
         ref={chatBodyRef}
-          className="flex-1 overflow-y-auto pb-20 no-scrollbar  p-6 dark:bg-gray-100 bg-slate-700 text-sm font-sans space-y-4"
+          className="flex-1 overflow-y-auto pb-20 no-scrollbar  p-6 dark:bg-gray-700 bg-gray-100 text-sm font-sans space-y-4"
         >
           {messages.slice(0, currentIndex).map((msg, i) => (
             <div
@@ -185,14 +185,14 @@ const PhoneTyping = () => {
         </div>
 
         {/* Footer */}
-        <div className="p-3 dark:bg-white bg-slate-700 border-t flex items-center gap-2">
+        <div className="p-3 dark:bg-gray-700 bg-white border-t flex items-center gap-2">
           <input
             type="text"
             placeholder="Message..."
             className="flex-1 px-4 py-2 text-sm border border-gray-300 rounded-full focus:outline-none"
             disabled
           />
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm">
+          <button disabled className="bg-blue-300  text-white px-4 py-2 rounded-full text-sm">
             Send
           </button>
         </div>

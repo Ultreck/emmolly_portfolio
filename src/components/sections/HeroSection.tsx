@@ -74,7 +74,7 @@ const HeroSection: React.FC = () => {
   }, [data.length]);
 
   const scrollToNextSection = () => {
-    const aboutSection = document.getElementById("resume");
+    const aboutSection = document.getElementById("services");
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
