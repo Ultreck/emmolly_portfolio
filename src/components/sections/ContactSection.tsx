@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
-import { Mail, Send } from 'lucide-react';
 import { socialLinks } from '../../constants';
+import { 
+  Mail, 
+  Send, 
+} from 'lucide-react';
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
+  const getIconComponent = (iconName: string) => {
+    switch (iconName.toLocaleLowerCase()) {
+      case 'github':
+        return <FaGithub size={20} />;
+      case 'linkedin':
+        return <FaLinkedin size={20} />;
+      case 'twitter':
+        return <FaTwitter size={20} />;
+      default:
+        return null;
+    }
+  };
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -34,9 +50,6 @@ const ContactSection: React.FC = () => {
     }, 1500);
   };
 
-  const getSocialIcon = (platform: string) => {
-    return platform.toLowerCase();
-  };
 
   return (
     <section id="contact" className=" mx-auto w-[80%] py-20 bg-gray-50 dark:bg-gray-800">
@@ -54,7 +67,7 @@ const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-8">
-              <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full mb-6 mx-auto lg:mx-0">
+              <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 text-pink-600 dark:text-pink-400 rounded-full mb-6 mx-auto lg:mx-0">
                 <Mail size={24} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center lg:text-left">
@@ -66,12 +79,12 @@ const ContactSection: React.FC = () => {
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 flex items-center justify-center bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full mr-4">
+                  <div className="w-12 h-12 flex items-center justify-center bg-indigo-100 dark:bg-indigo-900/30 text-pink-600 dark:text-pink-400 rounded-full mr-4">
                     <Mail size={20} />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                    <p className="text-gray-800 dark:text-gray-200">contact@example.com</p>
+                    <p className="text-gray-800 dark:text-gray-200">adetutuemmanueloluwatayese@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -85,11 +98,12 @@ const ContactSection: React.FC = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-full transition-colors"
+                      className="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 text-gray-600 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 rounded-full transition-colors"
                       aria-label={link.platform}
                     >
                       <span className="sr-only">{link.platform}</span>
-                      {getSocialIcon(link.platform)}
+                     { getIconComponent(link.platform)}
+                      {/* {getSocialIcon(link.platform)} */}
                     </a>
                   ))}
                 </div>
@@ -180,7 +194,7 @@ const ContactSection: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+                  className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">

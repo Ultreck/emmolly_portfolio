@@ -71,7 +71,7 @@ const ProjectsSection: React.FC = () => {
                   {project.tags.map((tag, index) => (
                     <span 
                       key={index}
-                      className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-pink-600 dark:text-pink-400 rounded-full text-sm font-medium"
                     >
                       {tag}
                     </span>
@@ -85,7 +85,7 @@ const ProjectsSection: React.FC = () => {
         <div className="mt-16 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
           >
             Get In Touch
           </a>
