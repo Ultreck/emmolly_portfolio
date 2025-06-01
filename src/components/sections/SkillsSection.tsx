@@ -44,7 +44,7 @@ const SkillsSection: React.FC = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ margin: "-10%" }}
-            variants={fadeIn("right", "spring", 0.4, 1.2)}
+            variants={fadeIn("right", "spring", 0.3, 1.2)}
             className="tex"
           >
             <PhoneTyping />
@@ -60,7 +60,7 @@ const SkillsSection: React.FC = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ margin: "-10%" }}
-              variants={fadeIn("up", "spring", 0.5, 1.2)}
+              variants={fadeIn("up", "spring", 0.1, 1.2)}
               className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1"
             >
               <Card className="w-full h-full p-6 bg-transparent">
@@ -89,7 +89,7 @@ const SkillsSection: React.FC = () => {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ margin: "-20%" }}
-                  variants={fadeIn("right", "spring", 0.4, 1.2)}
+                  variants={fadeIn("right", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300"
                 >
                   Building responsive websites with modern frameworks and clean
@@ -101,7 +101,7 @@ const SkillsSection: React.FC = () => {
             initial="hidden"
               whileInView="show"
               viewport={{ margin: "-10%" }}
-              variants={fadeIn("down", "spring", 0.5, 1.2)}
+              variants={fadeIn("down", "spring", 0.1, 1.2)}
               className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
               <Card className="w-full h-full p-6 bg-transparent">
                 <motion.div 
@@ -126,7 +126,7 @@ const SkillsSection: React.FC = () => {
                  initial="hidden"
                   whileInView="show"
                   viewport={{ margin: "-20%" }}
-                  variants={fadeIn("left", "spring", 0.4, 1.2)}
+                  variants={fadeIn("left", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   Optimizing websites for speed and accessibility.
                 </motion.p>
@@ -136,7 +136,7 @@ const SkillsSection: React.FC = () => {
             initial="hidden"
               whileInView="show"
               viewport={{ margin: "-10%" }}
-              variants={fadeIn("right", "spring", 0.5, 1.2)}
+              variants={fadeIn("right", "spring", 0.1, 1.2)}
               className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
               <Card className="w-full h-full p-6 bg-transparent">
                 <motion.div 
@@ -174,7 +174,7 @@ const SkillsSection: React.FC = () => {
             initial="hidden"
               whileInView="show"
               viewport={{ margin: "-10%" }}
-              variants={fadeIn("left", "spring", 0.4, 1.2)}
+              variants={fadeIn("left", "spring", 0.3, 1.2)}
               className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
               <Card className="w-full h-full p-6 bg-transparent">
                 <motion.div 
@@ -200,7 +200,7 @@ const SkillsSection: React.FC = () => {
                  initial="hidden"
                   whileInView="show"
                   viewport={{ margin: "-20%" }}
-                  variants={fadeIn("up", "spring", 0.4, 1.2)}
+                  variants={fadeIn("up", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   Developing intelligent chatbots that automate support and
                   enhance user interaction using modern NLP tools and APIs.
@@ -212,7 +212,7 @@ const SkillsSection: React.FC = () => {
             initial="hidden"
               whileInView="show"
               viewport={{ margin: "-10%" }}
-              variants={fadeIn("down", "spring", 0.5, 1.2)}className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+              variants={fadeIn("down", "spring", 0.1, 1.2)}className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
               <Card className="w-full h-full p-6 bg-transparent">
                 <motion.div 
                  initial={{ scale: 0 }}
@@ -239,7 +239,7 @@ const SkillsSection: React.FC = () => {
                  initial="hidden"
                   whileInView="show"
                   viewport={{ margin: "-20%" }}
-                  variants={fadeIn("right", "spring", 0.4, 1.2)}
+                  variants={fadeIn("right", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   <ul className="text">
                     <li className="text list-item list-disc">
@@ -259,7 +259,7 @@ const SkillsSection: React.FC = () => {
             initial="hidden"
               whileInView="show"
               viewport={{ margin: "-10%" }}
-              variants={fadeIn("left", "spring", 0.5, 1.2)}
+              variants={fadeIn("left", "spring", 0.1, 1.2)}
               className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
               <Card className="w-full h-full p-6 bg-transparent">
                 <motion.div 
@@ -285,7 +285,7 @@ const SkillsSection: React.FC = () => {
                  initial="hidden"
                   whileInView="show"
                   viewport={{ margin: "-20%" }}
-                  variants={fadeIn("down", "spring", 0.4, 1.2)}
+                  variants={fadeIn("down", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   Designing intuitive interfaces and seamless user experiences.
                 </motion.p>
