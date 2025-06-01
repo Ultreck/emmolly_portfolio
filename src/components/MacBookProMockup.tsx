@@ -511,7 +511,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
         </div>
 
         {/* HINGE */}
-        <div className="absolute bottom-10 left-1/2 transform hidden lg:block -translate-x-1/2 w-[60%] h-2 bg-gradient-to-b from-gray-900 to-gray-800 rounded-t-sm z-10"></div>
+        <div className="absolute bottom-5 left-1/2 transform hidden lg:block -translate-x-1/2 w-[60%] h-2 bg-gradient-to-b from-gray-900 to-gray-800 rounded-t-sm z-10"></div>
       </div>
     </div>
   );
