@@ -25,7 +25,7 @@ const SkillsSection: React.FC = () => {
         whileInView="show"
         viewport={{ margin: "-20%" }}
         variants={fadeIn("down", "spring", 0.2, 1.2)}
-        className="container mx-auto px-2 sm:px-6 lg:px-8"
+        className="container mx-auto sm:px-4 lg:px-8"
       >
         <div className="max-w-3xl mx-auto text-center mb-10">
           <motion.h2
