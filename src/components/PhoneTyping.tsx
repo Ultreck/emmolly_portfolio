@@ -125,7 +125,7 @@ const PhoneTyping = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-[360px] h-[585px] dark:bg-gray-800 bg-white rounded-[2.5rem] shadow-xl border-4 dark:border-gray-300 flex flex-col overflow-hidden">
+      <div className="lg:w-[360px] h-[585px] dark:bg-gray-800 bg-white rounded-[2.5rem] shadow-xl border-4 dark:border-gray-300 flex flex-col overflow-hidden">
         {/* Status Bar */}
         <div className="flex items-center justify-between px-4 py-2 text-xs text-gray-500 dark:bg-gray-800 bg-white border-b">
           <span className="text-black dark:text-white">{currentTime}</span>
@@ -138,7 +138,7 @@ const PhoneTyping = () => {
 
         {/* Header */}
         <div className="dark:bg-gray-800 bg-white px-4 py-3 flex items-center gap-3 border-b text-center font-semibold text-black dark:text-white">
-           <Avatar isBordered color="success" src="https://i.pravatar.cc/150?u=a04258114e29026302d" /> John
+           <Avatar isBordered className="border border-pink-500" src="https://i.pravatar.cc/150?u=a04258114e29026302d" /> John
         </div>
 
         {/* Chat Body (scrollable) */}

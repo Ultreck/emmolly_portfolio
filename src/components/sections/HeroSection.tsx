@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { fadeIn } from "../../utils/variant";
 import Typed from "typed.js";
 import ProfileWithAnimatedRing from "../ProfileWithAnimatedRing";
-import { fadeIn } from "../../utils/variant";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
