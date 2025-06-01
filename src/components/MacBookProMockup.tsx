@@ -483,6 +483,13 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         About me
                       </h2>
+                      <motion.p 
+                        initial="hidden"
+                whileInView="show"
+                viewport={{ margin: "-20%" }}
+                variants={fadeIn("right", "spring", 0.1, 1.3)}className="tex">
+                        I'm a passionate full-stack developer with a strong foundation in both frontend and backend technologies. I enjoy building clean, scalable, and user-focused applications
+                      </motion.p>
                       <AboutSectionPart/>
                     </div>
                   )}
