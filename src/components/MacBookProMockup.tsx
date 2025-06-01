@@ -85,40 +85,40 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                 </div>
                 <div className="text overflow-x-hidden lg:px-5 col-span-2">
                   {tab === 0 && (
-                    <div className="text  mx-auto">
+                    <div className="text overflow-x-hidden mx-auto">
                       <h2 className="text-3xl hidden lg:block sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         My experience
                       </h2>
-                      <motion.div className="text mx-auto border-b-2 border-gray-400 justify-between md:mt-10 mt-5 flex items-center">
+                      <motion.div className="text border-b-2 border-gray-400 overflow-x-hidden justify-between md:mt-10 overflow-y-hidden mt-5 flex items-center">
                         <button
                           onClick={() => setExpTab(0)}
-                          className={`text ${expTab === 0 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-16  px-4 -mb-0.5 py-3`}
+                          className={`text ${expTab === 0 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Clan
                         </button>
                         <button
                           onClick={() => setExpTab(1)}
-                          className={`text ${expTab === 1 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-16  px-4 -mb-0.5 py-3`}
+                          className={`text ${expTab === 1 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           LonH
                         </button>
                         <button
                           onClick={() => setExpTab(2)}
-                          className={`text ${expTab === 2 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-16  px-4 -mb-0.5 py-3`}
+                          className={`text ${expTab === 2 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Medillery
                         </button>
                         <button
                           onClick={() => setExpTab(3)}
-                          className={`text ${expTab === 3 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-16  px-4 -mb-0.5 py-3`}
+                          className={`text ${expTab === 3 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Scict
                         </button>
                       </motion.div>
                       {expTab === 3 && (
-                        <ScrollShadow className="w-full h-[450px] rounded-b-[40px] xl:h-auto pb-24">
+                        <ScrollShadow className="w-full h-[500px] rounded-b-[40px] xl:h-auto pb-36 lg:pb-0">
                           <div
-                            className={`text-start mt-5 font-sans rounded-b-[40px]`}
+                            className={`text-start overflow-x-hidden mt-5 font-sans rounded-b-[40px]`}
                           >
                             <motion.h1
                                initial="hidden"
@@ -194,8 +194,8 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 2 && (
-                        <ScrollShadow className="w-full h-[450px] xl:h-auto pb-24">
-                          <div className={`text-start mt-8 font-sans`}>
+                        <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
+                          <div className={`text-start overflow-x-hidden mt-8 font-sans`}>
                             <motion.h1
                               initial="hidden"
                               whileInView="show"
@@ -252,9 +252,9 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 1 && (
-                        <ScrollShadow className="w-full h-[450px] xl:h-auto pb-24">
+                        <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
                           <div
-                            className={`text-start mt-8 font-sans overflow-y-auto`}
+                            className={`text-start overflow-x-hidden mt-8 font-sans overflow-y-auto`}
                           >
                             <motion.h1
                               initial="hidden"
@@ -327,7 +327,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                         </ScrollShadow>
                       )}
                       {expTab === 0 && (
-                        <ScrollShadow className="w-full h-[450px] xl:h-auto pb-24">
+                        <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
                           <div className={`text-start mt-8 font-sans`}>
                             <motion.h1
                               initial="hidden"
