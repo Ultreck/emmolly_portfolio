@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Portfolio</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-sm">
-              Creating beautiful, functional digital experiences with a focus on user experience and clean code.
+            Skilled in building robust, scalable, and user-friendly applications from frontend to backend. I combine design precision with backend efficiency to deliver complete, production-ready solutions
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
@@ -66,18 +66,18 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a 
-                  href="#about" 
+                  href="#services" 
                   className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
-                  About
+                  Services
                 </a>
               </li>
               <li>
                 <a 
-                  href="#skills" 
+                  href="#resume" 
                   className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                 >
-                  Skills
+                  Resume
                 </a>
               </li>
               <li>
@@ -104,15 +104,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <Mail className="mr-3 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-1" size={18} />
-                <span className="text-gray-600 dark:text-gray-300">contact@example.com</span>
+                <span className="text-gray-600 dark:text-gray-300">adetutuemmanueloluwatayese@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <Phone className="mr-3 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-1" size={18} />
-                <span className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-600 dark:text-gray-300">+2347064778921</span>
               </li>
               <li className="flex items-start">
                 <MapPin className="mr-3 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-1" size={18} />
-                <span className="text-gray-600 dark:text-gray-300">San Francisco, CA</span>
+                <span className="text-gray-600 dark:text-gray-300">Nigeria</span>
               </li>
             </ul>
           </div>
