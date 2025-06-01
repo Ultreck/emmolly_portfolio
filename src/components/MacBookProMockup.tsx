@@ -3,6 +3,7 @@ import { FaPlay } from "react-icons/fa";
 import { ScrollShadow } from "@heroui/react";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
+import SkillsCard from "./SkillsCard";
 
 const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
   const [tab, setTab] = useState(0);
@@ -21,7 +22,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     initial="hidden"
                     whileInView="show"
                     variants={fadeIn("right", "spring", 0.3, 1.2)}
-                    className="text-3xl sm:text-4xl font-semibold font-mono text-gray-900 dark:text-white mb-3 mt-7 md:mt-10"
+                    className="text-3xl sm:text-4xl font-semibold font-mono text-gray-900 dark:text-white mb-3 mt-7 md:mt-1"
                   >
                     Why hire me?
                   </motion.h2>
@@ -117,11 +118,9 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       </motion.div>
                       {expTab === 3 && (
                         <ScrollShadow className="w-full h-[500px] rounded-b-[40px] xl:h-auto pb-36 lg:pb-0">
-                          <div
-                            className={`text-start mt-5 font-sans`}
-                          >
+                          <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
-                               initial="hidden"
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("left", "spring", 0.1, 1.2)}
                               className="md:text-xl mt-7 md:mt-0 font-bold text-blue-600"
@@ -138,11 +137,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               November 2019 - Febrary 2022
                             </motion.p>
 
-                            <motion.p 
-                             initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("down", "spring", 0.1, 1.2)}
-                            className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />I
                               was responsible for architecting scalable backend
                               solutions using Node.js, ensuring robustness and
@@ -152,10 +152,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               scalability, allowing our platform to handle
                               increased traffic efficiently.
                             </motion.p>
-                            <motion.p  initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("up", "spring", 0.2, 1.2)}
-                              className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />
                               Leveraging the asynchronous nature of Node.js, I
                               optimized critical backend processes to enhance
@@ -164,10 +166,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               response times, leading to improved user
                               experience and higher customer satisfaction.
                             </motion.p>
-                            <motion.p  initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("right", "spring", 0.3, 1.2)}
-                              className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />
                               My expertise in Node.js enabled me to develop
                               robust APIs that served as the backbone of our
@@ -177,10 +181,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               communication between the client and server
                               components.
                             </motion.p>
-                            <motion.p  initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("left", "spring", 0.4, 1.2)}
-                              className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-12 md:w-5" />I
                               proficiently utilized Node.js frameworks like
                               Express.js to interact with databases and manage
@@ -216,10 +222,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               June 2022 - May 2023
                             </motion.p>
 
-                            <motion.p  initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("left", "spring", 0.1, 1.2)}
-                              className="text  flex my-4 gap-3">
+                              className="text  flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-8 md:w-3" />{" "}
                               Spearheaded the development of intuitive and
                               visually appealing frontend interfaces using
@@ -227,20 +235,24 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               ensuring optimal user experience across various
                               devices and screen sizes
                             </motion.p>
-                            <motion.p  initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("up", "spring", 0.2, 1.2)}
-                              className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-8 md:w-3" />
                               Optimized frontend performance through efficient
                               coding practices and rigorous testing, resulting
                               in improved page load times and rendering speeds
                               across different browsers and platforms.
                             </motion.p>
-                            <motion.p  initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("right", "spring", 0.3, 1.2)}
-                              className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-8 md:w-3" />
                               Integrated with backend APIs to dynamically fetch
                               and visualize data, leveraging component-based
@@ -253,9 +265,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       )}
                       {expTab === 1 && (
                         <ScrollShadow className="w-full h-[500px] xl:h-auto pb-36 lg:pb-0">
-                          <div
-                            className={`text-start mt-5 font-sans`}
-                          >
+                          <div className={`text-start mt-5 font-sans`}>
                             <motion.h1
                               initial="hidden"
                               whileInView="show"
@@ -275,10 +285,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             >
                               August 2023 - Present
                             </motion.p>
-                            <motion.p  initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("left", "spring", 0.1, 1.2)}
-                              className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-14 md:w-5" />I
                               Collaborated closely with product designers to
                               translate design mockups and wireframes into
@@ -289,10 +301,12 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               aligned with both design aesthetics and frontend
                               development best practices.
                             </motion.p>
-                            <motion.p  initial="hidden"
+                            <motion.p
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("right", "spring", 0.2, 1.2)}
-                              className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-16 md:w-5" />
                               Acted as a bridge between backend engineers and
                               product designers, facilitating cross-functional
@@ -308,7 +322,8 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               initial="hidden"
                               whileInView="show"
                               variants={fadeIn("up", "spring", 0.3, 1.2)}
-                              className="text flex my-4 gap-3">
+                              className="text flex my-4 gap-3"
+                            >
                               <FaPlay className="text-[#EC4899] w-20 md:w-7" />
                               Implemented best practices and design patterns in
                               React development, such as componentization, state
@@ -380,7 +395,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                               development best practices.
                             </motion.p>
                             <motion.p
-                               initial="hidden"
+                              initial="hidden"
                               whileInView="show"
                               variants={fadeIn("left", "spring", 0.3, 1.2)}
                               className="text flex my-4 gap-3"
@@ -402,10 +417,18 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     </div>
                   )}
                   {tab === 1 && (
-                    <div className="text">
+                    <div className="text p-2 ">
                       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         My skills
                       </h2>
+                      <p className="text">
+                        Below are the technologies I specialize in and have
+                        hands-on experience with across both frontend and
+                        backend development
+                      </p>
+                      <div className="text mt-8">
+                        <SkillsCard />
+                      </div>
                     </div>
                   )}
                   {tab === 2 && (
