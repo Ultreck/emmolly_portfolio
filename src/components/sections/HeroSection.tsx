@@ -91,7 +91,7 @@ const HeroSection: React.FC = () => {
         className="min-h-screen mx-auto w-full lg:w-[85%] relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950 grid grid-cols-1 md:grid-cols-2 gri"
       >
         <div
-          className={`container md:mt-24 mt-8 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
+          className={`container md:mt-20 mt-8 mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
