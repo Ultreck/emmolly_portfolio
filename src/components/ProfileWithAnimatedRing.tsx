@@ -75,7 +75,7 @@ const ProfileWithAnimatedRing: React.FC<React.PropsWithChildren<{}>> = () => {
         <img
           src={img}
           alt="Profile picture"
-          className="w-3/4 hover:scale-105 transition-all rounded-full shadow-lg"
+          className="w-4/5 hover:scale-105 transition-all rounded-full shadow-lg"
         />
       </div>
 
