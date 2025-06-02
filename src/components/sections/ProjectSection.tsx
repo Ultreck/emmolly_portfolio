@@ -4,6 +4,7 @@ import { ExternalLink, Github } from "lucide-react";
 import type { projectTag } from "../../types";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
+import { Tooltip } from "@heroui/tooltip";
 
 const ProjectsSection: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
@@ -48,8 +49,12 @@ const ProjectsSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project: projectTag) => (
-            <div
+          {projects.map((project: projectTag, index) => (
+            <motion.div
+             initial="hidden"
+            whileInView="show"
+            viewport={{ margin: "-10%" }}
+            variants={fadeIn(index % 2 === 0? "left" : 'right', "spring", 0.1, 0.5)}
               key={project.id}
               className="group bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
               onMouseEnter={() => setHoveredProject(project.id)}
@@ -69,26 +74,32 @@ const ProjectsSection: React.FC = () => {
                   <div className="p-6 w-full">
                     <div className="flex justify-end space-x-3 mb-2">
                       {project.githubUrl && (
+                             <Tooltip content="Project Github URL" showArrow={true}>
+
                         <a
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-2 bg-gray-800/80 hover:bg-gray-700 text-white rounded-full transition-colors"
                           aria-label="View GitHub repository"
-                        >
+                          >
                           <Github size={20} />
                         </a>
+                          </Tooltip>
                       )}
                       {project.demoUrl && (
+                             <Tooltip content="Explore the project" showArrow={true}>
+
                         <a
                           href={project.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-2 bg-indigo-600/80 hover:bg-indigo-500 text-white rounded-full transition-colors"
                           aria-label="View live demo"
-                        >
+                          >
                           <ExternalLink size={20} />
                         </a>
+                      </Tooltip>
                       )}
                     </div>
                   </div>
@@ -112,7 +123,7 @@ const ProjectsSection: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
