@@ -125,7 +125,7 @@ const HeroSection: React.FC = () => {
               whileInView="show"
               viewport={{ margin: "-20%" }}
               variants={fadeIn("up", "spring", 0.2, 1.2)}
-              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl lg:my-5 mb-5 lg:mb-0 font-semibold md:text-start px-4"
+              className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl lg:my-3 mb-5 lg:mb-0 font-semibold md:text-start px-4"
             >
               <span className="mr-2">A</span>
               <span className="inline-block max-w-full whitespace-nowrap">
