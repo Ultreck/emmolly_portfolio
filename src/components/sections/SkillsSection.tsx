@@ -242,14 +242,8 @@ const SkillsSection: React.FC = () => {
                   variants={fadeIn("right", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   <ul className="text">
-                    <li className="text list-item list-disc">
-                      Creating robust server-side applications and APIs.
-                    </li>
-                    <li className="text list-disc">
-                      Designing scalable and efficient database schemas to
-                      ensure data integrity, performance, and easy
+                      Creating robust server-side applications and APIs and  Designing scalable and efficient database schemas for performance, and easy
                       maintainability.
-                    </li>
                   </ul>
                 </motion.p>
               </Card>
