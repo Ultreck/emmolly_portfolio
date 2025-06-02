@@ -120,7 +120,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             stiffness: 200,
                           }}
                           onClick={() => setExpTab(0)}
-                          className={`text ${expTab === 0 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
+                          className={`text ${expTab === 0 ? "border-blue-600 font-bold dark:text-blue-500 text-pink-600" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Clan
                         </motion.button>
@@ -133,7 +133,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             stiffness: 200,
                           }}
                           onClick={() => setExpTab(1)}
-                          className={`text ${expTab === 1 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
+                          className={`text ${expTab === 1 ? "border-blue-600 font-bold dark:text-blue-500 text-pink-600" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           LonH
                         </motion.button>
@@ -146,7 +146,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             stiffness: 200,
                           }}
                           onClick={() => setExpTab(2)}
-                          className={`text ${expTab === 2 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
+                          className={`text ${expTab === 2 ? "border-blue-600 font-bold dark:text-blue-500 text-pink-600" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Medillery
                         </motion.button>
@@ -159,7 +159,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                             stiffness: 200,
                           }}
                           onClick={() => setExpTab(3)}
-                          className={`text ${expTab === 3 ? "border-blue-600 text-blue-400" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
+                          className={`text ${expTab === 3 ? "border-blue-600 font-bold dark:text-blue-500 text-pink-600" : "border-gray-400"} border-b-2 lg:px-[80px]  px-4 -mb-0.5 py-3`}
                         >
                           Scict
                         </motion.button>
