@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="flex flex-col items-center text-center">
+          <div className="flex border flex-col items-center text-center">
             <motion.h1
               initial="hidden"
               whileInView="show"
@@ -108,7 +108,7 @@ const HeroSection: React.FC = () => {
                 whileInView="show"
                 viewport={{ margin: "-20%" }}
                 variants={fadeIn("left", "spring", 0.3, 1.3)}
-                className="block font-serif dark:text-white text-black"
+                className="block font-mono dark:text-white text-black"
               >
                 Hello, I'm
               </motion.span>
