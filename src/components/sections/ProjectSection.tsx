@@ -2,28 +2,49 @@ import React, { useState } from "react";
 import { projects } from "../../constants";
 import { ExternalLink, Github } from "lucide-react";
 import type { projectTag } from "../../types";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/variant";
 
 const ProjectsSection: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   return (
-    <section
+    <motion.section
+      initial="hidden"
+      whileInView="show"
+      viewport={{ margin: "-20%" }}
+      variants={fadeIn("right", "spring", 0.2, 1.3)}
       id="projects"
       className="mx-auto w-[80%] py-20 bg-white dark:bg-gray-900"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <motion.h2 
+           initial="hidden"
+            whileInView="show"
+            viewport={{ margin: "-10%" }}
+            variants={fadeIn("left", "spring", 0.2, 1.3)}
+            className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             My Projects
-          </h2>
+          </motion.h2>
           <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <motion.p 
+           initial="hidden"
+            whileInView="show"
+            viewport={{ margin: "-20%" }}
+            variants={fadeIn("up", "spring", 0.2, 1.3)}
+            className="text-lg text-gray-600 dark:text-gray-300">
             Here are some of my projects I've worked on.
-          </p>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          </motion.p>
+          <motion.p 
+           initial="hidden"
+            whileInView="show"
+            viewport={{ margin: "-20%" }}
+            variants={fadeIn("right", "spring", 0.2, 1.3)}
+            className="text-lg text-gray-600 dark:text-gray-300">
             <span className="text-pink-600">NOTE</span>: These projects are my
             old project, the new one would be added shortly.
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -104,7 +125,7 @@ const ProjectsSection: React.FC = () => {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
