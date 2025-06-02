@@ -114,7 +114,7 @@ const HeroSection: React.FC = () => {
               </motion.span>
               <span className="block mt-2">
                 {/* <span ref={el}></span> */}
-                <span>Emmanuel Oluwatayese A.</span>
+                <span>A. Emmanuel Oluwatayese</span>
               </span>
             </motion.h1>
 
@@ -241,7 +241,7 @@ const HeroSection: React.FC = () => {
             </Tooltip>
           </motion.div>
 
-          <section className="text xl:mt-16 mt-5 px-2 lg:px-0 flex flex-wrap justify-between gap-2 items-center ">
+          <section className="text xl:mt-10 mt-5 px-2 lg:px-0 flex flex-wrap justify-between gap-2 items-center ">
             <motion.div
               initial="hidden"
               whileInView="show"
