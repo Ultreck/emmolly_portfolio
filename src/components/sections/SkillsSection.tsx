@@ -200,7 +200,7 @@ const SkillsSection: React.FC = () => {
                  initial="hidden"
                   whileInView="show"
                   viewport={{ margin: "-20%" }}
-                  variants={fadeIn("up", "spring", 0.3, 1.2)}
+                  variants={fadeIn("right", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   Developing intelligent chatbots that automate support and
                   enhance user interaction using modern NLP tools and APIs.
