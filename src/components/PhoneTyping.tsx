@@ -124,7 +124,7 @@ const PhoneTyping = () => {
   }, []);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mx-auto">
       <div className="lg:w-[360px] h-[585px] dark:bg-gray-800 bg-white rounded-[2.5rem] shadow-xl border-4 dark:border-gray-300 flex flex-col overflow-hidden">
         {/* Status Bar */}
         <div className="flex items-center justify-between px-4 py-2 text-xs text-gray-500 dark:bg-gray-800 bg-white border-b">
