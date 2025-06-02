@@ -33,7 +33,7 @@ const SkillsSection: React.FC = () => {
             whileInView="show"
             viewport={{ margin: "-10%" }}
             variants={fadeIn("left", "spring", 0.3, 1.2)}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2"
           >
             My Services
           </motion.h2>
