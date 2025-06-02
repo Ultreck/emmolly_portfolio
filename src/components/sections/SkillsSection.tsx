@@ -39,13 +39,13 @@ const SkillsSection: React.FC = () => {
           </motion.h2>
           <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
         </div>
-        <section className="text grid gridcols-1 md:grid-cols-3 gap-5 mb-10 border">
+        <section className="text grid gridcols-1 md:grid-cols-3 gap-5 mb-10">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ margin: "-10%" }}
             variants={fadeIn("right", "spring", 0.3, 1.2)}
-            className="text border text-center"
+            className="text col-span-3 md:col-span-1"
           >
             <PhoneTyping />
           </motion.div>
@@ -54,7 +54,7 @@ const SkillsSection: React.FC = () => {
             whileInView="show"
             viewport={{ margin: "-10%" }}
             variants={fadeIn("left", "spring", 0.1, 1.2)}
-            className="grid grid-cols-1 col-span-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid col-span-3 grid-cols-1 md:col-span-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <motion.div
               initial="hidden"
