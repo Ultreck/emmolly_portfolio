@@ -44,7 +44,7 @@ const ProjectsSection: React.FC = () => {
             variants={fadeIn("right", "spring", 0.2, 1.3)}
             className="text-lg text-gray-600 dark:text-gray-300">
             <span className="text-pink-600">NOTE</span>: These projects are my
-            old project, the new one would be added shortly.
+            old projects, the new one would be added shortly.
           </motion.p>
         </div>
 
@@ -88,7 +88,7 @@ const ProjectsSection: React.FC = () => {
                           </Tooltip>
                       )}
                       {project.demoUrl && (
-                             <Tooltip content="Explore the project" showArrow={true}>
+                             <Tooltip content="Explore this project" showArrow={true}>
 
                         <a
                           href={project.demoUrl}
