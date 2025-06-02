@@ -233,7 +233,7 @@ const SkillsSection: React.FC = () => {
                   viewport={{ margin: "-10%" }}
                   variants={fadeIn("right", "spring", 0.2, 1.2)}
                   className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Backend / Database Design
+                  Backend / Database
                 </motion.h3>
                 <motion.p 
                  initial="hidden"
