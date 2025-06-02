@@ -70,8 +70,7 @@ const Header: React.FC = () => {
                 </a>
               ))}
               <a href="#contact"
-                onClick={toggleTheme}
-                className="p-1.5 font-bold px-3 rounded-full bg-pink-800 text-white hover:bg-blue-500 dark:hover:bg-blue-700 transition-colors"
+                className="p-1.5 font-bold px-3 rounded-full shadow-inner dark:shadow-pink-600 shadow-blue-500 dark:text-white hover:border-dashed border-2 dark:border-[#EC4899] border-blue-500 text-black transition-colors"
                 aria-label="Toggle theme"
               >
                 Hire me
