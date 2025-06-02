@@ -53,7 +53,7 @@ export const projects: Project[] = [
     imageUrl: smsImg,
     tags: ['React', 'Node.js', 'MongoDB', 'Express', 'socket.io', 'cloudinary'],
     demoUrl: 'https://school-management-system-two.vercel.app/',
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/Ultreck/school-management-system',
   },
 ];
 // export const projects: Project[] = [
