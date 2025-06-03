@@ -1,80 +1,81 @@
-import React, { useState } from 'react';
-import { socialLinks } from '../../constants';
-import { 
-  Mail, 
-  Send, 
-} from 'lucide-react';
+import React, { useState } from "react";
+import { socialLinks } from "../../constants";
+import { Mail, Send } from "lucide-react";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/utils/variant';
-import emailjs from 'emailjs-com';
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/variant";
+import emailjs from "emailjs-com";
 
-  const getIconComponent = (iconName: string) => {
-    switch (iconName.toLocaleLowerCase()) {
-      case 'github':
-        return <FaGithub size={20} />;
-      case 'linkedin':
-        return <FaLinkedin size={20} />;
-      case 'twitter':
-        return <FaTwitter size={20} />;
-      default:
-        return null;
-    }
-  };
+const getIconComponent = (iconName: string) => {
+  switch (iconName.toLocaleLowerCase()) {
+    case "github":
+      return <FaGithub size={20} />;
+    case "linkedin":
+      return <FaLinkedin size={20} />;
+    case "twitter":
+      return <FaTwitter size={20} />;
+    default:
+      return null;
+  }
+};
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState('');
+  const [submitError, setSubmitError] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setSubmitError('');
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError("");
 
-  emailjs.send(
-    'service_26pqjht',       // e.g., 'service_xyz123'
-    'template_na0kumf',      // e.g., 'template_abc456'
-    {
-      from_name: formData.name,
-      reply_to: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-    },
-    'du2pmGxgWHuSeQwEx'           // public key from EmailJS
-  )
-  .then(() => {
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    emailjs
+      .send(
+        "service_26pqjht", // e.g., 'service_xyz123'
+        "template_na0kumf", // e.g., 'template_abc456'
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "du2pmGxgWHuSeQwEx" // public key from EmailJS
+      )
+      .then(() => {
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
 
-    setTimeout(() => setSubmitSuccess(false), 5000);
-  })
-  .catch((error) => {
-    setIsSubmitting(false);
-    setSubmitError('Failed to send message. Please try again later.');
-    console.error(error);
-  });
-};
-
-
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      })
+      .catch((error) => {
+        setIsSubmitting(false);
+        setSubmitError("Failed to send message. Please try again later.");
+        console.error(error);
+      });
+  };
 
   return (
-    <motion.section 
-     initial="hidden"
-            whileInView="show"
-            viewport={{ margin: "-20%" }}
-            variants={fadeIn("up", "spring", 0.2, 1.0)}id="contact" className=" mx-auto w-[80%] py-20 bg-gray-50 dark:bg-gray-800">
+    <motion.section
+      initial="hidden"
+      whileInView="show"
+      viewport={{ margin: "-20%" }}
+      variants={fadeIn("left", "spring", 0.2, 1.0)}
+      id="contact"
+      className=" mx-auto w-[80%] py-20 bg-gray-50 dark:bg-gray-800"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -82,7 +83,8 @@ const handleSubmit = (e: React.FormEvent) => {
           </h2>
           <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Have a project in mind or just want to say hello? Feel free to reach out!
+            Have a project in mind or just want to say hello? Feel free to reach
+            out!
           </p>
         </div>
 
@@ -92,27 +94,54 @@ const handleSubmit = (e: React.FormEvent) => {
               <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 text-pink-600 dark:text-pink-400 rounded-full mb-6 mx-auto lg:mx-0">
                 <Mail size={24} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center lg:text-left">
+              <motion.h3 
+               initial="hidden"
+      whileInView="show"
+      viewport={{ margin: "-20%" }}
+      variants={fadeIn("down", "spring", 0.2, 1.0)}
+      className="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center lg:text-left">
                 Contact Information
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 text-center lg:text-left">
-                Fill out the form or reach out through any of the channels below.
-              </p>
-              
+              </motion.h3>
+              <motion.p 
+               initial="hidden"
+      whileInView="show"
+      viewport={{ margin: "-20%" }}
+      variants={fadeIn("left", "spring", 0.3, 1.0)}
+      className="text-gray-600 dark:text-gray-300 mb-6 text-center lg:text-left">
+                Fill out the form or reach out through any of the channels
+                below.
+              </motion.p>
+
               <div className="space-y-4 mb-8">
                 <div className="flex items-center">
                   <div className="w-12 h-12 flex items-center justify-center bg-indigo-100 dark:bg-indigo-900/30 text-pink-600 dark:text-pink-400 rounded-full mr-4">
                     <Mail size={20} />
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                    <p className="text-gray-800 dark:text-gray-200">adetutuemmanueloluwatayese@gmail.com</p>
-                  </div>
+                  <motion.div
+                   initial="hidden"
+      whileInView="show"
+      viewport={{ margin: "-20%" }}
+      variants={fadeIn("right", "spring", 0.3, 1.0)}
+      >
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Email
+                    </p>
+                    <p className="text-gray-800 dark:text-gray-200">
+                      adetutuemmanueloluwatayese@gmail.com
+                    </p>
+                  </motion.div>
                 </div>
               </div>
-              
+
               <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
-                <h4 className="text-gray-900 dark:text-white font-medium mb-4 text-center lg:text-left">Connect with me</h4>
+                <motion.h4 
+                 initial="hidden"
+      whileInView="show"
+      viewport={{ margin: "-20%" }}
+      variants={fadeIn("down", "spring", 0.2, 1.0)}
+      className="text-gray-900 dark:text-white font-medium mb-4 text-center lg:text-left">
+                  Connect with me
+                </motion.h4>
                 <div className="flex justify-center lg:justify-start space-x-4">
                   {socialLinks.map((link) => (
                     <a
@@ -124,7 +153,7 @@ const handleSubmit = (e: React.FormEvent) => {
                       aria-label={link.platform}
                     >
                       <span className="sr-only">{link.platform}</span>
-                     { getIconComponent(link.platform)}
+                      {getIconComponent(link.platform)}
                       {/* {getSocialIcon(link.platform)} */}
                     </a>
                   ))}
@@ -132,13 +161,21 @@ const handleSubmit = (e: React.FormEvent) => {
               </div>
             </div>
           </div>
-          
+
           <div className="lg:col-span-3">
             <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-8">
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ margin: "-20%" }}
+                    variants={fadeIn("down", "spring", 0.2, 1.0)}
+                  >
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    >
                       Name
                     </label>
                     <input
@@ -151,9 +188,17 @@ const handleSubmit = (e: React.FormEvent) => {
                       className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
                       placeholder="Your name"
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ margin: "-20%" }}
+                    variants={fadeIn("left", "spring", 0.2, 1.0)}
+                  >
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    >
                       Email
                     </label>
                     <input
@@ -166,11 +211,20 @@ const handleSubmit = (e: React.FormEvent) => {
                       className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
                       placeholder="Your email"
                     />
-                  </div>
+                  </motion.div>
                 </div>
-                
-                <div className="mb-6">
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+
+                <motion.div
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ margin: "-20%" }}
+                  variants={fadeIn("up", "spring", 0.2, 1.0)}
+                  className="mb-6"
+                >
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  >
                     Subject
                   </label>
                   <input
@@ -183,10 +237,19 @@ const handleSubmit = (e: React.FormEvent) => {
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
                     placeholder="Subject"
                   />
-                </div>
-                
-                <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                </motion.div>
+
+                <motion.div
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ margin: "-20%" }}
+                  variants={fadeIn("down", "spring", 0.2, 1.0)}
+                  className="mb-6"
+                >
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  >
                     Message
                   </label>
                   <textarea
@@ -199,7 +262,7 @@ const handleSubmit = (e: React.FormEvent) => {
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
                     placeholder="Your message"
                   ></textarea>
-                </div>
+                </motion.div>
 
                 {submitError && (
                   <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg">
@@ -212,7 +275,7 @@ const handleSubmit = (e: React.FormEvent) => {
                     Thank you for your message! I'll get back to you soon.
                   </div>
                 )}
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -220,9 +283,25 @@ const handleSubmit = (e: React.FormEvent) => {
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
                       </svg>
                       Sending...
                     </span>
