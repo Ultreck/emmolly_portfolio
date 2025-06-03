@@ -7,6 +7,8 @@ import {
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/utils/variant';
+import emailjs from 'emailjs-com';
+
   const getIconComponent = (iconName: string) => {
     switch (iconName.toLocaleLowerCase()) {
       case 'github':
@@ -35,21 +37,36 @@ const ContactSection: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError('');
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 1500);
-  };
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitError('');
+
+  emailjs.send(
+    'service_26pqjht',       // e.g., 'service_xyz123'
+    'template_na0kumf',      // e.g., 'template_abc456'
+    {
+      from_name: formData.name,
+      reply_to: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    },
+    'du2pmGxgWHuSeQwEx'           // public key from EmailJS
+  )
+  .then(() => {
+    setIsSubmitting(false);
+    setSubmitSuccess(true);
+    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    setTimeout(() => setSubmitSuccess(false), 5000);
+  })
+  .catch((error) => {
+    setIsSubmitting(false);
+    setSubmitError('Failed to send message. Please try again later.');
+    console.error(error);
+  });
+};
+
 
 
   return (
