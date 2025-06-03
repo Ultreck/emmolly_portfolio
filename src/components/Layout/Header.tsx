@@ -54,12 +54,13 @@ const Header: React.FC = () => {
               href="#home"
               className="text-2xl md:block hidden font-mono font-bold text-indigo-600 dark:text-indigo-400"
             >
-              Oluwatayese
+             <img src="/10617714.ico" alt="My Icon" className="w-6 h-6" />
+
             </a>
           </div>
 
           <div className="hidden md:block">
-            <nav className="ml-10 flex items-center space-x-8">
+            <nav className="ml-10 flex items-center xl:space-x-8">
               {navItems.map((item) => (
                 <a
                   key={item.href}
