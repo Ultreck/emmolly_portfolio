@@ -145,8 +145,8 @@ const HeroSection: React.FC = () => {
               <span className="ml-2 text-sm lg:text-xl text-start">
                 specializing in crafting seamless user interfaces and building
                 scalable backend systems. I transform ideas into complete,
-                high-performing web applications that deliver powerful and amazing digital
-                experiences.
+                high-performing web applications that deliver powerful and
+                amazing digital experiences.
               </span>
             </motion.div>
           </div>
@@ -158,9 +158,15 @@ const HeroSection: React.FC = () => {
             className="text xl:mt-8 flex items-center lg:gap-5 justify-center xl:gap-8 gap-1"
           >
             <Tooltip content="Download my cv" showArrow={true}>
-              <button className="flex dark:border-[#EC4899] border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400 hover:border-dashed hover:border-2 text-xs lg:text-base items-center lg:gap-2 gap-1 border rounded-full lg:px-5 sm:px-2 px-1.5 py-2">
-                 <span className="text">Download cv</span>
-                <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899] dark:text-blue-500" />
+              <button className="flex  text-xs lg:text-base items-center   rounded-full  ">
+                <a
+                  href="/assets/Oluwatayese_E_A.pdf"
+                  download
+                  className="border flex justify-center items-center lg:gap-2 gap-1 dark:border-[#EC4899] border border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400 hover:border-dashed hover:border-2 w-full h-full px-1.5 py-2 lg:px-5  sm:px-2 rounded-full"
+                >
+                  <span className="text">Download cv</span>
+                  <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899] dark:text-blue-500" />
+                </a>
               </button>
             </Tooltip>
             <Tooltip content="LinkedIn account" showArrow={true}>
