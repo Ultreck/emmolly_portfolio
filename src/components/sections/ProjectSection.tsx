@@ -16,7 +16,7 @@ const ProjectsSection: React.FC = () => {
       viewport={{ margin: "-20%" }}
       variants={fadeIn("right", "spring", 0.2, 1.3)}
       id="projects"
-      className="mx-auto w-[80%] py-20 bg-white dark:bg-gray-900"
+      className="mx-auto w-[85%] py-20 bg-white dark:bg-gray-900"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">

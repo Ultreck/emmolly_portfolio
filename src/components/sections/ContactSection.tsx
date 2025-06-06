@@ -74,7 +74,7 @@ const ContactSection: React.FC = () => {
       viewport={{ margin: "-20%" }}
       variants={fadeIn("left", "spring", 0.2, 1.0)}
       id="contact"
-      className=" mx-auto w-[80%] py-20 bg-gray-50 dark:bg-gray-800"
+      className=" mx-auto w-[85%] py-20 bg-gray-50 dark:bg-gray-800"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
@@ -94,20 +94,22 @@ const ContactSection: React.FC = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 text-pink-600 dark:text-pink-400 rounded-full mb-6 mx-auto lg:mx-0">
                 <Mail size={24} />
               </div>
-              <motion.h3 
-               initial="hidden"
-      whileInView="show"
-      viewport={{ margin: "-20%" }}
-      variants={fadeIn("down", "spring", 0.2, 1.0)}
-      className="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center lg:text-left">
+              <motion.h3
+                initial="hidden"
+                whileInView="show"
+                viewport={{ margin: "-20%" }}
+                variants={fadeIn("down", "spring", 0.2, 1.0)}
+                className="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center lg:text-left"
+              >
                 Contact Information
               </motion.h3>
-              <motion.p 
-               initial="hidden"
-      whileInView="show"
-      viewport={{ margin: "-20%" }}
-      variants={fadeIn("left", "spring", 0.3, 1.0)}
-      className="text-gray-600 dark:text-gray-300 mb-6 text-center lg:text-left">
+              <motion.p
+                initial="hidden"
+                whileInView="show"
+                viewport={{ margin: "-20%" }}
+                variants={fadeIn("left", "spring", 0.3, 1.0)}
+                className="text-gray-600 dark:text-gray-300 mb-6 text-center lg:text-left"
+              >
                 Fill out the form or reach out through any of the channels
                 below.
               </motion.p>
@@ -118,11 +120,11 @@ const ContactSection: React.FC = () => {
                     <Mail size={20} />
                   </div>
                   <motion.div
-                   initial="hidden"
-      whileInView="show"
-      viewport={{ margin: "-20%" }}
-      variants={fadeIn("right", "spring", 0.3, 1.0)}
-      >
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ margin: "-20%" }}
+                    variants={fadeIn("right", "spring", 0.3, 1.0)}
+                  >
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       Email
                     </p>
@@ -134,12 +136,13 @@ const ContactSection: React.FC = () => {
               </div>
 
               <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
-                <motion.h4 
-                 initial="hidden"
-      whileInView="show"
-      viewport={{ margin: "-20%" }}
-      variants={fadeIn("down", "spring", 0.2, 1.0)}
-      className="text-gray-900 dark:text-white font-medium mb-4 text-center lg:text-left">
+                <motion.h4
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ margin: "-20%" }}
+                  variants={fadeIn("down", "spring", 0.2, 1.0)}
+                  className="text-gray-900 dark:text-white font-medium mb-4 text-center lg:text-left"
+                >
                   Connect with me
                 </motion.h4>
                 <div className="flex justify-center lg:justify-start space-x-4">
