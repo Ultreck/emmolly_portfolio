@@ -10,9 +10,11 @@ import ProjectsSection from "./components/sections/ProjectSection";
 import { HeroUIProvider } from "@heroui/system";
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import { Tooltip } from "@heroui/tooltip";
+import NumberOfUsers from "./components/NumberOfUsers";
 
 function App() {
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     getUserIP();
@@ -28,15 +30,14 @@ function App() {
   };
 
   const getUserIP = async () => {
-try {
-  const res = await fetch('https://ipapi.co/json/');
-  if(!res) return;
-  const data = await res.json();
-  console.log(data);
-  
-} catch (error) {
-  throw new Error("Internal server error");
-}
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      if (!res) return;
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      throw new Error("Internal server error");
+    }
   };
 
   return (
@@ -50,23 +51,20 @@ try {
             <AboutSection />
             <ProjectsSection />
             <ContactSection />
-
           </main>
-            {isScrolled && (
-              <button
-                onClick={scrollToTop}
-                className="fixed flex justify-center items-center text-white right-2 bottom-0 mb-10 -ml-5 rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-500"
-              >
-                <FaArrowUp className="text-xl" />
-              </button>
-            )}
-              <button
-                // onClick={scrollToTop}
-                className="fixed text-white shadow-lg ml-2 pb-2 top-0 mt-20 rounded-full bg-blue-600 hover:bg-blue-500"
-              >
-                <img src="/assets/blinking.gif" alt="A blinking eye" className="text w-10 h-10 rounded-full" />
-                <strong className="text-2xl font-semibold font-mono">50</strong>
-              </button>
+          {isScrolled && (
+            <button
+              onClick={scrollToTop}
+              className="fixed flex justify-center items-center text-white right-2 bottom-0 mb-10 -ml-5 rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-500"
+            >
+              <FaArrowUp className="text-xl animate-bounce" />
+            </button>
+          )}
+          <div className="text">
+          <NumberOfUsers/>
+          </div>
+
+          
           <Footer />
         </div>
       </HeroUIProvider>
