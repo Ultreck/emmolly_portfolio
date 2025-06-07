@@ -60,6 +60,12 @@ try {
                 <FaArrowUp className="text-xl" />
               </button>
             )}
+              <button
+                onClick={scrollToTop}
+                className="fixed flex justify-center items-center text-white bottom-0 mb-10 -ml-5 rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-500"
+              >
+                <img src="/assets/blinking.gif" alt="A blinking eye" className="text" />
+              </button>
           <Footer />
         </div>
       </HeroUIProvider>
