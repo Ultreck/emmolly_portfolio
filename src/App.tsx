@@ -42,7 +42,7 @@ try {
   return (
     <ThemeProvider>
       <HeroUIProvider>
-        <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900 px-2 text-gray-900 dark:text-white transition-colors duration-300">
+        <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main>
             <HeroSection />
@@ -55,7 +55,7 @@ try {
             {isScrolled && (
               <button
                 onClick={scrollToTop}
-                className="fixed flex justify-center items-center right-0 bottom-0 mb-10 -ml-5 rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-500"
+                className="fixed flex justify-center items-center text-white right-2 bottom-0 mb-10 -ml-5 rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-500"
               >
                 <FaArrowUp className="text-xl" />
               </button>
