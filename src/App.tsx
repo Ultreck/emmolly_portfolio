@@ -61,10 +61,11 @@ try {
               </button>
             )}
               <button
-                onClick={scrollToTop}
-                className="fixed flex justify-center items-center text-white bottom-0 mb-10 -ml-5 rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-500"
+                // onClick={scrollToTop}
+                className="fixed text-white shadow-lg ml-2 pb-2 top-0 mt-20 rounded-full bg-blue-600 hover:bg-blue-500"
               >
-                <img src="/assets/blinking.gif" alt="A blinking eye" className="text" />
+                <img src="/assets/blinking.gif" alt="A blinking eye" className="text w-10 h-10 rounded-full" />
+                <strong className="text-2xl font-semibold font-mono">50</strong>
               </button>
           <Footer />
         </div>
