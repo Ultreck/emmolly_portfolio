@@ -15,6 +15,7 @@ function App() {
     const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    getUserIP();
     const handleIsScrolled = () => {
       setIsScrolled(window.scrollY > 30);
     };
@@ -26,10 +27,22 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const getUserIP = async () => {
+try {
+  const res = await fetch('https://ipapi.co/json/');
+  if(!res) return;
+  const data = await res.json();
+  console.log(data);
+  
+} catch (error) {
+  throw new Error("Internal server error");
+}
+  };
+
   return (
     <ThemeProvider>
       <HeroUIProvider>
-        <div className="min-h-screen overflow-visible bg-gray-50 relative dark:bg-gray-900 border text-gray-900 dark:text-white transition-colors duration-300">
+        <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900 px-2 text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main>
             <HeroSection />
@@ -38,15 +51,15 @@ function App() {
             <ProjectsSection />
             <ContactSection />
 
+          </main>
             {isScrolled && (
-              <div
+              <button
                 onClick={scrollToTop}
-                className="fixed right-6 bottom-6 z-[9999] w-12 h-12 rounded-full bg-red-600 flex justify-center items-center text-white shadow-lg hover:bg-blue-700 transition-all"
+                className="fixed flex justify-center items-center right-0 bottom-0 mb-10 -ml-5 rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-500"
               >
                 <FaArrowUp className="text-xl" />
-              </div>
+              </button>
             )}
-          </main>
           <Footer />
         </div>
       </HeroUIProvider>
