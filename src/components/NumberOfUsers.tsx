@@ -1,5 +1,6 @@
 import {
   Chip,
+  ScrollShadow,
   Tab,
   Tabs,
   //   Modal,
@@ -23,16 +24,26 @@ import {
 import { useState } from "react";
 import type { Key } from "@react-types/shared";
 
-interface NumberOfUsersProps {
-  data: any; // Replace 'any' with a more specific type if possible
+interface UserTabData {
+  countryName: string;
+  ips?: string[]; // Add this property to match usage in the component
+  // Define the properties based on your data structure, for example:
+  // id: string;
+  // title: string;
+  // count: number;
 }
 
-const NumberOfUsers = ({ data }: NumberOfUsersProps) => {
+interface NumberOfUsersProps {
+  data: UserTabData[]; // Use the specific type instead of 'any'
+  ip?: string[]; // Add this property to match usage in the component
+}
+
+const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   //   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [tab, setTab] = useState<Key | null | undefined>("Nigeria");
-  console.log(data);
-  
+  //   console.log(data, ip);
+
   return (
     <>
       <Tooltip
@@ -58,7 +69,8 @@ const NumberOfUsers = ({ data }: NumberOfUsersProps) => {
           {(onClose) => (
             <>
               <DrawerHeader className="flex flex-col gap-1">
-                Drawer Title
+                There are {ip?.length} people from {data.length} different
+                countries who visited the portfolio across the world
               </DrawerHeader>
               <DrawerBody>
                 <div className="flex w-full flex-col">
@@ -69,98 +81,26 @@ const NumberOfUsers = ({ data }: NumberOfUsersProps) => {
                     classNames={{
                       tabList: "gap-6 w-full relative rounded-none p-0",
                       cursor: "w-full bg-[#22d3ee]",
-                      tab: "max-xl px-0 h-12",
+                      tab: "max-xl px-0 h-10",
                       tabContent: "group-data-[selected=true]:text-[#06b6d4]",
                     }}
                     color="primary"
                     variant="underlined"
                   >
-                    <Tab
-                      key="current-orders"
-                      title={
-                        <div className="flex items-center space-x-2">
-                          <span>Current Orders</span>
-                          <Chip size="sm" variant="faded">
-                            2
-                          </Chip>
-                        </div>
-                      }
-                    >
-                      <div className="mt-8 flex justify-between">
-                        <div className="flex space-x-4">
-                          <img
-                            src="/images/accessbank.png"
-                            alt=""
-                            className="w-[30px]"
-                          />
-                          <div>
-                            <p className="text-2xl font-bold">Access Bank</p>
-                            <p className="text-sm">ACB</p>
-                          </div>
-                        </div>
-                        <div>
-                          <p className="text-2xl font-bold">N34.22</p>
-                          <p className="text-sm">22,000 Units</p>
-                        </div>
-                      </div>
-                      <div className="mt-8 flex justify-between">
-                        <div className="flex space-x-4">
-                          <img
-                            src="/images/accessbank.png"
-                            alt=""
-                            className="w-[30px]"
-                          />
-                          <div>
-                            <p className="text-2xl font-bold">Access Bank</p>
-                            <p className="text-sm">ACB</p>
-                          </div>
-                        </div>
-                        <div>
-                          <p className="text-2xl font-bold">N34.22</p>
-                          <p className="text-sm">22,000 Units</p>
-                        </div>
-                      </div>
-                    </Tab>
-                    <Tab
-                      key="pending-orders"
-                      title={
-                        <div className="flex items-center space-x-2">
-                          <span>Pending Orders</span>
-                          <Chip size="sm" variant="faded">
-                            1
-                          </Chip>
-                        </div>
-                      }
-                    >
-                      <div className="mt-4 flex justify-between">
-                        <div className="flex space-x-4">
-                          <img
-                            src="/images/accessbank.png"
-                            alt=""
-                            className="w-[30px]"
-                          />
-                          <div>
-                            <p className="text-2xl font-bold">Access Bank</p>
-                            <p className="text-sm">ACB</p>
-                          </div>
-                        </div>
-                        <div>
-                          <p className="text-2xl font-bold">N34.22</p>
-                          <p className="text-sm">22,000 Units</p>
-                        </div>
-                      </div>
-                    </Tab>
-                    <Tab
-                      key="completed-orders"
-                      title={
-                        <div className="flex items-center space-x-2">
-                          <span>Completed Orders</span>
-                          <Chip size="sm" variant="faded">
-                            3
-                          </Chip>
-                        </div>
-                      }
-                    />
+                    {!!data?.length &&
+                      data?.map((item: UserTabData) => (
+                        <Tab
+                          key={item.countryName}
+                          title={
+                            <div className="flex items-center space-x-2">
+                              <span>{item?.countryName}</span>
+                              <Chip size="sm" variant="faded">
+                                {item?.ips?.length}
+                              </Chip>
+                            </div>
+                          }
+                        ></Tab>
+                      ))}
                   </Tabs>
                 </div>
               </DrawerBody>

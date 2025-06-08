@@ -31,7 +31,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [ipInformations, setIpInformations] = useState<IpInfo | undefined>();
+  const [ipInformations, setIpInformations] = useState<CountryInfo[]>([]);
 
   useEffect(() => {
     const handleIsScrolled = () => {
@@ -52,12 +52,16 @@ function App() {
     axios
       .get(`${baseUrl}/${appName}`)
       .then((res) => {
-        setIpInformations(res.data.appTrackingInfos.countries);
+        // Ensure the data is always an array
+        setIpInformations(Array.isArray(res.data.appTrackingInfos.countries) ? res.data.appTrackingInfos.countries : []);
       })
       .catch((err) => {
         console.log(err);
       });
     }, []);
+
+    const allIPs = ipInformations.flatMap((c) => c?.ips);
+    
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -91,7 +95,7 @@ function App() {
         <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main>
-            <HeroSection />
+            <HeroSection ip={allIPs} />
             <SkillsSection />
             <AboutSection />
             <ProjectsSection />
@@ -106,7 +110,7 @@ function App() {
             </button>
           )}
           <div className="text">
-            <NumberOfUsers data={ipInformations} />
+            <NumberOfUsers data={ipInformations} ip={allIPs} />
           </div>
 
           <Footer />

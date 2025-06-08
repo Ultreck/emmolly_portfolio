@@ -20,7 +20,11 @@ const allMessages = [
   { id: 4, text: "A portfolio with real-time chat simulation.", sender: "me" },
   { id: 5, text: "That sounds amazing!", sender: "other" },
 ];
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  ip?: string[];
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ ip }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [rounded, setRounded] = useState(0);
@@ -30,7 +34,9 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     setIsVisible(true);
+    
   }, []);
+    // console.log(ip);
 
   useEffect(() => {
     if (index < allMessages.length) {
