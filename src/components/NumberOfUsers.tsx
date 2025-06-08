@@ -29,14 +29,14 @@ const NumberOfUsers = () => {
         >
           <button
             onClick={onOpen}
-            className="fixed text-white shadow-lg ml-2 p-2 top-0 mt-24 rounded bg-blue-600 hover:bg-blue-500"
+            className="fixed text-white shadow-lg lg:ml-2 lg:p-2 top-0 mt-24 rounded lg:bg-blue-600 hover:bg-blue-500"
           >
             <img
               src="/assets/blinking.gif"
               alt="A blinking eye"
-              className="text w-10 h-10 rounded-full mx-auto"
+              className="text lg:w-10 w-7 lg:h-10 h-7 rounded-full mx-auto"
             />
-            <strong className="text-2xl font-semibold font-mono">5000</strong>
+            <strong className="text-2xl font-semibold font-mono hidden lg:block">5000</strong>
           </button>
         </Tooltip>
            <Drawer isOpen={isOpen} size={"full"} onClose={onClose}>
