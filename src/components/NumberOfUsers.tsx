@@ -36,7 +36,7 @@ const NumberOfUsers = () => {
               alt="A blinking eye"
               className="text w-10 h-10 rounded-full"
             />
-            <strong className="text-2xl font-semibold font-mono">50</strong>
+            <strong className="text-2xl font-semibold font-mono">5000</strong>
           </button>
         </Tooltip>
            <Drawer isOpen={isOpen} size={"full"} onClose={onClose}>
