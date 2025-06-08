@@ -42,7 +42,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                     whileInView="show"
                     viewport={{ margin: "-20%" }}
                     variants={fadeIn("up", "spring", 0.6, 1.2)}
-                    className="text md:mt-10 mt-5 gap-2 flex justify-between lg:grid lg:grid-cols-1 md:gap-10"
+                    className="text md:mt-10 mt-5 gap-2 flex justify-between md:grid lg:grid-cols-1 md:gap-10"
                   >
                     <motion.button
                       initial={{ scale: 0 }}
