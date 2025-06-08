@@ -31,7 +31,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  // const [currentIp, setCurrentIp] = useState<IpInfo | undefined>();
+  const [ipInformations, setIpInformations] = useState<IpInfo | undefined>();
 
   useEffect(() => {
     const handleIsScrolled = () => {
@@ -52,12 +52,13 @@ function App() {
     axios
       .get(`${baseUrl}/${appName}`)
       .then((res) => {
-        console.log(res);
+        setIpInformations(res.data.appTrackingInfos.countries);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+    }, []);
+    console.log(ipInformations);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -80,25 +81,6 @@ function App() {
       await axios.post(`${baseUrl}`, dataInfo);
       console.log("IP successfully posted");
       window.localStorage.setItem("visitedOnce", JSON.stringify("true"));
-      // setCurrentIp(dataInfo);
-
-      // Step 2: Fetch existing IPs from backend
-      // const getResponse = await axios.get(`${baseUrl}`);
-
-      // const appTrackingInfos = getResponse.data.appTrackingInfos;
-      // console.log("The app tracking info", appTrackingInfos);
-
-      // const match = appTrackingInfos.countries.find(
-      //   (c: CountryInfo) => c.countryName === dataInfo.countryName
-      // );
-      // console.log("Does the country name matched", match);
-
-      // const ipExists = match?.ips.includes(data?.ip);
-      // console.log("Does the IP exist", match);
-
-      // Step 3: Post IP if it's not already in DB
-
-      // Mark as visited
     } catch (error) {
       console.error("Tracking error:", error);
     }
@@ -119,9 +101,9 @@ function App() {
           {isScrolled && (
             <button
               onClick={scrollToTop}
-              className="fixed flex justify-center items-center text-white right-2 bottom-0 mb-10 -ml-5 rounded-full lg:w-12 w-8 lg:h-12 h-8 bg-blue-600 hover:bg-blue-500"
+              className="fixed flex justify-center items-center text-white right-2 bottom-0 mb-10 -ml-5 rounded-full w-10 h-10 bg-blue-600 hover:bg-blue-500"
             >
-              <FaArrowUp className="lg:text-xl animate-bounce" />
+              <FaArrowUp className="text-xl animate-bounce" />
             </button>
           )}
           <div className="text">
