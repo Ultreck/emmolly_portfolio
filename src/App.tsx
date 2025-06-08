@@ -25,6 +25,11 @@ interface CountryInfo {
   countryCode: string;
   ips: string[];
 }
+
+
+const baseUrl = import.meta.env.VITE_BASE_URL;
+const appName = import.meta.env.VITE_APP_NAME;
+const apiUrl = import.meta.env.VITE_API_URL;
 function App() {
 const [isScrolled, setIsScrolled] = useState(false);
 const [currentIp, setCurrentIp] = useState<IpInfo | undefined>();
@@ -55,14 +60,14 @@ const scrollToTop = () => {
 const getUserIPAndTrack = async () => {
   try {
     // Step 1: Get IP Info
-    const res = await fetch("https://ipapi.co/json/");
+    const res = await fetch(`${apiUrl}`);
     if (!res.ok) return;
 
     const data = await res.json();
 
     const dataInfo: IpInfo = {
       ip: data?.ip,
-      appName: "emmolly_portfolio",
+      appName: appName,
       countryName: data?.country_name,
       countryCode: data?.country_code,
     };
@@ -71,7 +76,7 @@ const getUserIPAndTrack = async () => {
 
     // Step 2: Fetch existing IPs from backend
     const getResponse = await axios.get(
-      `https://emmolly-nodejs.onrender.com/app/tracking/emmolly_portfolio`
+      `${baseUrl}`
     );
 
     console.log("Get response endpoint",getResponse);
@@ -91,7 +96,7 @@ const getUserIPAndTrack = async () => {
     if (!ipExists) {
       // Step 3: Post IP if it's not already in DB
       await axios.post(
-        `https://emmolly-nodejs.onrender.com/app/tracking`,
+        `${baseUrl}`,
         dataInfo
       );
       console.log("IP successfully posted");
