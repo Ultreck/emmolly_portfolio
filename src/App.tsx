@@ -58,7 +58,6 @@ function App() {
         console.log(err);
       });
     }, []);
-    console.log(ipInformations);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -107,7 +106,7 @@ function App() {
             </button>
           )}
           <div className="text">
-            <NumberOfUsers />
+            <NumberOfUsers data={ipInformations} />
           </div>
 
           <Footer />
