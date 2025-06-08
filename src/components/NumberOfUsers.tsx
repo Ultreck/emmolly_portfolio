@@ -42,7 +42,14 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   //   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [tab, setTab] = useState<Key | null | undefined>("Nigeria");
-  //   console.log(data, ip);
+
+
+
+const formatIPs = (ip: string): string => {
+    const formatOne = ip.split('.').slice(-3, -1);
+    // You can adjust the formatting as needed, here just joining the result for display
+    return `User: XX.XX.XX.`+formatOne.join('.');
+};
 
   return (
     <>
@@ -60,20 +67,20 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
             className="text lg:w-10 w-7 lg:h-10 h-7 rounded-full mx-auto"
           />
           <strong className="text-2xl font-semibold font-mono hidden lg:block">
-            5000
+            {ip?.length}
           </strong>
         </button>
       </Tooltip>
-      <Drawer isOpen={isOpen} size={"full"} onClose={onClose}>
+      <Drawer isOpen={isOpen} size={"4xl"} onClose={onClose}>
         <DrawerContent>
           {(onClose) => (
             <>
-              <DrawerHeader className="flex flex-col gap-1">
+              <DrawerHeader className="flex flex-col gap-1 mt-6">
                 There are {ip?.length} people from {data.length} different
-                countries who visited the portfolio across the world
+                countries across the world who visited this portfolio.
               </DrawerHeader>
               <DrawerBody>
-                <div className="flex w-full flex-col">
+                <div className="flex w-full flex-col overflow-x-auto">
                   <Tabs
                     aria-label="Options"
                     selectedKey={tab}
@@ -99,62 +106,37 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
                               </Chip>
                             </div>
                           }
-                        ></Tab>
+                        >
+                          <div className="text ">
+                            {item?.ips?.map((ip, index) => (
+                              <div
+                                className="text flex items-center gap-10 my-5"
+                                key={index}
+                              >
+                                <div className="text w-10 h-10 bg-gray-500 rounded-full"></div>
+                                <div className="text">{formatIPs(ip)}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </Tab>
                       ))}
                   </Tabs>
                 </div>
               </DrawerBody>
-              <DrawerFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+              <DrawerFooter className="text-start flex justify-start">
+                <Button
+                  color="danger"
+                  variant="light"
+                  className="bg-red-500/20"
+                  onPress={onClose}
+                >
                   Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
                 </Button>
               </DrawerFooter>
             </>
           )}
         </DrawerContent>
       </Drawer>
-      {/* <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
-              </ModalHeader>
-              <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal> */}
     </>
   );
 };
