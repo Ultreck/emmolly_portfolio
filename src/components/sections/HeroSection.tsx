@@ -165,7 +165,7 @@ const HeroSection: React.FC = () => {
                 <a
                   href="/assets/Oluwatayese_E_A.pdf"
                   download
-                  className="border flex justify-center items-center lg:gap-2 gap-1 dark:border-[#EC4899] border border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400 hover:border-dashed hover:border-2 w-full h-full px-1.5 py-2 lg:px-5  sm:px-2 rounded-full"
+                  className="border flex justify-center items-center lg:gap-2 gap-1 dark:border-[#EC4899] border-blue-500 dark:text-[#EC4899] text-blue-500 shadow-inner shadow-indigo-500 dark:shadow-red-400 hover:border-dashed hover:border-2 w-full h-full px-1.5 py-2 lg:px-5  sm:px-2 rounded-full"
                 >
                   <span className="text">Download cv</span>
                   <MdOutlineFileDownload className="transition-colors duration-300 animate-bounce mt-1 text-[#EC4899] dark:text-blue-500" />
