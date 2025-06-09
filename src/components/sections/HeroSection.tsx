@@ -20,11 +20,8 @@ const allMessages = [
   { id: 4, text: "A portfolio with real-time chat simulation.", sender: "me" },
   { id: 5, text: "That sounds amazing!", sender: "other" },
 ];
-interface HeroSectionProps {
-  ip?: string[];
-}
 
-const HeroSection: React.FC<HeroSectionProps> = ({ ip }) => {
+const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [rounded, setRounded] = useState(0);
