@@ -1,6 +1,5 @@
 import {
   Chip,
-  ScrollShadow,
   Tab,
   Tabs,
   //   Modal,
