@@ -95,7 +95,7 @@ function App() {
         <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main>
-            <HeroSection ip={allIPs} />
+            <HeroSection />
             <SkillsSection />
             <AboutSection />
             <ProjectsSection />
