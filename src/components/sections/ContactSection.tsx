@@ -43,15 +43,15 @@ const ContactSection: React.FC = () => {
 
     emailjs
       .send(
-        "service_26pqjht", // e.g., 'service_xyz123'
-        "template_na0kumf", // e.g., 'template_abc456'
+        "service_26pqjht",
+        "template_na0kumf",
         {
           from_name: formData.name,
           reply_to: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        "du2pmGxgWHuSeQwEx" // public key from EmailJS
+        "du2pmGxgWHuSeQwEx" 
       )
       .then(() => {
         setIsSubmitting(false);
@@ -157,7 +157,6 @@ const ContactSection: React.FC = () => {
                     >
                       <span className="sr-only">{link.platform}</span>
                       {getIconComponent(link.platform)}
-                      {/* {getSocialIcon(link.platform)} */}
                     </a>
                   ))}
                 </div>
