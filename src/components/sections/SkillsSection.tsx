@@ -8,12 +8,6 @@ import { TbMessageChatbot } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../utils/variant";
 const SkillsSection: React.FC = () => {
-  // const scrollToNextSection = () => {
-  //   const aboutSection = document.getElementById("resume");
-  //   if (aboutSection) {
-  //     aboutSection.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
 
   return (
     <section
