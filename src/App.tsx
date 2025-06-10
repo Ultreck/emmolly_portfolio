@@ -32,10 +32,12 @@ const apiUrl = import.meta.env.VITE_API_URL;
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [ipInformations, setIpInformations] = useState<CountryInfo[]>([]);
+  const [showToast, setShowToast] = useState(0);
 
   useEffect(() => {
     const handleIsScrolled = () => {
       setIsScrolled(window.scrollY > 30);
+      setShowToast(window.scrollY);
     };
     window.addEventListener("scroll", handleIsScrolled);
     return () => window.removeEventListener("scroll", handleIsScrolled);
@@ -97,7 +99,9 @@ function App() {
         <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main>
+          {showToast >= 4100 && 
             <RatingReminder/>
+          }
             <HeroSection />
             <SkillsSection />
             <AboutSection />

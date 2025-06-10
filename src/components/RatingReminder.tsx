@@ -2,21 +2,23 @@ import { useEffect, useState, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Typed from "typed.js";
 import "react-toastify/dist/ReactToastify.css";
+import RatingModal from "./RatingModal";
 
 const RatingReminder = () => {
   const [hasRated, setHasRated] = useState(false);
   const el = useRef<HTMLSpanElement>(null);
   const [destroyTyping, setDestroyTyping] = useState(false);
   const typedInstance = useRef<Typed | null>(null);
-  console.log(hasRated);
+  const [isOpened, setIsOpened] = useState(false);
+  const toastIdRef = useRef<import("react-toastify").Id | null>(null);
 
- const startTyping = () => {
+  const startTyping = () => {
     // Destroy previous instance if it exists
     if (destroyTyping) {
       if (typedInstance.current) {
         typedInstance.current.destroy();
       }
-      setDestroyTyping(false)
+      setDestroyTyping(false);
     }
 
     if (el.current) {
@@ -25,10 +27,10 @@ const RatingReminder = () => {
         typeSpeed: 10,
         backSpeed: 0,
         showCursor: true,
-        cursorChar: '',
+        cursorChar: "",
         onComplete: () => {
           // Callback when typing completes
-        }
+        },
       });
     }
   };
@@ -41,41 +43,54 @@ const RatingReminder = () => {
   }, []);
 
   useEffect(() => {
+    if (toastIdRef.current) {
+      toast.update(toastIdRef.current, {
+        autoClose: isOpened ? false : 10000,
+        closeOnClick: false,
+        pauseOnHover: isOpened ? true : false,
+      });
+    }
+  }, [isOpened]);
+
+  useEffect(() => {
     if (hasRated) return;
 
     const interval = setInterval(() => {
-        setDestroyTyping(true);
-        startTyping();
-      const toastId = toast.info(
+      setDestroyTyping(true);
+      startTyping();
+      toastIdRef.current = toast.info(
         <div className="p-2">
           <span className="" ref={el} />
-          <div className="flex gap-2 mt-3" id="rating-buttons">
-            <button
-              onClick={() => handleRating("rated")}
-              className="px-3 py-1 bg-pink-500 text-white rounded hover:bg-pink-600"
-            >
-              Rate Now
-            </button>
+          <div className="flex gap-3 mt-1" id="rating-buttons">
+            <RatingModal setIsOpened={setIsOpened} />
             <button
               onClick={() => handleRating("dismissed")}
-              className="px-3 py-1 bg-gray-500 rounded hover:bg-gray-600"
+              className="px-2 py-1 bg-gray-500 rounded hover:bg-gray-600"
             >
               Maybe Later
             </button>
           </div>
         </div>,
         {
-          autoClose: 10000,
+          autoClose: false,
           closeOnClick: false,
           pauseOnHover: true,
-          position: "bottom-right",
+          position: "top-right",
+          style: { width: "400px", background: "#3b82f6", },
+          onClose: () => {
+            toastIdRef.current = null;
+          },
         }
       );
-      return () => toast.dismiss(toastId);
+      return () => {
+        if (toastIdRef.current) {
+          toast.dismiss(toastIdRef.current);
+        }
+      };
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [hasRated]);
+  }, []);
 
   const handleRating = (action: "rated" | "dismissed") => {
     if (action === "rated") {
