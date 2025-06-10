@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import NumberOfUsers from "./components/NumberOfUsers";
 import axios from "axios";
+import RatingReminder from "./components/RatingReminder";
 
 type IpInfo = {
   ip: string;
@@ -96,6 +97,7 @@ function App() {
         <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main>
+            <RatingReminder/>
             <HeroSection />
             <SkillsSection />
             <AboutSection />

@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@heroui/avatar": "^2.2.15",
     "@heroui/button": "2.2.19",
     "@heroui/card": "^2.2.18",
@@ -27,9 +29,11 @@
     "@heroui/theme": "2.4.15",
     "@heroui/tooltip": "^2.2.16",
     "@heroui/use-theme": "2.1.8",
+    "@mui/material": "^7.1.1",
     "@react-aria/visually-hidden": "3.8.22",
     "@react-types/shared": "3.29.0",
     "@tanstack/react-query": "^5.80.6",
+    "@types/typed.js": "^2.0.0",
     "axios": "^1.9.0",
     "clsx": "2.1.1",
     "emailjs-com": "^3.2.0",
@@ -41,6 +45,7 @@
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "6.23.0",
+    "react-toastify": "^11.0.5",
     "recharts": "^2.15.3",
     "simplebar-react": "^3.3.1",
     "swiper": "^11.2.8",
