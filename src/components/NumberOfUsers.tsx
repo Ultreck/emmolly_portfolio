@@ -2,13 +2,8 @@ import {
   Chip,
   Tab,
   Tabs,
-  //   Modal,
-  //   ModalContent,
-  //   ModalHeader,
-  //   ModalBody,
-  //   ModalFooter,
-  //   Button,
-  //   useDisclosure,
+  //   Tab,
+  //   Tabs,
   Tooltip,
 } from "@heroui/react";
 import {
@@ -20,8 +15,12 @@ import {
   Button,
   useDisclosure,
 } from "@heroui/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 import { useState } from "react";
-import type { Key } from "@react-types/shared";
+import type { Swiper as SwiperClass } from "swiper";
 
 interface UserTabData {
   countryName: string;
@@ -41,7 +40,31 @@ interface NumberOfUsersProps {
 const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   //   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  const [tab, setTab] = useState<Key | null | undefined>("Nigeria");
+  const [tab, setTab] = useState(0);
+  const [swiper, setSwiper] = useState<SwiperClass | null>(null);
+
+  interface SwiperInstance {
+    slideTo: (index: number) => void;
+    slidePrev: () => void;
+    slideNext: () => void;
+    activeIndex: number;
+  }
+
+  const handleTabChange = (key: string | number) => {
+    const index = typeof key === "number" ? key : parseInt(key, 10);
+    setTab(index);
+    if (swiper) {
+      (swiper as SwiperInstance).slideTo(index);
+    }
+  };
+
+  interface SwiperInstanceType {
+    activeIndex: number;
+  }
+
+  const handleSlideChange = (swiperInstance: SwiperInstanceType) => {
+    setTab(swiperInstance.activeIndex);
+  };
 
   const formatIPs = (ip: string): string => {
     const formatOne = ip.split(".").slice(-3, -1);
@@ -78,62 +101,98 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
                 countries across the world who visited this portfolio.
               </DrawerHeader>
               <DrawerBody>
-                <div className="flex w-full flex-col overflow-x-auto">
+                <div className="relative">
+                  {/* Navigation Buttons */}
+                  <button
+                    className="absolute left-0 top-0 z-10 h-10 w-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-l-lg"
+                    onClick={() => swiper?.slidePrev()}
+                  >
+                    &lt;
+                  </button>
+
+                  <button
+                    className="absolute right-0 top-0 z-10 h-10 w-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-r-lg"
+                    onClick={() => swiper?.slideNext()}
+                  >
+                    &gt;
+                  </button>
+
+                  {/* Tabs Carousel */}
+                  <div className="px-10">
+                    {" "}
+                    {/* Padding for navigation buttons */}
+                    <Swiper
+                      modules={[Navigation]}
+                      spaceBetween={24}
+                      slidesPerView="auto"
+                      onSwiper={setSwiper}
+                      onSlideChange={handleSlideChange}
+                      className="!overflow-hidden"
+                    >
+                      {data?.map((item, index) => (
+                        <SwiperSlide key={item.countryName} className="!w-auto">
+                          <div
+                            onClick={() => handleTabChange(index)}
+                            className={`h-10 px-4 flex items-center space-x-2 cursor-pointer ${
+                              tab === index
+                                ? "text-[#06b6d4] font-medium"
+                                : "text-gray-600 dark:text-gray-400"
+                            }`}
+                          >
+                            <span>{item.countryName}</span>
+                            <Chip size="sm" variant="faded">
+                              {item.ips?.length}
+                            </Chip>
+                          </div>
+                          {tab === index && (
+                            <div className="w-full h-0.5 bg-[#22d3ee]" />
+                          )}
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+
                   <Tabs
                     aria-label="Options"
                     selectedKey={tab}
-                    onSelectionChange={(e) => setTab(e)}
+                    onSelectionChange={handleTabChange}
                     classNames={{
-                      tabList: "gap-6 w-full relative rounded-none p-0",
-                      cursor: "w-full bg-[#22d3ee]",
-                      tab: "max-xl px-0 h-10",
-                      tabContent: "group-data-[selected=true]:text-[#06b6d4]",
+                      tabList: "hidden",
+                      panel: "pt-4",
                     }}
-                    color="primary"
-                    variant="underlined"
-                  >
-                    {!!data?.length &&
-                      data?.map((item: UserTabData) => (
-                        <Tab
-                          key={item.countryName}
-                          title={
-                            <div className="flex items-center space-x-2">
-                              <span>{item?.countryName}</span>
-                              <Chip size="sm" variant="faded">
-                                {item?.ips?.length}
-                              </Chip>
-                            </div>
-                          }
+                  ></Tabs>
+                  {data[tab]?.ips && (
+                    <div className="flex flex-wrap pl-7 gap-5 pt-5">
+                      {data[tab].ips?.map((ip, index) => (
+                        <div
+                          className="shadow-md border p-5 gap-10 rounded-lg"
+                          key={index}
                         >
-                          <div className="text flex flex-wrap pl-7 gap-5 pt-5">
-                            {item?.ips?.map((ip, index) => (
-                              <div
-                                className="text shadow-md border p-5 gap-10 rounded-lg"
-                                key={index}
-                              >
-                                <div className="text flex items-center gap-2">
-                                  <div className="text w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center font-bold">
-                                    {index + 1}
-                                  </div>
-                                  <div className="text">{formatIPs(ip)}</div>
-                                </div>
-                                <div className="text flex justify-between">
-                                    <p className="text grid">
-                                        <span className="text-gray-500">Country</span>
-                                        <strong className="text">{item?.countryName}</strong>
-                                    </p>
-                                    <p className="text h-12 bg-gray-400 w-[1px] mx-2"></p>
-                                    <p className="text grid">
-                                        <span className="text-gray-500">Country code </span>
-                                        <strong className="text-end">{item?.countryCode}</strong>
-                                    </p>
-                                </div>
-                              </div>
-                            ))}
+                          <div className="flex items-center gap-2">
+                            <div className="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center font-bold">
+                              {index + 1}
+                            </div>
+                            <div>{formatIPs(ip)}</div>
                           </div>
-                        </Tab>
+                          <div className="flex justify-between">
+                            <p className="grid">
+                              <span className="text-gray-500">Country</span>
+                              <strong>{data[tab].countryName}</strong>
+                            </p>
+                            <p className="h-12 bg-gray-400 w-[1px] mx-2"></p>
+                            <p className="grid">
+                              <span className="text-gray-500">
+                                Country code
+                              </span>
+                              <strong className="text-end">
+                                {data[tab].countryCode}
+                              </strong>
+                            </p>
+                          </div>
+                        </div>
                       ))}
-                  </Tabs>
+                    </div>
+                  )}
                 </div>
               </DrawerBody>
               <DrawerFooter className="text-start flex justify-start">
