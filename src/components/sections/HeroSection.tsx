@@ -31,15 +31,13 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     setIsVisible(true);
-    
   }, []);
-    // console.log(ip);
 
   useEffect(() => {
     if (index < allMessages.length) {
       const timer = setTimeout(() => {
         setIndex((prev) => prev + 1);
-      }, 3000); // Change delay to control speed
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [index]);
@@ -116,7 +114,6 @@ const HeroSection: React.FC = () => {
                 Hello, I'm
               </motion.span>
               <span className="block mt-2 py-2">
-                {/* <span ref={el}></span> */}
                 <span>A. Emmanuel Oluwatayese</span>
               </span>
             </motion.h1>
@@ -334,12 +331,10 @@ const HeroSection: React.FC = () => {
           </section>
         </div>
 
-        {/* Decorative elements */}
         <div className="absolute top-1/4 left-10 w-64 h-64 bg-indigo-300 dark:bg-indigo-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob"></div>
         <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-blue-300 dark:bg-blue-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
         <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-300 dark:bg-purple-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
 
-        {/* Scroll down indicator */}
         <button
           onClick={scrollToNextSection}
           className="absolute bottom-8 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"
