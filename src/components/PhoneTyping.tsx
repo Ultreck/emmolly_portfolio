@@ -37,19 +37,15 @@ const messages = [
 ];
 const PhoneTyping = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const [shownMessages, setShownMessages] = useState<
-  //   { from: string; text: string }[]
-  // >([]);
   const [isTyping, setIsTyping] = useState(false);
   const typedRef = useRef<HTMLSpanElement>(null);
   const typedInstance = useRef<Typed | null>(null);
 
   useEffect(() => {
     if (currentIndex >= messages.length) {
-      // Wait a bit, then reset everything
       const resetTimeout = setTimeout(() => {
         setCurrentIndex(0);
-      }, 2000); // 2-second pause before restarting
+      }, 2000);
 
       return () => clearTimeout(resetTimeout);
     }
@@ -78,7 +74,6 @@ const PhoneTyping = () => {
   const startTyping = (text: string) => {
     if (!typedRef.current) return;
 
-    // Clear the container before typing
     typedRef.current.innerHTML = "";
 
     typedInstance.current = new Typed(typedRef.current, {
@@ -86,17 +81,14 @@ const PhoneTyping = () => {
       typeSpeed: 50,
       showCursor: false,
       onComplete: () => {
-        // setShownMessages((prev) => [...prev, messages[currentIndex]]);
         setCurrentIndex((prev) => prev + 1);
       },
     });
   };
 
-  // const bottomRef = useRef<HTMLDivElement | null>(null);
   const chatBodyRef = useRef<HTMLDivElement>(null);
     const scrollToBottom = () => {
     if (chatBodyRef.current) {
-      // Scroll to bottom smoothly
       chatBodyRef.current.scrollTo({
         top: chatBodyRef.current.scrollHeight,
         behavior: 'smooth'
@@ -108,7 +100,6 @@ const PhoneTyping = () => {
   }, [currentIndex, isTyping]);
 
 
-  // Function for real-time clock
   const [currentTime, setCurrentTime] = useState<string>(
     new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
   );
@@ -126,7 +117,6 @@ const PhoneTyping = () => {
   return (
     <div className="flex justify-center">
       <div className="lg:w-[360px] h-[570px] dark:bg-gray-800 bg-white rounded-[2.5rem] shadow-xl border-4 dark:border-gray-300 flex flex-col overflow-hidden">
-        {/* Status Bar */}
         <div className="flex items-center justify-between px-4 py-2 text-xs text-gray-500 dark:bg-gray-800 bg-white border-b">
           <span className="text-black dark:text-white">{currentTime}</span>
           <div className="flex items-center gap-1">
@@ -136,12 +126,10 @@ const PhoneTyping = () => {
           </div>
         </div>
 
-        {/* Header */}
         <div className="dark:bg-gray-800 bg-white px-4 py-3 flex items-center gap-3 border-b text-center font-semibold text-black dark:text-white">
            <Avatar isBordered className="border border-pink-500" src="https://i.pravatar.cc/150?u=a04258114e29026302d" /> John
         </div>
 
-        {/* Chat Body (scrollable) */}
         <div
         ref={chatBodyRef}
           className="flex-1 overflow-y-auto pb-20 no-scrollbar p-6 dark:bg-gray-800 bg-gray-100 text-sm font-sans space-y-4"
@@ -181,10 +169,8 @@ const PhoneTyping = () => {
             </div>
           )}
 
-          {/* <div ref={bottomRef} /> */}
         </div>
 
-        {/* Footer */}
         <div className="p-3 dark:bg-gray-800 bg-white border-t flex items-center gap-2">
           <input
             type="text"
