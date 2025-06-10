@@ -1,4 +1,3 @@
-// import React from 'react';
 import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import HeroSection from "./components/sections/HeroSection";
@@ -52,16 +51,18 @@ function App() {
     axios
       .get(`${baseUrl}/${appName}`)
       .then((res) => {
-        // Ensure the data is always an array
-        setIpInformations(Array.isArray(res.data.appTrackingInfos.countries) ? res.data.appTrackingInfos.countries : []);
+        setIpInformations(
+          Array.isArray(res.data.appTrackingInfos.countries)
+            ? res.data.appTrackingInfos.countries
+            : []
+        );
       })
       .catch((err) => {
         console.log(err);
       });
-    }, []);
+  }, []);
 
-    const allIPs = ipInformations.flatMap((c) => c?.ips);
-    
+  const allIPs = ipInformations.flatMap((c) => c?.ips);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
