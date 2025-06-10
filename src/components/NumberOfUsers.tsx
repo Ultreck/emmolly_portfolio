@@ -25,6 +25,7 @@ import type { Key } from "@react-types/shared";
 
 interface UserTabData {
   countryName: string;
+  countryCode: string; // Added to match usage in the component
   ips?: string[]; // Add this property to match usage in the component
   // Define the properties based on your data structure, for example:
   // id: string;
@@ -42,13 +43,11 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
   //   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [tab, setTab] = useState<Key | null | undefined>("Nigeria");
 
-
-
-const formatIPs = (ip: string): string => {
-    const formatOne = ip.split('.').slice(-3, -1);
+  const formatIPs = (ip: string): string => {
+    const formatOne = ip.split(".").slice(-3, -1);
     // You can adjust the formatting as needed, here just joining the result for display
-    return `User: XX.XX.XX.`+formatOne.join('.');
-};
+    return `User: XX.XX.XX.` + formatOne.join(".");
+  };
 
   return (
     <>
@@ -106,14 +105,29 @@ const formatIPs = (ip: string): string => {
                             </div>
                           }
                         >
-                          <div className="text ">
+                          <div className="text flex flex-wrap pl-7 gap-5 pt-5">
                             {item?.ips?.map((ip, index) => (
                               <div
-                                className="text flex items-center gap-10 my-5"
+                                className="text shadow-md border p-5 gap-10 rounded-lg"
                                 key={index}
                               >
-                                <div className="text w-10 h-10 bg-gray-500 rounded-full"></div>
-                                <div className="text">{formatIPs(ip)}</div>
+                                <div className="text flex items-center gap-2">
+                                  <div className="text w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center font-bold">
+                                    {index + 1}
+                                  </div>
+                                  <div className="text">{formatIPs(ip)}</div>
+                                </div>
+                                <div className="text flex justify-between">
+                                    <p className="text grid">
+                                        <span className="text-gray-500">Country</span>
+                                        <strong className="text">{item?.countryName}</strong>
+                                    </p>
+                                    <p className="text h-12 bg-gray-400 w-[1px] mx-2"></p>
+                                    <p className="text grid">
+                                        <span className="text-gray-500">Country code </span>
+                                        <strong className="text-end">{item?.countryCode}</strong>
+                                    </p>
+                                </div>
                               </div>
                             ))}
                           </div>
