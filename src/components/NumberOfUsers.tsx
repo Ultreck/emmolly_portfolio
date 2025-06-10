@@ -1,11 +1,4 @@
-import {
-  Chip,
-  Tab,
-  Tabs,
-  //   Tab,
-  //   Tabs,
-  Tooltip,
-} from "@heroui/react";
+import { Chip, Tabs, Tooltip } from "@heroui/react";
 import {
   Drawer,
   DrawerContent,
@@ -24,22 +17,17 @@ import type { Swiper as SwiperClass } from "swiper";
 
 interface UserTabData {
   countryName: string;
-  countryCode: string; // Added to match usage in the component
-  ips?: string[]; // Add this property to match usage in the component
-  // Define the properties based on your data structure, for example:
-  // id: string;
-  // title: string;
-  // count: number;
+  countryCode: string;
+  ips?: string[];
 }
 
 interface NumberOfUsersProps {
-  data: UserTabData[]; // Use the specific type instead of 'any'
-  ip?: string[]; // Add this property to match usage in the component
+  data: UserTabData[];
+  ip?: string[];
 }
 
 const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  //   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [tab, setTab] = useState(0);
   const [swiper, setSwiper] = useState<SwiperClass | null>(null);
 
@@ -68,7 +56,6 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
 
   const formatIPs = (ip: string): string => {
     const formatOne = ip.split(".").slice(-3, -1);
-    // You can adjust the formatting as needed, here just joining the result for display
     return `User: XX.XX.XX.` + formatOne.join(".");
   };
 
@@ -102,7 +89,6 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
               </DrawerHeader>
               <DrawerBody>
                 <div className="relative">
-                  {/* Navigation Buttons */}
                   <button
                     className="absolute left-0 top-0 z-10 h-10 w-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-l-lg"
                     onClick={() => swiper?.slidePrev()}
@@ -117,10 +103,7 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
                     &gt;
                   </button>
 
-                  {/* Tabs Carousel */}
                   <div className="px-10">
-                    {" "}
-                    {/* Padding for navigation buttons */}
                     <Swiper
                       modules={[Navigation]}
                       spaceBetween={24}
