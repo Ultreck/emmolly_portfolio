@@ -26,7 +26,6 @@ const Header: React.FC = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
-  // let s = motion
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -106,7 +105,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <div
         className={`md:hidden ${
           isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
