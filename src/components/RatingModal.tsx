@@ -12,8 +12,12 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { FiUploadCloud } from "react-icons/fi";
+import Rating from "@mui/material/Rating";
+import Box from "@mui/material/Box";
+import StarIcon from "@mui/icons-material/Star";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -35,33 +39,33 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
     defaultValues: {
       name: "",
       text: "",
-      rating: 5,
+      rating: 0,
     },
   });
 
   useEffect(() => {
     setIsOpened(isOpen);
-    if(isOpen){
+    if (isOpen) {
       toast.pause();
-    }else{
+    } else {
       toast.play();
     }
   }, [isOpen, setIsOpened]);
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     const formData = new FormData();
-    formData.append('name', data.name);
-    formData.append('review', data.text);
-    formData.append('rating', data.rating.toString());
-    
+    formData.append("name", data.name);
+    formData.append("review", data.text);
+    formData.append("rating", data.rating.toString());
+
     if (data.file && data.file.length > 0) {
-      formData.append('file', data.file[0]);
+      formData.append("file", data.file[0]);
     }
 
     try {
       // Replace with your actual API call
-      const response = await fetch('/api/ratings', {
-        method: 'POST',
+      const response = await fetch("/api/ratings", {
+        method: "POST",
         body: formData,
       });
 
@@ -69,10 +73,10 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
         onClose();
         form.reset();
       } else {
-        console.error('Failed to submit rating');
+        console.error("Failed to submit rating");
       }
     } catch (error) {
-      console.error('Error submitting rating:', error);
+      console.error("Error submitting rating:", error);
     }
   };
 
@@ -81,6 +85,23 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
     onClose();
   };
 
+  const labels: { [index: string]: string } = {
+    0.5: "Very poor",
+    1: "Poor",
+    1.5: "Fair",
+    2: "Ok",
+    2.5: "Ok+",
+    3: "Good",
+    3.5: "Very Good",
+    4: "Amazing",
+    4.5: "Wow",
+    5: "Excellent",
+  };
+  function getLabelText(value: number) {
+    return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
+  }
+  const [value, setValue] = useState<number | null>(0.5);
+  const [hover, setHover] = useState(-1);
   return (
     <>
       <Button
@@ -90,7 +111,11 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
         Rate Now
       </Button>
 
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        className="dark:bg-gray-800"
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {() => (
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -110,7 +135,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                       htmlFor="name"
                       className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                     >
-                      Your Name *
+                      Your Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -126,7 +151,6 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                     )}
                   </motion.div>
 
-
                   {/* Profile Picture */}
                   <motion.div
                     initial="hidden"
@@ -140,13 +164,21 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                     >
                       Profile Picture (Optional)
                     </label>
+                    <div className="text flex justify-center border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-600/30 items-center w-full h-12 p-7 border-2 border-dashed rounded-lg">
+                      <div className="">
+                        <FiUploadCloud className="mx-auto" />
+                        <p className="dark:text-gray-500">
+                          Format: jpeg, jpg, png, webp
+                        </p>
+                      </div>
+                    </div>
                     <input
                       type="file"
                       id="file"
                       {...form.register("file")}
                       ref={fileRef}
                       accept="image/*"
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
+                      className="w-full hidden px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
                     />
                   </motion.div>
 
@@ -158,7 +190,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                     variants={fadeIn("right", "spring", 0.5, 1.0)}
                   >
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Your Review *
+                      Your Review <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       id="text"
@@ -181,19 +213,51 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                     variants={fadeIn("down", "spring", 0.3, 1.0)}
                   >
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Your Rating *
+                      Your Rating <span className="text-red-500">*</span>
                     </label>
-                    <div className="flex items-center space-x-1">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          key={star}
-                          type="button"
-                          onClick={() => form.setValue("rating", star)}
-                          className={`text-2xl ${star <= form.watch("rating") ? 'text-yellow-400' : 'text-gray-300'}`}
-                        >
-                          ★
-                        </button>
-                      ))}
+                    <div className="text flex items-center gap-5">
+                      <Rating
+                        name="simple rating"
+                        sx={{
+                          "& .MuiRating-icon": {
+                            marginRight: "8px",
+                            marginLeft: "8px",
+                          },
+                          "& .MuiRating-icon:last-child": {
+                            marginRight: 0,
+                          },
+                          "& .MuiRating-iconEmpty": {
+                            color: "#6b7280",
+                          },
+                        }}
+                        value={form.watch("rating")}
+                        defaultValue={0}
+                        size="large"
+                        precision={0.5}
+                        getLabelText={getLabelText}
+                        onChange={(event, newValue) => {
+                          console.log(event);
+                          setValue(newValue);
+                          form.setValue("rating", newValue as number, {
+                            shouldValidate: true,
+                          });
+                        }}
+                        onChangeActive={(event, newHover) => {
+                          console.log(event);
+                          setHover(newHover);
+                        }}
+                        emptyIcon={
+                          <StarIcon
+                            style={{ opacity: 0.55 }}
+                            fontSize="inherit"
+                          />
+                        }
+                      />
+                      {value !== null && (
+                        <Box sx={{ ml: 2 }}>
+                          {labels[hover !== -1 ? hover : value]}
+                        </Box>
+                      )}
                     </div>
                   </motion.div>
                 </div>
@@ -202,12 +266,14 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                 <Button color="danger" variant="light" onPress={handleClose}>
                   Cancel
                 </Button>
-                <Button 
-                  color="primary" 
+                <Button
+                  color="primary"
                   type="submit"
                   isDisabled={form.formState.isSubmitting}
                 >
-                  {form.formState.isSubmitting ? 'Submitting...' : 'Submit Review'}
+                  {form.formState.isSubmitting
+                    ? "Submitting..."
+                    : "Submit Review"}
                 </Button>
               </ModalFooter>
             </form>
