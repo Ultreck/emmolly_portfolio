@@ -22,7 +22,9 @@ import StarIcon from "@mui/icons-material/Star";
 const formSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
   text: z.string().min(1, { message: "Review text is required" }),
-  rating: z.number().min(1).max(5),
+  rating: z.number()
+    .min(1, { message: "Please select at least 1 star" })
+    .max(5, { message: "Maximum rating is 5 stars" }),
   file: z.instanceof(FileList).optional(),
 });
 
@@ -32,6 +34,8 @@ interface RatingModalProps {
 
 const RatingModal = ({ setIsOpened }: RatingModalProps) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+  const [value, setValue] = useState<number | null>(0.5);
+  const [hover, setHover] = useState(-1);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -58,26 +62,29 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
     formData.append("review", data.text);
     formData.append("rating", data.rating.toString());
 
-    if (data.file && data.file.length > 0) {
-      formData.append("file", data.file[0]);
+    if (fileRef.current && fileRef.current.files && fileRef.current.files.length > 0) {
+      formData.append("file", fileRef.current.files[0]);
     }
+    formData.forEach(element => {
+      console.log(element);
+      
+    });
 
-    try {
-      // Replace with your actual API call
-      const response = await fetch("/api/ratings", {
-        method: "POST",
-        body: formData,
-      });
+    // try {
+    //   const response = await fetch("/api/ratings", {
+    //     method: "POST",
+    //     body: formData,
+    //   });
 
-      if (response.ok) {
-        onClose();
-        form.reset();
-      } else {
-        console.error("Failed to submit rating");
-      }
-    } catch (error) {
-      console.error("Error submitting rating:", error);
-    }
+    //   if (response.ok) {
+    //     onClose();
+    //     form.reset();
+    //   } else {
+    //     console.error("Failed to submit rating");
+    //   }
+    // } catch (error) {
+    //   console.error("Error submitting rating:", error);
+    // }
   };
 
   const handleClose = () => {
@@ -86,22 +93,24 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
   };
 
   const labels: { [index: string]: string } = {
-    0.5: "Very poor",
+    0.5: "Very Poor",
     1: "Poor",
     1.5: "Fair",
-    2: "Ok",
-    2.5: "Ok+",
+    2: "Below Average",
+    2.5: "Average",
     3: "Good",
     3.5: "Very Good",
-    4: "Amazing",
-    4.5: "Wow",
-    5: "Excellent",
+    4: "Excellent",
+    4.5: "Outstanding",
+    5: "Perfect",
   };
   function getLabelText(value: number) {
     return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
   }
-  const [value, setValue] = useState<number | null>(0.5);
-  const [hover, setHover] = useState(-1);
+
+  const handleFileUpload = () => {
+    fileRef.current?.click();
+  };
   return (
     <>
       <Button
@@ -141,7 +150,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                       type="text"
                       id="name"
                       {...form.register("name")}
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
+                      className="w-full px-4 p-7 h-12 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
                       placeholder="Your name"
                     />
                     {form.formState.errors.name && (
@@ -164,14 +173,32 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                     >
                       Profile Picture (Optional)
                     </label>
-                    <div className="text flex justify-center border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-600/30 items-center w-full h-12 p-7 border-2 border-dashed rounded-lg">
+                    <button
+                      onClick={handleFileUpload}
+                      className={`text ${
+                        fileRef.current &&
+                        fileRef.current.files &&
+                        fileRef.current.files.length > 0 &&
+                        ["jpeg", "jpg", "png", "webp"].includes(
+                          fileRef.current.files[0].type.split("/")[1]
+                        )? "border-green-300 dark:border-green-600 bg-green-100 dark:bg-green-600/30 " :  fileRef.current &&
+                        fileRef.current.files &&
+                        fileRef.current.files.length > 0 &&
+                        !["jpeg", "jpg", "png", "webp"].includes(
+                          fileRef.current.files[0].type.split("/")[1]
+                        )? "border-red-300 dark:border-red-600 bg-red-100 dark:bg-red-600/30 " : "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-600/30"
+                      } cursor-pointer flex justify-center items-center w-full h-12 p-7 border-2 border-dashed rounded-lg`}
+                    >
                       <div className="">
                         <FiUploadCloud className="mx-auto" />
                         <p className="dark:text-gray-500">
-                          Format: jpeg, jpg, png, webp
+                          { fileRef.current &&
+                        fileRef.current.files &&
+                        fileRef.current.files.length > 0? <span className="text"><strong className="text">{fileRef.current.files[0].name} </strong> file attachd</span> : "Format: jpeg, jpg, png, webp"}
+                          
                         </p>
                       </div>
-                    </div>
+                    </button>
                     <input
                       type="file"
                       id="file"
@@ -217,7 +244,6 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                     </label>
                     <div className="text flex items-center gap-5">
                       <Rating
-                        name="simple rating"
                         sx={{
                           "& .MuiRating-icon": {
                             marginRight: "8px",
@@ -233,6 +259,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                         value={form.watch("rating")}
                         defaultValue={0}
                         size="large"
+                        name="rating"
                         precision={0.5}
                         getLabelText={getLabelText}
                         onChange={(event, newValue) => {

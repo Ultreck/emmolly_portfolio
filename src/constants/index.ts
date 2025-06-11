@@ -1,4 +1,4 @@
-import type { NavItem, Project, Skill, SocialLink } from "../types";
+import type { DummyReviews, NavItem, Project, Skill, SocialLink } from "../types";
 import weatherImg from '../assets/weather.png';
 import movieImg from '../assets/movie.png';
 import smsImg from '../assets/sms.png';
@@ -100,4 +100,119 @@ export const socialLinks: SocialLink[] = [
   { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/oluwatayese-emmanuel-a-39254b218?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bq64WZR48RtG2XFs5lYMF6w%3D%3D', icon: 'linkedin' },
   { platform: 'Twitter', url: 'https://x.com/AdetutuEmmanue6?t=2Dp_Fjr6izYH3tibEdd7bA&s=08', icon: 'twitter' },
   // { platform: 'Dribbble', url: 'https://dribbble.com', icon: 'dribbble' },
+];
+
+export const dummyReviews: DummyReviews[] = [
+  {
+    id: 1,
+    name: "John D.",
+    rating: 5,
+    date: "2023-10-15",
+    review: "Absolutely stunning portfolio! The design is clean and professional. One of the best I've seen in a long time.",
+    avatar: "/avatars/1.jpg"
+  },
+  {
+    id: 2,
+    name: "Sarah M.",
+    rating: 4.5,
+    date: "2023-10-18",
+    review: "Great work with excellent attention to detail. The projects are impressive and well-documented.",
+    avatar: "/avatars/2.jpg"
+  },
+  {
+    id: 3,
+    name: "Alex K.",
+    rating: 3,
+    date: "2023-10-20",
+    review: "Good portfolio overall, but could use more variety in the project examples.",
+    avatar: "/avatars/3.jpg"
+  },
+  {
+    id: 4,
+    name: "Emma T.",
+    rating: 5,
+    date: "2023-10-22",
+    review: "Incredible showcase of skills! The UX/UI projects particularly stood out to me. Very inspiring!",
+    avatar: "/avatars/4.jpg"
+  },
+  {
+    id: 5,
+    name: "Michael B.",
+    rating: 2.5,
+    date: "2023-10-25",
+    review: "Decent portfolio but the loading times could be improved. Some sections felt a bit slow.",
+    avatar: "/avatars/5.jpg"
+  },
+  {
+    id: 6,
+    name: "Lisa W.",
+    rating: 4,
+    date: "2023-10-28",
+    review: "Really like the minimalist design approach. The case studies are thorough and well-presented.",
+    avatar: "/avatars/6.jpg"
+  },
+  {
+    id: 7,
+    name: "David R.",
+    rating: 5,
+    date: "2023-11-01",
+    review: "Perfect score! This portfolio demonstrates exceptional skills across all areas of development and design.",
+    avatar: "/avatars/7.jpg"
+  },
+  {
+    id: 8,
+    name: "Olivia S.",
+    rating: 3.5,
+    date: "2023-11-05",
+    review: "Good work overall, though I'd like to see more mobile-first examples in the projects.",
+    avatar: "/avatars/8.jpg"
+  },
+  {
+    id: 9,
+    name: "James P.",
+    rating: 4,
+    date: "2023-11-08",
+    review: "Impressive technical skills shown throughout. The code examples are particularly well-documented.",
+    avatar: "/avatars/9.jpg"
+  },
+  {
+    id: 10,
+    name: "Sophia L.",
+    rating: 1,
+    date: "2023-11-10",
+    review: "Not what I was expecting. The layout feels cluttered and some links don't work properly.",
+    avatar: "/avatars/10.jpg"
+  },
+  {
+    id: 11,
+    name: "Emma T.",
+    rating: 5,
+    date: "2023-10-22",
+    review: "Incredible showcase of skills! The UX/UI projects particularly stood out to me. Very inspiring!",
+    avatar: "/avatars/4.jpg"
+  },
+  {
+    id: 12,
+    name: "Michael B.",
+    rating: 2.5,
+    date: "2023-10-25",
+    review: "Decent portfolio but the loading times could be improved. Some sections felt a bit slow.",
+    avatar: "/avatars/5.jpg"
+  },
+  {
+    id: 13,
+    name: "Lisa W.",
+    rating: 4,
+    date: "2023-10-28",
+    review: "Really like the minimalist design approach. The case studies are thorough and well-presented.",
+    avatar: "/avatars/6.jpg"
+  },
+  {
+    id: 14,
+    name: "David R.",
+    rating: 5,
+    date: "2023-11-01",
+    review: "Perfect score! This portfolio demonstrates exceptional skills across all areas of development and design.",
+    avatar: "/avatars/7.jpg"
+  },
 ];

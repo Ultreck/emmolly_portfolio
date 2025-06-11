@@ -33,3 +33,12 @@ export interface SocialLink {
   url: string;
   icon: string;
 }
+
+export interface DummyReviews {
+    id: number;
+    name: string;
+    rating: number;
+    date: string;
+    review: string;
+    avatar: string;
+}

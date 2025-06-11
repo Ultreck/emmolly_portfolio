@@ -12,6 +12,7 @@ import { FaArrowUp } from "react-icons/fa";
 import NumberOfUsers from "./components/NumberOfUsers";
 import axios from "axios";
 import RatingReminder from "./components/RatingReminder";
+import Reviews from "./components/Reviews";
 
 type IpInfo = {
   ip: string;
@@ -107,6 +108,7 @@ function App() {
             <AboutSection />
             <ProjectsSection />
             <ContactSection />
+            <Reviews/>
           </main>
           {isScrolled && (
             <button
