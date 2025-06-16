@@ -97,7 +97,7 @@ const ContactSection: React.FC = () => {
               <motion.h3
                 initial="hidden"
                 whileInView="show"
-                viewport={{ margin: "-20%" }}
+                viewport={{ margin: "-5%" }}
                 variants={fadeIn("down", "spring", 0.2, 1.0)}
                 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center lg:text-left"
               >
@@ -106,7 +106,7 @@ const ContactSection: React.FC = () => {
               <motion.p
                 initial="hidden"
                 whileInView="show"
-                viewport={{ margin: "-20%" }}
+                viewport={{ margin: "-5%" }}
                 variants={fadeIn("left", "spring", 0.3, 1.0)}
                 className="text-gray-600 dark:text-gray-300 mb-6 text-center lg:text-left"
               >
@@ -122,7 +122,7 @@ const ContactSection: React.FC = () => {
                   <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "-20%" }}
+                    viewport={{ margin: "-5%" }}
                     variants={fadeIn("right", "spring", 0.3, 1.0)}
                   >
                     <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -139,8 +139,8 @@ const ContactSection: React.FC = () => {
                 <motion.h4
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
-                  variants={fadeIn("down", "spring", 0.2, 1.0)}
+                  viewport={{ margin: "-2%" }}
+                  variants={fadeIn("left", "spring", 0.2, 1.0)}
                   className="text-gray-900 dark:text-white font-medium mb-4 text-center lg:text-left"
                 >
                   Connect with me
@@ -171,7 +171,7 @@ const ContactSection: React.FC = () => {
                   <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "-20%" }}
+                    viewport={{ margin: "-5%" }}
                     variants={fadeIn("down", "spring", 0.2, 1.0)}
                   >
                     <label
@@ -194,7 +194,7 @@ const ContactSection: React.FC = () => {
                   <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "-20%" }}
+                    viewport={{ margin: "-5%" }}
                     variants={fadeIn("left", "spring", 0.2, 1.0)}
                   >
                     <label
@@ -219,7 +219,7 @@ const ContactSection: React.FC = () => {
                 <motion.div
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
+                  viewport={{ margin: "-5%" }}
                   variants={fadeIn("up", "spring", 0.2, 1.0)}
                   className="mb-6"
                 >
@@ -244,7 +244,7 @@ const ContactSection: React.FC = () => {
                 <motion.div
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
+                  viewport={{ margin: "-5%" }}
                   variants={fadeIn("down", "spring", 0.2, 1.0)}
                   className="mb-6"
                 >

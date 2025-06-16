@@ -21,7 +21,7 @@ const SkillsSection: React.FC = () => {
         variants={fadeIn("up", "spring", 0.2, 1.2)}
         className="container mx-auto sm:px-4 lg:px-8"
       >
-        <div className="max-w-3xl mx-auto text-center mb-10">
+        <div className="max-w-3xl mx-auto text-center mb-5">
           <motion.h2
             initial="hidden"
             whileInView="show"
@@ -33,7 +33,7 @@ const SkillsSection: React.FC = () => {
           </motion.h2>
           <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
         </div>
-        <section className="text grid gridcols-1 md:grid-cols-3 gap-5 mb-10">
+        <section className="text grid gridcols-1 md:grid-cols-3 gap-5 mb-8">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -48,7 +48,7 @@ const SkillsSection: React.FC = () => {
             whileInView="show"
             viewport={{ margin: "-10%" }}
             variants={fadeIn("left", "spring", 0.1, 1.2)}
-            className="grid col-span-3 grid-cols-1 md:col-span-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid col-span-3 grid-cols-1 md:col-span-2 md:grid-cols-2 lg:grid-cols-3 gap-5"
           >
             <motion.div
               initial="hidden"

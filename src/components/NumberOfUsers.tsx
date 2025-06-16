@@ -153,7 +153,7 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
                         >
                           <div className="flex items-center gap-2">
                             <div className="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center font-bold">
-                              {index + 1}
+                              {ip.split(".")[2]}
                             </div>
                             <div>{formatIPs(ip)}</div>
                           </div>

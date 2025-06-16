@@ -509,13 +509,13 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       >
                         <span className="text flex my-3 gap-1">
                           <FaPlay className="text-[#EC4899] w-8 md:w-5" />
-                          Earned Bachelor of Science in Computer Science from
-                          the Federal University of Technology Akure (FUTA)
+                          Acquired Full Stack Web Development skills through a
+                          program at SQI College of ICT.
                         </span>
                         <span className="text flex my-3 gap-1">
                           <FaPlay className="text-[#EC4899] w-8 md:w-5" />
-                          Acquired Full Stack Web Development skills through a
-                          program at SQI College of ICT.
+                          Earned Bachelor of Science in Computer Science from
+                          the Federal University of Technology Akure (FUTA)
                         </span>
                       </motion.p>
                     </div>

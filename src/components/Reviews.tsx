@@ -37,7 +37,7 @@ const Reviews = () => {
         });
       };
   return (
-     <div className=" bottom-0 left-0 w-full bg-default-50 border-t dark:border-default-100 border-default-200 shadow-lg py-4 overflow-hidden ml-24">
+     <div className=" bottom-0 left-0 w-[85%] mx-auto bg-default-50 border-t dark:border-default-100 border-default-200 shadow-lg py-4 overflow-hidden ml-24">
           <div className="relative w-full overflow-hidden">
             <motion.div
               className="flex gap-8"
