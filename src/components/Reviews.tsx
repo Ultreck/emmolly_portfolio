@@ -7,9 +7,8 @@ const Reviews = () => {
   const controls = useAnimation();
 
   useEffect(() => {
-    // Start animation
     controls.start({
-      x: "-50%",
+      x: "-20%",
       transition: {
         repeat: Infinity,
         repeatType: "loop",
@@ -20,13 +19,12 @@ const Reviews = () => {
   }, [controls]);
 
   const handleMouseEnter = () => {
-    controls.stop(); // Pause animation
+    controls.stop();
   };
 
   const handleMouseLeave = () => {
-    // Resume animation
     controls.start({
-      x: "-50%",
+      x: "-20%",
       transition: {
         repeat: Infinity,
         repeatType: "loop",
@@ -48,7 +46,7 @@ const Reviews = () => {
           {dummyReviews?.map((item, index) => (
             <div
               key={index}
-              className="w-[300px] relative border dark:border-gray-900 border-gray-100 min-w-[300px] text-xs  bg-gray-100 dark:bg-gray-700 shadow-md py-4 rounded"
+              className="w-[300px] relative border dark:border-gray-900 border-gray-100 min-w-[300px] text-xs  bg-gray-100 dark:bg-gray-700 shadow-md py-4 rounded-tr-xl rounded-bl-xl p-5"
             >
               <div
                 className="text relative before:content-[' '] before:w-7 before:h-7 dark:before:bg-gray-700 before:bg-gray-100 before:absolute before:-translate-x-[25px] before:rotate-[-32deg]
@@ -61,21 +59,33 @@ const Reviews = () => {
                   className="w-full h-full rounded-full z-50 "
                 />
               </div>
-              <h1 className="text-xs mb-3 mt-4 font-semibold dark:text-gray-50">
-                {item.name}
-              </h1>
-              <div className="text-center mx-auto">
-                <Stack spacing={1}>
-                  <Rating
-                    name="half-rating-read"
-                    defaultValue={item.rating}
-                    precision={0.5}
-                    readOnly
-                  />
-                </Stack>
+              <div className="text flex items-center gap-2">
+                <h1 className="mt-1 text-4xl font-semibold">{item?.rating?.toFixed(1)}</h1>
+                <div className="text">
+                  <h1 className="text-base mb-3 mt-4 font-semibold dark:text-gray-50">
+                    {item.name}
+                  </h1>
+                  <div className="text-center mx-auto">
+                    <Stack spacing={1}>
+                      <Rating
+                       sx={{
+                          "& .MuiRating-icon:last-child": {
+                            marginRight: 0,
+                          },
+                          "& .MuiRating-iconEmpty": {
+                            color: "#9ca3af",
+                          },
+                        }}
+                        name="half-rating-read"
+                        defaultValue={item.rating}
+                        precision={0.5}
+                        readOnly
+                      />
+                    </Stack>
+                  </div>
+                </div>
               </div>
-              <h1 className="mt-1 text-sm">Rating: {item.rating}</h1>
-              <h1 className="text-blue-600 mt-2 font-semibold text-md"></h1>
+              <h1 className="text mt-2 font-semibold text-md">{item?.review}</h1>
             </div>
           ))}
         </motion.div>
