@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { dummyReviews } from "@/constants";
 import Stack from "@mui/material/Stack";
 import Rating from "@mui/material/Rating";
-import { FaCircleUser, FaRegCircleUser } from "react-icons/fa6";
+import { FaCircleUser } from "react-icons/fa6";
 
 interface ReviewsProps {
   data: { reviews: any[] }[];
