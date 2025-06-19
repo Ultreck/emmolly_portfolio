@@ -44,10 +44,31 @@ function App() {
     return () => window.removeEventListener("scroll", handleIsScrolled);
   }, []);
 
+  // useEffect(() => {
+  //   if(showToast <= 420){
+  //     window.location.href = '/#home'
+  //   }
+  //   else if(showToast > 600 && showToast <= 1200 ){
+  //     window.location.href = '/#services'
+  //   }
+  //   else if(showToast > 1200 && showToast <= 2052){
+  //     window.location.href = '/#resume'
+  //   }
+  //   else if(showToast > 3000 && showToast <= 4500){
+  //     window.location.href = '/#projects'
+  //   }else{
+      
+  //     window.location.href = '/#contact'
+  //   }
+  
+  
+  // }, [showToast]);
+  
+
+  console.log("scrolled height", showToast);
   useEffect(() => {
     const visitedOnceRaw = localStorage.getItem("visitedOnce");
     const alreadyVisited = visitedOnceRaw ? JSON.parse(visitedOnceRaw) : null;
-    console.log("Already existed visits", alreadyVisited);
 
     if (!alreadyVisited) {
       getUserIPAndTrack();

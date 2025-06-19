@@ -1,4 +1,4 @@
-import { Globe, PenTool, Server } from "lucide-react";
+import { ArrowDown, Globe, PenTool, Server } from "lucide-react";
 import { FaCode } from "react-icons/fa";
 import { RiSeoLine } from "react-icons/ri";
 import PhoneTyping from "../PhoneTyping";
@@ -8,7 +8,12 @@ import { TbMessageChatbot } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../utils/variant";
 const SkillsSection: React.FC = () => {
-
+  const scrollToNextSection = () => {
+    const aboutSection = document.getElementById("resume");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section
       id="services"
@@ -19,7 +24,7 @@ const SkillsSection: React.FC = () => {
         whileInView="show"
         viewport={{ margin: "-20%" }}
         variants={fadeIn("up", "spring", 0.2, 1.2)}
-        className="container mx-auto sm:px-4 lg:px-8"
+        className="container mx-auto relative sm:px-4 lg:px-8"
       >
         <div className="max-w-3xl mx-auto text-center mb-5">
           <motion.h2
@@ -281,6 +286,15 @@ const SkillsSection: React.FC = () => {
             </motion.div>
           </motion.div>
         </section>
+          <button
+          onClick={scrollToNextSection}
+          className="absolute bottom-8 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400  transition-colors duration-300 animate-bounce"
+          aria-label="Scroll down"
+        >
+          <a key={"#resume"} href={"#resume"}>
+            <ArrowDown size={24} />
+          </a>
+        </button>
       </motion.div>
     </section>
   );

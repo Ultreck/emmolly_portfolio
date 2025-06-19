@@ -1,21 +1,31 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { dummyReviews } from "@/constants";
 import Stack from "@mui/material/Stack";
 import Rating from "@mui/material/Rating";
 const Reviews = () => {
   const controls = useAnimation();
-
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const SLIDE_WIDTH = 1000;
   useEffect(() => {
-    controls.start({
-      x: "-20%",
-      transition: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 5,
-        ease: "linear",
-      },
-    });
+    const totalWidth = sliderRef.current
+      ? sliderRef.current.scrollWidth / 2
+      : 0;
+
+    const loopAnimation = async () => {
+      await controls.start({
+        x: -totalWidth,
+        transition: {
+          duration: dummyReviews.length * 4,
+          ease: "linear",
+        },
+      });
+
+      controls.set({ x: 0 });
+      loopAnimation();
+    };
+
+    loopAnimation();
   }, [controls]);
 
   const handleMouseEnter = () => {
@@ -24,12 +34,11 @@ const Reviews = () => {
 
   const handleMouseLeave = () => {
     controls.start({
-      x: "-20%",
+      x: `-${SLIDE_WIDTH}px`,
       transition: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 5,
+        duration: dummyReviews.length * 4,
         ease: "linear",
+        repeat: Infinity,
       },
     });
   };
@@ -39,14 +48,15 @@ const Reviews = () => {
         <motion.div
           className="flex gap-5 w-full py-10"
           initial={{ x: 50 }}
+          ref={sliderRef}
           animate={controls}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {dummyReviews?.map((item, index) => (
+          {[...dummyReviews, ...dummyReviews]?.map((item, index) => (
             <div
               key={index}
-              className="w-[300px] relative border dark:border-gray-900 border-gray-100 min-w-[300px] text-xs  bg-gray-100 dark:bg-gray-700 shadow-md py-4 rounded-tr-xl rounded-bl-xl p-5"
+              className="w-[300px] relative border dark:border-gray-900 border-gray-100 min-w-[300px] text-xs  bg-gray-100 dark:bg-gray-700 shadow-md py-4 rounded-tr-3xl rounded-bl-3xl p-5"
             >
               <div
                 className="text relative before:content-[' '] before:w-7 before:h-7 dark:before:bg-gray-700 before:bg-gray-100 before:absolute before:-translate-x-[25px] before:rotate-[-32deg]
@@ -60,7 +70,9 @@ const Reviews = () => {
                 />
               </div>
               <div className="text flex items-center gap-2">
-                <h1 className="mt-1 text-4xl font-semibold">{item?.rating?.toFixed(1)}</h1>
+                <h1 className="mt-1 text-4xl font-semibold">
+                  {item?.rating?.toFixed(1)}
+                </h1>
                 <div className="text">
                   <h1 className="text-base mb-3 mt-4 font-semibold dark:text-gray-50">
                     {item.name}
@@ -68,7 +80,7 @@ const Reviews = () => {
                   <div className="text-center mx-auto">
                     <Stack spacing={1}>
                       <Rating
-                       sx={{
+                        sx={{
                           "& .MuiRating-icon:last-child": {
                             marginRight: 0,
                           },
@@ -85,7 +97,9 @@ const Reviews = () => {
                   </div>
                 </div>
               </div>
-              <h1 className="text mt-2 font-semibold text-md">{item?.review}</h1>
+              <h1 className="text mt-2 font-semibold text-md">
+                {item?.review}
+              </h1>
             </div>
           ))}
         </motion.div>

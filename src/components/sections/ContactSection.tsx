@@ -89,7 +89,7 @@ const ContactSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 dark:border dark:border-default-200">
             <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-8">
               <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 text-pink-600 dark:text-pink-400 rounded-full mb-6 mx-auto lg:mx-0">
                 <Mail size={24} />
@@ -164,7 +164,7 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 dark:border dark:border-default-200">
             <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-8">
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">

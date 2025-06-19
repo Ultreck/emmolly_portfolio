@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { projects } from "../../constants";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowDown, ExternalLink, Github } from "lucide-react";
 import type { projectTag } from "../../types";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
@@ -8,7 +8,12 @@ import { Tooltip } from "@heroui/tooltip";
 
 const ProjectsSection: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-
+  const scrollToNextSection = () => {
+    const aboutSection = document.getElementById("contact");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <motion.section
       initial="hidden"
@@ -18,7 +23,7 @@ const ProjectsSection: React.FC = () => {
       id="projects"
       className="mx-auto w-[85%] py-20 bg-white dark:bg-gray-900"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.h2 
            initial="hidden"
@@ -127,14 +132,23 @@ const ProjectsSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <a
             href="#contact"
             className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
           >
             Get In Touch
           </a>
-        </div>
+        </div> */}
+        <button
+          onClick={scrollToNextSection}
+          className="absolute bottom-0 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"
+          aria-label="Scroll down"
+        >
+          <a key={"#contact"} href={"#contact"}>
+            <ArrowDown size={24} />
+          </a>
+        </button>
       </div>
     </motion.section>
   );

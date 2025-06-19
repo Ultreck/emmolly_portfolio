@@ -5,10 +5,17 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
 import SkillsCard from "./SkillsCard";
 import AboutSectionPart from "./AboutSection";
+import { ArrowDown } from "lucide-react";
 
 const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
   const [tab, setTab] = useState(0);
   const [expTab, setExpTab] = useState(0);
+    const scrollToNextSection = () => {
+    const aboutSection = document.getElementById("rojects");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="flex justify-center overflow-hidden w-full items-center min-h-screen bg-transparent">
       <div className="relative w-full h-[970px] lg:h-[720px]">
@@ -549,7 +556,15 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
           </div>
         </div>
-
+<button
+          onClick={scrollToNextSection}
+          className="absolute bottom-20 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"
+          aria-label="Scroll down"
+        >
+          <a key={"#projects"} href={"#projects"}>
+            <ArrowDown size={24} />
+          </a>
+        </button>
         <div className="absolute bottom-5 left-1/2 transform hidden lg:block -translate-x-1/2 w-[60%] h-2 bg-gradient-to-b from-gray-900 to-gray-800 rounded-t-sm z-10"></div>
       </div>
     </div>

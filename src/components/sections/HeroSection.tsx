@@ -340,7 +340,7 @@ const HeroSection: React.FC = () => {
           className="absolute bottom-8 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"
           aria-label="Scroll down"
         >
-          <a key={"#about"} href={"#about"}>
+          <a key={"#services"} href={"#services"}>
             <ArrowDown size={24} />
           </a>
         </button>
