@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import RatingModal from "./RatingModal";
 
 const RatingReminder = () => {
-  const [hasRated, setHasRated] = useState(false);
+  const [hasRated, setHasRated] = useState<Boolean>(false);
   const el = useRef<HTMLSpanElement>(null);
   const [destroyTyping, setDestroyTyping] = useState(false);
   const typedInstance = useRef<Typed | null>(null);
@@ -36,9 +36,9 @@ const RatingReminder = () => {
   };
 
   useEffect(() => {
-    const rated = localStorage.getItem("portfolioRated");
-  
-    setHasRated(!!rated);
+    const ratedRaw = localStorage.getItem("portfolioRated");
+    const rated = ratedRaw ? JSON.parse(ratedRaw) : false;
+    setHasRated(rated);
   
   }, []);
 
