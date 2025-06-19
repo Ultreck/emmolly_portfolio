@@ -1,6 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { dummyReviews } from "@/constants";
 import Stack from "@mui/material/Stack";
 import Rating from "@mui/material/Rating";
 import { FaCircleUser } from "react-icons/fa6";
@@ -13,7 +12,6 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
   const controls = useAnimation();
   const sliderRef = useRef<HTMLDivElement>(null);
   const SLIDE_WIDTH = 1000;
-  // console.log(data[0].reviews);
 
   useEffect(() => {
     const totalWidth = sliderRef.current
