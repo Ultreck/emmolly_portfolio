@@ -22,7 +22,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
 
     const loopAnimation = async () => {
       await controls.start({
-        x: data[0].reviews.length > 4? -totalWidth : 0,
+        x: data[0].reviews.length > 3? -totalWidth : 0,
         transition: {
           duration: dummyReviews.length * 4,
           ease: "linear",
@@ -42,7 +42,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
 
   const handleMouseLeave = () => {
     controls.start({
-     x: data[0].reviews.length > 4? -SLIDE_WIDTH : 0,
+     x: data[0].reviews.length > 3? -SLIDE_WIDTH : 0,
       transition: {
         duration: dummyReviews.length * 4,
         ease: "linear",
@@ -61,7 +61,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {[...(data[0]?.reviews || []), ...(data[0]?.reviews || [])].map(
+          {[...data[0]?.reviews || []]?.map(
             (item, index) => (
               <div
                 key={index}
