@@ -99,6 +99,7 @@ export const socialLinks: SocialLink[] = [
   { platform: 'GitHub', url: 'https://github.com/Ultreck', icon: 'github' },
   { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/oluwatayese-emmanuel-a-39254b218?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bq64WZR48RtG2XFs5lYMF6w%3D%3D', icon: 'linkedin' },
   { platform: 'Twitter', url: 'https://x.com/AdetutuEmmanue6?t=2Dp_Fjr6izYH3tibEdd7bA&s=08', icon: 'twitter' },
+  { platform: 'WhatsApp', url: "https://wa.me/2347064778921?text=Hi%20Emmanuel%2C%20I%20got%20your%20contact%20from%20your%20portfolio!", icon: 'whatsapp' },
   // { platform: 'Dribbble', url: 'https://dribbble.com', icon: 'dribbble' },
 ];
 

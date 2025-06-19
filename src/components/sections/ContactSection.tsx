@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { socialLinks } from "../../constants";
 import { Mail, Send } from "lucide-react";
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaTwitter, FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
 import emailjs from "emailjs-com";
@@ -14,6 +14,8 @@ const getIconComponent = (iconName: string) => {
       return <FaLinkedin size={20} />;
     case "twitter":
       return <FaTwitter size={20} />;
+    case "whatsapp":
+      return <FaWhatsapp size={20} />;
     default:
       return null;
   }

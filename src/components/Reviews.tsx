@@ -3,9 +3,7 @@ import { useEffect, useRef } from "react";
 import { dummyReviews } from "@/constants";
 import Stack from "@mui/material/Stack";
 import Rating from "@mui/material/Rating";
-
-
-
+import { FaCircleUser, FaRegCircleUser } from "react-icons/fa6";
 
 interface ReviewsProps {
   data: { reviews: any[] }[];
@@ -16,7 +14,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const SLIDE_WIDTH = 1000;
   // console.log(data[0].reviews);
-  
+
   useEffect(() => {
     const totalWidth = sliderRef.current
       ? sliderRef.current.scrollWidth / 2
@@ -63,55 +61,61 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-         {[...(data[0]?.reviews || []), ...(data[0]?.reviews || [])].map((item, index) => (
-            <div
-              key={index}
-              className="w-[300px] relative border dark:border-gray-900 border-gray-100 min-w-[300px] text-xs  bg-gray-100 dark:bg-gray-700 shadow-md py-4 rounded-tr-3xl rounded-bl-3xl p-5"
-            >
+          {[...(data[0]?.reviews || []), ...(data[0]?.reviews || [])].map(
+            (item, index) => (
               <div
-                className="text relative before:content-[' '] before:w-7 before:h-7 dark:before:bg-gray-700 before:bg-gray-100 before:absolute before:-translate-x-[25px] before:rotate-[-32deg]
+                key={index}
+                className="w-[300px] relative border dark:border-gray-900 border-gray-100 min-w-[300px] text-xs  bg-gray-100 dark:bg-gray-700 shadow-md py-4 rounded-tr-3xl rounded-bl-3xl p-5"
+              >
+                <div
+                  className="text relative before:content-[' '] before:w-7 before:h-7 dark:before:bg-gray-700 before:bg-gray-100 before:absolute before:-translate-x-[25px] before:rotate-[-32deg]
                              before:border-r-[11px] dark:before:border-gray-900 before:border-white
                             before:rounded-tr-3xl before:translate-y-[14px] after:content-[' '] after:w-7 after:h-7 after:bg-gray-100 dark:after:bg-gray-700 after:absolute after:translate-x-[47px] after:rotate-[37deg]  after:border-l-[11px] after:border-white dark:after:border-gray-900 after:rounded-tl-3xl  after:translate-y-[13px] w-14 h-14 rounded-full border-4 -mt-10 border-white dark:border-gray-900 mx-auto flex"
-              >
-                <img
-                  src={`/assets/testing.jpg`}
-                  alt=""
-                  className="w-full h-full rounded-full z-50 "
-                />
-              </div>
-              <div className="text flex items-center gap-2">
-                <h1 className="mt-1 text-4xl font-semibold">
-                  {item?.star?.toFixed(1)}
-                </h1>
-                <div className="text">
-                  <h1 className="text-base mb-3 mt-4 font-semibold dark:text-gray-50">
-                    {item.name}
+                >
+                  {item?.profile?.url? 
+                  <img
+                    src={item?.profile?.url}
+                    alt=""
+                    className="w-full h-full rounded-full z-50 "
+                  />
+                  :
+                  <FaCircleUser className="w-full h-full border-8 text-gray-900 dark:text-white border-white dark:border-gray-900 rounded-full" />
+                  }
+                </div>
+                <div className="text flex items-center gap-2">
+                  <h1 className="mt-1 text-4xl font-semibold">
+                    {item?.star?.toFixed(1)}
                   </h1>
-                  <div className="text-center mx-auto">
-                    <Stack spacing={1}>
-                      <Rating
-                        sx={{
-                          "& .MuiRating-icon:last-child": {
-                            marginRight: 0,
-                          },
-                          "& .MuiRating-iconEmpty": {
-                            color: "#9ca3af",
-                          },
-                        }}
-                        name="half-rating-read"
-                        defaultValue={item?.star}
-                        precision={0.5}
-                        readOnly
-                      />
-                    </Stack>
+                  <div className="text">
+                    <h1 className="text-base mb-3 mt-4 font-semibold dark:text-gray-50">
+                      {item?.name}
+                    </h1>
+                    <div className="text-center mx-auto">
+                      <Stack spacing={1}>
+                        <Rating
+                          sx={{
+                            "& .MuiRating-icon:last-child": {
+                              marginRight: 0,
+                            },
+                            "& .MuiRating-iconEmpty": {
+                              color: "#9ca3af",
+                            },
+                          }}
+                          name="half-rating-read"
+                          defaultValue={item?.star}
+                          precision={0.5}
+                          readOnly
+                        />
+                      </Stack>
+                    </div>
                   </div>
                 </div>
+                <h1 className="text mt-2 font-semibold text-md">
+                  {item?.message}
+                </h1>
               </div>
-              <h1 className="text mt-2 font-semibold text-md">
-                {item?.message}
-              </h1>
-            </div>
-          ))}
+            )
+          )}
         </motion.div>
       </div>
     </div>
