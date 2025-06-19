@@ -22,7 +22,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
 
     const loopAnimation = async () => {
       await controls.start({
-        x: -totalWidth,
+        x: data[0].reviews.length > 4? -totalWidth : 0,
         transition: {
           duration: dummyReviews.length * 4,
           ease: "linear",
@@ -42,7 +42,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
 
   const handleMouseLeave = () => {
     controls.start({
-      x: `-${SLIDE_WIDTH}px`,
+     x: data[0].reviews.length > 4? -SLIDE_WIDTH : 0,
       transition: {
         duration: dummyReviews.length * 4,
         ease: "linear",
@@ -54,7 +54,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
     <div className="mx-auto w-[85%] bg-gray-50 dark:bg-gray-900">
       <div className="relative w-full overflow-x-hidden">
         <motion.div
-          className="flex gap-5 w-full py-10"
+          className="flex gap-5 w-full py-10 justify-center"
           initial={{ x: 50 }}
           ref={sliderRef}
           animate={controls}
