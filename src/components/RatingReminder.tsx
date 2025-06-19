@@ -64,10 +64,10 @@ const RatingReminder = () => {
           <div className="flex gap-3 mt-1" id="rating-buttons">
             <RatingModal setIsOpened={setIsOpened} />
             <button
-              onClick={() => handleRating("dismissed")}
+              onClick={handleRating}
               className="px-2 py-1 bg-gray-500 rounded hover:bg-gray-600"
             >
-              Maybe Later
+            Close
             </button>
           </div>
         </div>,
@@ -92,14 +92,7 @@ const RatingReminder = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleRating = (action: "rated" | "dismissed") => {
-    if (action === "rated") {
-      localStorage.setItem("portfolioRated", "true");
-      setHasRated(true);
-      toast.success("Thank you for your rating! ❤️", {
-        autoClose: 3000,
-      });
-    }
+  const handleRating = () => {
     toast.dismiss();
   };
 
