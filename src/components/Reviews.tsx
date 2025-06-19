@@ -3,10 +3,20 @@ import { useEffect, useRef } from "react";
 import { dummyReviews } from "@/constants";
 import Stack from "@mui/material/Stack";
 import Rating from "@mui/material/Rating";
-const Reviews = () => {
+
+
+
+
+interface ReviewsProps {
+  data: { reviews: any[] }[];
+}
+
+const Reviews: React.FC<ReviewsProps> = ({ data }) => {
   const controls = useAnimation();
   const sliderRef = useRef<HTMLDivElement>(null);
   const SLIDE_WIDTH = 1000;
+  // console.log(data[0].reviews);
+  
   useEffect(() => {
     const totalWidth = sliderRef.current
       ? sliderRef.current.scrollWidth / 2
@@ -53,7 +63,7 @@ const Reviews = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {[...dummyReviews, ...dummyReviews]?.map((item, index) => (
+         {[...(data[0]?.reviews || []), ...(data[0]?.reviews || [])].map((item, index) => (
             <div
               key={index}
               className="w-[300px] relative border dark:border-gray-900 border-gray-100 min-w-[300px] text-xs  bg-gray-100 dark:bg-gray-700 shadow-md py-4 rounded-tr-3xl rounded-bl-3xl p-5"
@@ -71,7 +81,7 @@ const Reviews = () => {
               </div>
               <div className="text flex items-center gap-2">
                 <h1 className="mt-1 text-4xl font-semibold">
-                  {item?.rating?.toFixed(1)}
+                  {item?.star?.toFixed(1)}
                 </h1>
                 <div className="text">
                   <h1 className="text-base mb-3 mt-4 font-semibold dark:text-gray-50">
@@ -89,7 +99,7 @@ const Reviews = () => {
                           },
                         }}
                         name="half-rating-read"
-                        defaultValue={item.rating}
+                        defaultValue={item?.star}
                         precision={0.5}
                         readOnly
                       />
@@ -98,7 +108,7 @@ const Reviews = () => {
                 </div>
               </div>
               <h1 className="text mt-2 font-semibold text-md">
-                {item?.review}
+                {item?.message}
               </h1>
             </div>
           ))}

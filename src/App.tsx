@@ -34,6 +34,7 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [ipInformations, setIpInformations] = useState<CountryInfo[]>([]);
   const [showToast, setShowToast] = useState(0);
+  const [allReviews, setAllReviews] = useState([]);
 
   useEffect(() => {
     const handleIsScrolled = () => {
@@ -74,7 +75,7 @@ function App() {
       getUserIPAndTrack();
     }
     axios
-      .get(`${baseUrl}/${appName}`)
+      .get(`${baseUrl}/app/tracking/${appName}`)
       .then((res) => {
         setIpInformations(
           Array.isArray(res.data.appTrackingInfos.countries)
@@ -85,8 +86,22 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+    axios
+      .get(`${baseUrl}/user/review/`)
+      .then((res) => {        
+        setAllReviews(
+          Array.isArray(res.data.reviews)
+            ? res.data.reviews
+            : []
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
+  console.log(allReviews);
+  
   const allIPs = ipInformations.flatMap((c) => c?.ips);
 
   const scrollToTop = () => {
@@ -107,7 +122,7 @@ function App() {
         countryCode: data?.country_code,
       };
 
-      await axios.post(`${baseUrl}`, dataInfo);
+      await axios.post(`${baseUrl}/app/tracking`, dataInfo);
       console.log("IP successfully posted");
       window.localStorage.setItem("visitedOnce", JSON.stringify("true"));
     } catch (error) {
@@ -129,7 +144,7 @@ function App() {
             <AboutSection />
             <ProjectsSection />
             <ContactSection />
-            <Reviews/>
+            <Reviews data= {allReviews}/>
           </main>
           {isScrolled && (
             <button
