@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import Typed from "typed.js";
 import "react-toastify/dist/ReactToastify.css";
 import RatingModal from "./RatingModal";
@@ -104,12 +104,14 @@ const RatingReminder = () => {
   };
 
   return (
-    <ToastContainer
+    <>
+    {/* <ToastContainer
       newestOnTop
       limit={1}
       theme="colored"
       pauseOnFocusLoss={false}
-    />
+    /> */}
+      </>
   );
 };
 

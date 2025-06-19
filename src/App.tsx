@@ -13,6 +13,8 @@ import NumberOfUsers from "./components/NumberOfUsers";
 import axios from "axios";
 import RatingReminder from "./components/RatingReminder";
 import Reviews from "./components/Reviews";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 type IpInfo = {
   ip: string;
@@ -58,13 +60,11 @@ function App() {
   //   else if(showToast > 3000 && showToast <= 4500){
   //     window.location.href = '/#projects'
   //   }else{
-      
+
   //     window.location.href = '/#contact'
   //   }
-  
-  
+
   // }, [showToast]);
-  
 
   console.log("scrolled height", showToast);
   useEffect(() => {
@@ -88,12 +88,8 @@ function App() {
       });
     axios
       .get(`${baseUrl}/user/review/`)
-      .then((res) => {        
-        setAllReviews(
-          Array.isArray(res.data.reviews)
-            ? res.data.reviews
-            : []
-        );
+      .then((res) => {
+        setAllReviews(Array.isArray(res.data.reviews) ? res.data.reviews : []);
       })
       .catch((err) => {
         console.log(err);
@@ -101,7 +97,7 @@ function App() {
   }, []);
 
   console.log(allReviews);
-  
+
   const allIPs = ipInformations.flatMap((c) => c?.ips);
 
   const scrollToTop = () => {
@@ -136,15 +132,13 @@ function App() {
         <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main>
-          {showToast >= 4100 && 
-            <RatingReminder/>
-          }
+            {showToast >= 4100 && <RatingReminder />}
             <HeroSection />
             <SkillsSection />
             <AboutSection />
             <ProjectsSection />
             <ContactSection />
-            <Reviews data= {allReviews}/>
+            <Reviews data={allReviews} />
           </main>
           {isScrolled && (
             <button
@@ -160,6 +154,12 @@ function App() {
 
           <Footer />
         </div>
+        <ToastContainer
+          newestOnTop
+          limit={1}
+          theme="colored"
+          pauseOnFocusLoss={false}
+        />
       </HeroUIProvider>
     </ThemeProvider>
   );

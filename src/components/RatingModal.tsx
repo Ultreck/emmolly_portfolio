@@ -18,11 +18,13 @@ import { FiUploadCloud } from "react-icons/fi";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
+import axios from "axios";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
   text: z.string().min(1, { message: "Review text is required" }),
-  rating: z.number()
+  rating: z
+    .number()
     .min(1, { message: "Please select at least 1 star" })
     .max(5, { message: "Maximum rating is 5 stars" }),
   file: z.instanceof(FileList).optional(),
@@ -32,6 +34,8 @@ interface RatingModalProps {
   setIsOpened: (isOpen: boolean) => void;
 }
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+const appName = import.meta.env.VITE_APP_NAME;
 const RatingModal = ({ setIsOpened }: RatingModalProps) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [value, setValue] = useState<number | null>(0.5);
@@ -59,32 +63,40 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     const formData = new FormData();
     formData.append("name", data.name);
-    formData.append("review", data.text);
-    formData.append("rating", data.rating.toString());
+    formData.append("message", data.text);
+    formData.append("star", data.rating.toString());
+    formData.append("appName", appName);
 
-    if (fileRef.current && fileRef.current.files && fileRef.current.files.length > 0) {
-      formData.append("file", fileRef.current.files[0]);
+    if (
+      fileRef.current &&
+      fileRef.current.files &&
+      fileRef.current.files.length > 0
+    ) {
+      formData.append("profile", fileRef.current.files[0]);
     }
-    formData.forEach(element => {
+    formData.forEach((element) => {
       console.log(element);
-      
     });
 
-    // try {
-    //   const response = await fetch("/api/ratings", {
-    //     method: "POST",
-    //     body: formData,
-    //   });
+    try {
+      const res = await axios.post(`${baseUrl}/user/review`, formData);
 
-    //   if (response.ok) {
-    //     onClose();
-    //     form.reset();
-    //   } else {
-    //     console.error("Failed to submit rating");
-    //   }
-    // } catch (error) {
-    //   console.error("Error submitting rating:", error);
-    // }
+      if (res?.data?.success) {
+        toast.success("Thank you for your rating! ❤️", {
+          position: "bottom-right",
+          autoClose: 3000,
+        });
+        window.localStorage.setItem("portfolioRated", "true");
+        setTimeout(() => {
+          onClose();
+          form.reset();
+        }, 2000);
+      } else {
+        console.error("Failed to submit rating");
+      }
+    } catch (error) {
+      console.error("Error submitting rating:", error);
+    }
   };
 
   const handleClose = () => {
@@ -181,21 +193,33 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                         fileRef.current.files.length > 0 &&
                         ["jpeg", "jpg", "png", "webp"].includes(
                           fileRef.current.files[0].type.split("/")[1]
-                        )? "border-green-300 dark:border-green-600 bg-green-100 dark:bg-green-600/30 " :  fileRef.current &&
-                        fileRef.current.files &&
-                        fileRef.current.files.length > 0 &&
-                        !["jpeg", "jpg", "png", "webp"].includes(
-                          fileRef.current.files[0].type.split("/")[1]
-                        )? "border-red-300 dark:border-red-600 bg-red-100 dark:bg-red-600/30 " : "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-600/30"
+                        )
+                          ? "border-green-300 dark:border-green-600 bg-green-100 dark:bg-green-600/30 "
+                          : fileRef.current &&
+                              fileRef.current.files &&
+                              fileRef.current.files.length > 0 &&
+                              !["jpeg", "jpg", "png", "webp"].includes(
+                                fileRef.current.files[0].type.split("/")[1]
+                              )
+                            ? "border-red-300 dark:border-red-600 bg-red-100 dark:bg-red-600/30 "
+                            : "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-600/30"
                       } cursor-pointer flex justify-center items-center w-full h-12 p-7 border-2 border-dashed rounded-lg`}
                     >
                       <div className="">
                         <FiUploadCloud className="mx-auto" />
                         <p className="dark:text-gray-500">
-                          { fileRef.current &&
-                        fileRef.current.files &&
-                        fileRef.current.files.length > 0? <span className="text"><strong className="text">{fileRef.current.files[0].name} </strong> file attachd</span> : "Format: jpeg, jpg, png, webp"}
-                          
+                          {fileRef.current &&
+                          fileRef.current.files &&
+                          fileRef.current.files.length > 0 ? (
+                            <span className="text">
+                              <strong className="text">
+                                {fileRef.current.files[0].name}{" "}
+                              </strong>{" "}
+                              file attachd
+                            </span>
+                          ) : (
+                            "Format: jpeg, jpg, png, webp"
+                          )}
                         </p>
                       </div>
                     </button>
@@ -262,15 +286,13 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                         name="rating"
                         precision={0.5}
                         getLabelText={getLabelText}
-                        onChange={(event, newValue) => {
-                          console.log(event);
+                        onChange={(_event, newValue) => {
                           setValue(newValue);
                           form.setValue("rating", newValue as number, {
                             shouldValidate: true,
                           });
                         }}
-                        onChangeActive={(event, newHover) => {
-                          console.log(event);
+                        onChangeActive={(_event, newHover) => {
                           setHover(newHover);
                         }}
                         emptyIcon={
