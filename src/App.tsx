@@ -66,7 +66,6 @@ function App() {
 
   // }, [showToast]);
 
-  console.log("scrolled height", showToast);
   useEffect(() => {
     const visitedOnceRaw = localStorage.getItem("visitedOnce");
     const alreadyVisited = visitedOnceRaw ? JSON.parse(visitedOnceRaw) : null;
@@ -96,7 +95,6 @@ function App() {
       });
   }, []);
 
-  console.log(allReviews);
 
   const allIPs = ipInformations.flatMap((c) => c?.ips);
 

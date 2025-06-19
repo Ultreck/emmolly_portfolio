@@ -37,9 +37,9 @@ const RatingReminder = () => {
 
   useEffect(() => {
     const rated = localStorage.getItem("portfolioRated");
-    if (rated === "true") {
-      setHasRated(true);
-    }
+  
+    setHasRated(!!rated);
+  
   }, []);
 
   useEffect(() => {
