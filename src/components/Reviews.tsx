@@ -61,7 +61,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {[...data[0]?.reviews || []]?.map(
+          {[...(data[0]?.reviews || []), ...(data[0]?.reviews || [])]?.map(
             (item, index) => (
               <div
                 key={index}
