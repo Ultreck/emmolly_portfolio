@@ -93,8 +93,8 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
               <ModalBody>
                 <div className="grid grid-cols-1 gap-6 mb-6">
                   {/* Name Field */}
-                  {message && <div className={`bg-green-500/50 text-green-600 rounded-lg w-full text-start`}>{message}</div>}
-                  {isFailed && <div className={`bg-red-500/50 text-red-600 rounded-lg w-full text-start`}>{isFailed}</div>}
+                  {message && <div className={`bg-green-600/10 p-3 font-semibold text-green-600 rounded-lg w-full text-start`}>{message}</div>}
+                  {isFailed && <div className={`bg-red-600/10 p-3 font-semibold text-red-600 rounded-lg w-full text-start`}>{isFailed}</div>}
                   <motion.div
                     initial="hidden"
                     whileInView="show"
