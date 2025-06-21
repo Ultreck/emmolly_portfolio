@@ -59,12 +59,12 @@ const usePort = () => {
         });
         window.localStorage.setItem("portfolioRated", "true");
         setTimeout(() => {
-            onClose();
-            form.reset();
+          onClose();
+          form.reset();
         }, 500);
         setMessage("");
         setIsFailed("");
-    } else {
+      } else {
         setMessage(res?.data?.message);
         console.error("Failed to submit rating");
       }
