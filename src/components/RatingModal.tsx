@@ -18,7 +18,6 @@ import { FiUploadCloud } from "react-icons/fi";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
-import axios from "axios";
 import usePort from "@/hooks/usePort";
 
 
