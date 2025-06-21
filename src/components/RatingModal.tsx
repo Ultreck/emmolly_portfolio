@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from "@heroui/react";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { FiUploadCloud } from "react-icons/fi";
 import Rating from "@mui/material/Rating";
