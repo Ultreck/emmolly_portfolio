@@ -16,17 +16,25 @@ import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
 import usePort from "@/hooks/usePort";
 
-
 interface RatingModalProps {
   setIsOpened: (isOpen: boolean) => void;
-};
+}
 
 const RatingModal = ({ setIsOpened }: RatingModalProps) => {
-
   const [value, setValue] = useState<number | null>(0.5);
   const [hover, setHover] = useState(-1);
-  const {message, isFailed, form, fileRef, onSubmit, isOpen, onOpen, onOpenChange, onClose} = usePort();
-  
+  const {
+    message,
+    isFailed,
+    form,
+    fileRef,
+    onSubmit,
+    isOpen,
+    onOpen,
+    onOpenChange,
+    onClose,
+  } = usePort();
+
   console.log(message, isFailed);
 
   useEffect(() => {
@@ -85,7 +93,8 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
               <ModalBody>
                 <div className="grid grid-cols-1 gap-6 mb-6">
                   {/* Name Field */}
-                  <div className={``}>{message}</div>
+                  {message && <div className={`bg-green-500/50 text-green-600 rounded-lg w-full text-start`}>{message}</div>}
+                  {isFailed && <div className={`bg-red-500/50 text-red-600 rounded-lg w-full text-start`}>{isFailed}</div>}
                   <motion.div
                     initial="hidden"
                     whileInView="show"
