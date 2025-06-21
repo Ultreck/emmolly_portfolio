@@ -22,7 +22,8 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const usePort = () => {
   const fileRef = useRef<HTMLInputElement>(null);
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState<string | undefined>();
+  const [isFailed, setIsFailed] = useState<string | undefined>();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,13 +46,13 @@ const usePort = () => {
       fileRef.current.files.length > 0
     ) {
       formData.append("profile", fileRef.current.files[0]);
-    };
+    }
     try {
       const res = await axios.post(`${baseUrl}/user/review`, formData);
       console.log(res);
 
       if (res?.data?.success) {
-        setMessage(res.data.message);
+        setMessage(res?.data?.message);
         toast.success("Thank you for your rating! ❤️", {
           position: "bottom-right",
           autoClose: 3000,
@@ -66,11 +67,29 @@ const usePort = () => {
         console.error("Failed to submit rating");
       }
     } catch (error) {
+      if (
+        typeof error === "object" &&
+        error !== null &&
+        "response" in error &&
+        typeof (error as any).response === "object" &&
+        (error as any).response !== null &&
+        "data" in (error as any).response &&
+        typeof (error as any).response.data === "object" &&
+        (error as any).response.data !== null &&
+        "message" in (error as any).response.data
+      ) {
+        setIsFailed(
+          (error as any).response.data.message || "User already rated"
+        );
+      } else {
+        setIsFailed("Failed to submit rating");
+      }
       console.error("Error submitting rating:", error);
     }
   };
 
   return {
+    isFailed,
     appName,
     baseUrl,
     fileRef,

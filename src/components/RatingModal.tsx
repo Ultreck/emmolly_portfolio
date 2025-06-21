@@ -25,8 +25,9 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
 
   const [value, setValue] = useState<number | null>(0.5);
   const [hover, setHover] = useState(-1);
-  const {message, form, fileRef, onSubmit, isOpen, onOpen, onOpenChange, onClose} = usePort();
-
+  const {message, isFailed, form, fileRef, onSubmit, isOpen, onOpen, onOpenChange, onClose} = usePort();
+  
+  console.log(message, isFailed);
 
   useEffect(() => {
     setIsOpened(isOpen);
@@ -84,7 +85,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
               <ModalBody>
                 <div className="grid grid-cols-1 gap-6 mb-6">
                   {/* Name Field */}
-                  <div className="text">{message}</div>
+                  <div className={``}>{message}</div>
                   <motion.div
                     initial="hidden"
                     whileInView="show"
