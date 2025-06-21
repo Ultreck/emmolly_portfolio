@@ -63,7 +63,7 @@ const usePort = () => {
           form.reset();
         }, 500);
       } else {
-        setMessage(res.data.message);
+        setMessage(res?.data?.message);
         console.error("Failed to submit rating");
       }
     } catch (error) {
