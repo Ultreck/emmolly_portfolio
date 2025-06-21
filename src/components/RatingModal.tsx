@@ -9,9 +9,6 @@ import {
   useDisclosure,
 } from "@heroui/react";
 import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { FiUploadCloud } from "react-icons/fi";
