@@ -102,6 +102,8 @@ const usePort = () => {
     onOpen,
     onClose,
     onSubmit,
+    setMessage,
+    setIsFailed,
     onOpenChange,
   };
 };
