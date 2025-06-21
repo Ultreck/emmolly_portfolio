@@ -27,7 +27,7 @@ interface CountryInfo {
   countryName: string;
   countryCode: string;
   ips: string[];
-};
+}
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -93,7 +93,6 @@ function App() {
       });
   }, []);
 
-
   const allIPs = ipInformations.flatMap((c) => c?.ips);
 
   const scrollToTop = () => {
@@ -127,7 +126,7 @@ function App() {
       <HeroUIProvider>
         <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
-          <main className="bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white" >
+          <main className="bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white">
             {showToast >= 4100 && <RatingReminder />}
             <HeroSection />
             <SkillsSection />
@@ -144,9 +143,11 @@ function App() {
               <FaArrowUp className="text-xl animate-bounce" />
             </button>
           )}
-          <div className="text">
-            <NumberOfUsers data={ipInformations} ip={allIPs} />
-          </div>
+          {!!allIPs.length && (
+            <div className="text">
+              <NumberOfUsers data={ipInformations} ip={allIPs} />
+            </div>
+          )}
 
           <Footer />
         </div>
