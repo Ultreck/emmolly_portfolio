@@ -15,6 +15,7 @@ import RatingReminder from "./components/RatingReminder";
 import Reviews from "./components/Reviews";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import usePort from "./hooks/usePort";
 
 type IpInfo = {
   ip: string;
@@ -26,17 +27,14 @@ interface CountryInfo {
   countryName: string;
   countryCode: string;
   ips: string[];
-}
-
-const baseUrl = import.meta.env.VITE_BASE_URL;
-const appName = import.meta.env.VITE_APP_NAME;
-const apiUrl = import.meta.env.VITE_API_URL;
+};
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [ipInformations, setIpInformations] = useState<CountryInfo[]>([]);
   const [showToast, setShowToast] = useState(0);
   const [allReviews, setAllReviews] = useState([]);
+  const { baseUrl, apiUrl, appName } = usePort();
 
   useEffect(() => {
     const handleIsScrolled = () => {
@@ -129,7 +127,7 @@ function App() {
       <HeroUIProvider>
         <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
-          <main>
+          <main className="bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white" >
             {showToast >= 4100 && <RatingReminder />}
             <HeroSection />
             <SkillsSection />

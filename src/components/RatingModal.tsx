@@ -19,37 +19,39 @@ import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios";
+import usePort from "@/hooks/usePort";
 
-const formSchema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
-  text: z.string().min(1, { message: "Review text is required" }),
-  rating: z
-    .number()
-    .min(1, { message: "Please select at least 1 star" })
-    .max(5, { message: "Maximum rating is 5 stars" }),
-  file: z.instanceof(FileList).optional(),
-});
+// const formSchema = z.object({
+//   name: z.string().min(1, { message: "Name is required" }),
+//   text: z.string().min(1, { message: "Review text is required" }),
+//   rating: z
+//     .number()
+//     .min(1, { message: "Please select at least 1 star" })
+//     .max(5, { message: "Maximum rating is 5 stars" }),
+//   file: z.instanceof(FileList).optional(),
+// });
 
 interface RatingModalProps {
   setIsOpened: (isOpen: boolean) => void;
 }
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
-const appName = import.meta.env.VITE_APP_NAME;
+// const baseUrl = import.meta.env.VITE_BASE_URL;
+// const appName = import.meta.env.VITE_APP_NAME;
 const RatingModal = ({ setIsOpened }: RatingModalProps) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [value, setValue] = useState<number | null>(0.5);
   const [hover, setHover] = useState(-1);
-  const fileRef = useRef<HTMLInputElement>(null);
+  const {form, fileRef, onSubmit} = usePort();
+  // const fileRef = useRef<HTMLInputElement>(null);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      text: "",
-      rating: 0,
-    },
-  });
+  // const form = useForm<z.infer<typeof formSchema>>({
+  //   resolver: zodResolver(formSchema),
+  //   defaultValues: {
+  //     name: "",
+  //     text: "",
+  //     rating: 0,
+  //   },
+  // });
 
   useEffect(() => {
     setIsOpened(isOpen);
@@ -60,44 +62,44 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
     }
   }, [isOpen, setIsOpened]);
 
-  const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("message", data.text);
-    formData.append("star", data.rating.toString());
-    formData.append("appName", appName);
+  // const onSubmit = async (data: z.infer<typeof formSchema>) => {
+  //   const formData = new FormData();
+  //   formData.append("name", data.name);
+  //   formData.append("message", data.text);
+  //   formData.append("star", data.rating.toString());
+  //   formData.append("appName", appName);
 
-    if (
-      fileRef.current &&
-      fileRef.current.files &&
-      fileRef.current.files.length > 0
-    ) {
-      formData.append("profile", fileRef.current.files[0]);
-    }
-    formData.forEach((element) => {
-      console.log(element);
-    });
+  //   if (
+  //     fileRef.current &&
+  //     fileRef.current.files &&
+  //     fileRef.current.files.length > 0
+  //   ) {
+  //     formData.append("profile", fileRef.current.files[0]);
+  //   }
+  //   formData.forEach((element) => {
+  //     console.log(element);
+  //   });
 
-    try {
-      const res = await axios.post(`${baseUrl}/user/review`, formData);
+  //   try {
+  //     const res = await axios.post(`${baseUrl}/user/review`, formData);
 
-      if (res?.data?.success) {
-        toast.success("Thank you for your rating! ❤️", {
-          position: "bottom-right",
-          autoClose: 3000,
-        });
-        window.localStorage.setItem("portfolioRated", "true");
-        setTimeout(() => {
-          onClose();
-          form.reset();
-        }, 2000);
-      } else {
-        console.error("Failed to submit rating");
-      }
-    } catch (error) {
-      console.error("Error submitting rating:", error);
-    }
-  };
+  //     if (res?.data?.success) {
+  //       toast.success("Thank you for your rating! ❤️", {
+  //         position: "bottom-right",
+  //         autoClose: 3000,
+  //       });
+  //       window.localStorage.setItem("portfolioRated", "true");
+  //       setTimeout(() => {
+  //         onClose();
+  //         form.reset();
+  //       }, 2000);
+  //     } else {
+  //       console.error("Failed to submit rating");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submitting rating:", error);
+  //   }
+  // };
 
   const handleClose = () => {
     form.reset();
