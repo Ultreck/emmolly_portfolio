@@ -6,7 +6,6 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  useDisclosure,
 } from "@heroui/react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -23,10 +22,10 @@ interface RatingModalProps {
 };
 
 const RatingModal = ({ setIsOpened }: RatingModalProps) => {
-  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+
   const [value, setValue] = useState<number | null>(0.5);
   const [hover, setHover] = useState(-1);
-  const {form, fileRef, onSubmit} = usePort();
+  const {message, form, fileRef, onSubmit, isOpen, onOpen, onOpenChange, onClose} = usePort();
 
 
   useEffect(() => {
@@ -85,6 +84,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
               <ModalBody>
                 <div className="grid grid-cols-1 gap-6 mb-6">
                   {/* Name Field */}
+                  <div className="text">{message}</div>
                   <motion.div
                     initial="hidden"
                     whileInView="show"

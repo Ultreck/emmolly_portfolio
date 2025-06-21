@@ -2,7 +2,7 @@ import { useDisclosure } from "@heroui/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -21,8 +21,8 @@ const appName = import.meta.env.VITE_APP_NAME;
 const apiUrl = import.meta.env.VITE_API_URL;
 const usePort = () => {
   const fileRef = useRef<HTMLInputElement>(null);
-  const { onClose } = useDisclosure();
-
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+  const [message, setMessage] = useState();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,16 +45,13 @@ const usePort = () => {
       fileRef.current.files.length > 0
     ) {
       formData.append("profile", fileRef.current.files[0]);
-    }
-    formData.forEach((element) => {
-      console.log(element);
-    });
-
+    };
     try {
       const res = await axios.post(`${baseUrl}/user/review`, formData);
-        console.log(res);
-        
+      console.log(res);
+
       if (res?.data?.success) {
+        setMessage(res.data.message);
         toast.success("Thank you for your rating! ❤️", {
           position: "bottom-right",
           autoClose: 3000,
@@ -63,8 +60,9 @@ const usePort = () => {
         setTimeout(() => {
           onClose();
           form.reset();
-        }, 2000);
+        }, 500);
       } else {
+        setMessage(res.data.message);
         console.error("Failed to submit rating");
       }
     } catch (error) {
@@ -76,9 +74,14 @@ const usePort = () => {
     appName,
     baseUrl,
     fileRef,
+    message,
+    isOpen,
     apiUrl,
     form,
+    onOpen,
+    onClose,
     onSubmit,
+    onOpenChange,
   };
 };
 
