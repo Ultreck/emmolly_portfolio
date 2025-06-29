@@ -35,12 +35,12 @@ const RatingReminder = () => {
     }
   };
 
-  useEffect(() => {
-    const ratedRaw = localStorage.getItem("portfolioRated");
-    const rated = ratedRaw ? JSON.parse(ratedRaw) : false;
-    setHasRated(rated);
-  
-  }, []);
+  // useEffect(() => {
+  //   const ratedRaw = localStorage.getItem("portfolioRated");
+  //   const rated = ratedRaw ? JSON.parse(ratedRaw) : false;
+  //   setHasRated(rated);
+  //   console.log(rated);
+  // }, []);
 
   useEffect(() => {
     if (toastIdRef.current) {
@@ -52,59 +52,66 @@ const RatingReminder = () => {
     }
   }, [isOpened]);
 
+  const ratedRaw = localStorage.getItem("portfolioRated");
+  const rated = ratedRaw ? JSON.parse(ratedRaw) : false;
   useEffect(() => {
-    if (hasRated) return;
-
-    const interval = setInterval(() => {
-      setDestroyTyping(true);
-      startTyping();
-      toastIdRef.current = toast.info(
-        <div className="p-2">
-          <span className="" ref={el} />
-          <div className="flex gap-3 mt-1" id="rating-buttons">
-            <RatingModal setIsOpened={setIsOpened} />
-            <button
-              onClick={handleRating}
-              className="px-2 py-1 bg-gray-500 rounded hover:bg-gray-600"
-            >
-            Close
-            </button>
-          </div>
-        </div>,
-        {
-          autoClose: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          position: "top-right",
-          style: { width: "400px", background: "#3b82f6", },
-          onClose: () => {
-            toastIdRef.current = null;
-          },
-        }
-      );
-      return () => {
-        if (toastIdRef.current) {
-          toast.dismiss(toastIdRef.current);
-        }
-      };
-    }, 1000);
+    console.log(rated);
+    if (rated) return;
+    let interval: ReturnType<typeof setInterval>;
+    if (!rated) {
+      interval = setInterval(() => {
+        setDestroyTyping(true);
+        startTyping();
+        toastIdRef.current = toast.info(
+          <div className="p-2">
+            <span className="" ref={el} />
+            <div className="flex gap-3 mt-1" id="rating-buttons">
+              <RatingModal setIsOpened={setIsOpened} />
+              <button
+                onClick={handleRating}
+                className="px-2 py-1 bg-gray-500 rounded hover:bg-gray-600"
+              >
+                Rate Later
+              </button>
+            </div>
+          </div>,
+          {
+            autoClose: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            position: "top-right",
+            style: { width: "400px", background: "#3b82f6" },
+            onClose: () => {
+              toastIdRef.current = null;
+            },
+          }
+        );
+        return () => {
+          if (toastIdRef.current) {
+            toast.dismiss(toastIdRef.current);
+          }
+        };
+      }, 1000);
+    }
 
     return () => clearInterval(interval);
-  }, []);
+  }, [hasRated, rated]);
 
   const handleRating = () => {
+    setHasRated(true);
+    window.localStorage.setItem("portfolioRated", "true");
     toast.dismiss();
   };
 
   return (
     <>
-    {/* <ToastContainer
+      {/* <ToastContainer
       newestOnTop
       limit={1}
       theme="colored"
       pauseOnFocusLoss={false}
     /> */}
-      </>
+    </>
   );
 };
 
