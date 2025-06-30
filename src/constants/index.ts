@@ -2,6 +2,7 @@ import type { DummyReviews, NavItem, Project, Skill, SocialLink } from "../types
 import weatherImg from '../assets/weather.png';
 import movieImg from '../assets/movie.png';
 import smsImg from '../assets/sms.png';
+import instaClone from '../assets/insta-clone.png';
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
@@ -30,6 +31,17 @@ export const skills: Skill[] = [
 export const projects: Project[] = [
  {
     id: 'project-1',
+    appName: "insta_clone",
+    title: 'Instagram Clone',
+    description: 'A real-time weather application that provides current conditions, forecasts, and interactive weather maps using live API data.',
+    imageUrl: instaClone,
+    tags: ['React', 'Typescript', 'Node.js', "firebase", 'localStorage'],
+    demoUrl: 'https://instagram2-lclone.vercel.app/',
+    githubUrl: 'https://github.com/Ultreck/clone-insta',
+  },
+ {
+    id: 'project-2',
+    appName: "",
     title: 'Weather App',
     description: 'A real-time weather application that provides current conditions, forecasts, and interactive weather maps using live API data.',
     imageUrl: weatherImg,
@@ -38,7 +50,8 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/Ultreck/climezy_tech',
   },
   {
-    id: 'project-2',
+    id: 'project-3',
+    appName: "",
     title: 'Movie Explorer App',
     description: 'A movie discovery platform that lets users search, browse, and save movies using TMDB API with ratings, trailers, and user reviews.',
     imageUrl: movieImg,
@@ -47,7 +60,8 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/Ultreck/recommendation-movie-app',
   },
   {
-    id: 'project-3',
+    id: 'project-4',
+    appName: "",
     title: 'School Management System',
     description: 'A full-featured platform for managing students, teachers, courses, attendance, and grading with secure role-based access.',
     imageUrl: smsImg,

@@ -1,7 +1,9 @@
 import { Tooltip } from "@heroui/tooltip";
+import { all } from "axios";
 import { ExternalLink, Github } from "lucide-react";
 
 interface Project {
+  appName: string;
   imageUrl: string;
   title: string;
   description: string;
@@ -16,8 +18,17 @@ interface CardsProps {
 }
 
 const Cards = ({ project, data }: CardsProps) => {
-  console.log(project.githubUrl, data);
+    const foundApp = data?.find((app) => app.appName === project.appName );
+    console.log(foundApp);
+interface AppData {
+    appName: string;
+    ips?: string[];
+    [key: string]: any;
+}
 
+ const allIPs = foundApp?.countries?.flatMap((c: { ips: string[] }) => c?.ips );
+ console.log(allIPs);
+ 
   return (
     <div className="w-[390px] h-[450px] shadow-lg perspective-1000 bg-transparent cursor-pointer group rounded-2xl">
       <div className="text relative duration-500 preserve-3d group-hover:rotate-y-180 w-full h-full">
@@ -31,7 +42,7 @@ const Cards = ({ project, data }: CardsProps) => {
         <div className="w-full dark:bg-gray-800/95 p-10 bg-gray-100 rotate-y-180 backface-hidden absolute h-full rounded-2xl space-y-5 overflow-hidden">
             <span className="text-center absolute bg-red-500 -top-2 flex justify-center items-center -rotate-45 -left-24 h-16 w-60 font-bold text-3xl">
           <Tooltip className="" content="Number of people visited this project" showArrow={true}>
-              {data? data?.length : "20"}
+              {allIPs?.length || 0}
           </Tooltip>
             </span>
           <div className="text">

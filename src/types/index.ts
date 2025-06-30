@@ -13,6 +13,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  appName: string,
   imageUrl: string;
   tags: string[];
   demoUrl?: string;
