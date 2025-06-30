@@ -75,16 +75,17 @@ function App() {
     axios
       .get(`${baseUrl}/app/tracking/${appName}`)
       .then((res) => {
+        
         setIpInformations(
           Array.isArray(res.data.appTrackingInfos.countries)
-            ? res.data.appTrackingInfos.countries
-            : []
+          ? res.data.appTrackingInfos.countries
+          : []
         );
       })
       .catch((err) => {
         console.log(err);
       });
-    axios
+      axios
       .get(`${baseUrl}/app/tracking`)
       .then((res) => {
         setAllAppsIps(
@@ -96,7 +97,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-    axios
+      axios
       .get(`${baseUrl}/user/review/`)
       .then((res) => {
         setAllReviews(Array.isArray(res.data.reviews) ? res.data.reviews : []);
@@ -105,7 +106,7 @@ function App() {
         console.log(err);
       });
   }, []);
-
+  
   const allIPs = ipInformations.flatMap((c) => c?.ips);
 
   const scrollToTop = () => {
