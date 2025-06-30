@@ -35,7 +35,7 @@ export const projects: Project[] = [
     title: 'Instagram Clone',
     description: 'A real-time weather application that provides current conditions, forecasts, and interactive weather maps using live API data.',
     imageUrl: instaClone,
-    tags: ['React', 'Typescript', 'Node.js', "firebase", 'localStorage'],
+    tags: ['React', 'Typescript', "Shadcn", 'Node.js', "firebase", 'localStorage'],
     demoUrl: 'https://instagram2-lclone.vercel.app/',
     githubUrl: 'https://github.com/Ultreck/clone-insta',
   },

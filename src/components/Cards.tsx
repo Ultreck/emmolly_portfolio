@@ -25,7 +25,7 @@ const Cards = ({ project, data }: CardsProps) => {
   return (
     <div className="w-[390px] h-[450px] shadow-lg perspective-1000 bg-transparent cursor-pointer group rounded-2xl">
       <div className="text relative duration-500 preserve-3d group-hover:rotate-y-180 w-full h-full">
-        <div className="text w-full h-full absolute rounded-2xl overflow-hidden">
+        <div className="text bg-gray-100 dark:bg-gray-800/95  w-full h-full absolute rounded-2xl overflow-hidden">
           <img
             src={project.imageUrl}
             alt={project.title}
