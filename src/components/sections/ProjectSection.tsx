@@ -1,14 +1,19 @@
-import React, { useState } from "react";
 import { projects } from "../../constants";
-import { ArrowDown, ExternalLink, Github } from "lucide-react";
+// import { ArrowDown, ExternalLink, Github } from "lucide-react";
 import type { projectTag } from "../../types";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
-import { Tooltip } from "@heroui/tooltip";
+// import { Tooltip } from "@heroui/tooltip";
 import Cards from "../Cards";
+import { ArrowDown } from "lucide-react";
 
-const ProjectsSection: React.FC = () => {
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+interface ProjectsSectionProps {
+  data: any[]; // Replace 'any' with a more specific type if available
+}
+
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
+  console.log(data);
+  
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById("contact");
     if (aboutSection) {
@@ -36,28 +41,16 @@ const ProjectsSection: React.FC = () => {
             My Projects
           </motion.h2>
           <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
-          <motion.p
-            initial="hidden"
-            whileInView="show"
-            viewport={{ margin: "-20%" }}
-            variants={fadeIn("up", "spring", 0.2, 1.3)}
-            className="text-lg text-gray-600 dark:text-gray-300"
-          >
-            Here are some of my projects I've worked on.
-          </motion.p>
-          <motion.p
-            initial="hidden"
-            whileInView="show"
-            viewport={{ margin: "-20%" }}
-            variants={fadeIn("right", "spring", 0.2, 1.3)}
-            className="text-lg text-gray-600 dark:text-gray-300"
-          >
-            <span className="text-pink-600">NOTE</span>: These projects are my
-            old projects, the new one would be added shortly.
-          </motion.p>
         </div>
-        <Cards />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="text grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project: projectTag) => (
+            <div className="" key={project.id}>
+              <Cards data={data} project={project} />
+            </div>
+          ))}
+        </div>
+
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project: projectTag, index) => (
             <motion.div
               initial="hidden"
@@ -140,15 +133,6 @@ const ProjectsSection: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* <div className="mt-16 text-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
-          >
-            Get In Touch
-          </a>
         </div> */}
         <button
           onClick={scrollToNextSection}

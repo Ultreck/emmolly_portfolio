@@ -26,7 +26,7 @@
 // };
 
 // tailwind.config.js
-
+import { heroui } from "@heroui/theme";
 const plugin = require("tailwindcss/plugin");
 
 const CustomStyle = plugin(function ({ addUtilities }) {
@@ -46,5 +46,6 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [CustomStyle],
+  darkMode: "class",
+  plugins: [CustomStyle, heroui()],
 };

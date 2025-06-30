@@ -35,6 +35,7 @@ function App() {
   const [showToast, setShowToast] = useState(0);
   const [allReviews, setAllReviews] = useState([]);
   const { baseUrl, apiUrl, appName } = usePort();
+  const [allAppsIps, setAllAppsIps] = useState([]);
 
   useEffect(() => {
     const handleIsScrolled = () => {
@@ -77,6 +78,18 @@ function App() {
         setIpInformations(
           Array.isArray(res.data.appTrackingInfos.countries)
             ? res.data.appTrackingInfos.countries
+            : []
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`${baseUrl}/app/tracking`)
+      .then((res) => {
+        setAllAppsIps(
+          Array.isArray(res.data.appTrackingInfos)
+            ? res.data.appTrackingInfos
             : []
         );
       })
@@ -131,7 +144,7 @@ function App() {
             <HeroSection />
             <SkillsSection />
             <AboutSection />
-            <ProjectsSection />
+            <ProjectsSection data={allAppsIps} />
             <ContactSection />
             <Reviews data={allReviews} />
           </main>
