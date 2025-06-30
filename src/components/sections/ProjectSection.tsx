@@ -5,6 +5,7 @@ import type { projectTag } from "../../types";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
 import { Tooltip } from "@heroui/tooltip";
+import Cards from "../Cards";
 
 const ProjectsSection: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
@@ -25,41 +26,49 @@ const ProjectsSection: React.FC = () => {
     >
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.h2 
-           initial="hidden"
+          <motion.h2
+            initial="hidden"
             whileInView="show"
             viewport={{ margin: "-10%" }}
             variants={fadeIn("left", "spring", 0.2, 1.3)}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+          >
             My Projects
           </motion.h2>
           <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
-          <motion.p 
-           initial="hidden"
+          <motion.p
+            initial="hidden"
             whileInView="show"
             viewport={{ margin: "-20%" }}
             variants={fadeIn("up", "spring", 0.2, 1.3)}
-            className="text-lg text-gray-600 dark:text-gray-300">
+            className="text-lg text-gray-600 dark:text-gray-300"
+          >
             Here are some of my projects I've worked on.
           </motion.p>
-          <motion.p 
-           initial="hidden"
+          <motion.p
+            initial="hidden"
             whileInView="show"
             viewport={{ margin: "-20%" }}
             variants={fadeIn("right", "spring", 0.2, 1.3)}
-            className="text-lg text-gray-600 dark:text-gray-300">
+            className="text-lg text-gray-600 dark:text-gray-300"
+          >
             <span className="text-pink-600">NOTE</span>: These projects are my
             old projects, the new one would be added shortly.
           </motion.p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Cards />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project: projectTag, index) => (
             <motion.div
-             initial="hidden"
-            whileInView="show"
-            viewport={{ margin: "-10%" }}
-            variants={fadeIn(index % 2 === 0? "left" : 'right', "spring", 0.1, 0.5)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ margin: "-10%" }}
+              variants={fadeIn(
+                index % 2 === 0 ? "left" : "right",
+                "spring",
+                0.1,
+                0.5
+              )}
               key={project.id}
               className="group bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
               onMouseEnter={() => setHoveredProject(project.id)}
@@ -79,32 +88,33 @@ const ProjectsSection: React.FC = () => {
                   <div className="p-6 w-full">
                     <div className="flex justify-end space-x-3 mb-2">
                       {project.githubUrl && (
-                             <Tooltip content="Project Github URL" showArrow={true}>
-
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 bg-gray-800/80 hover:bg-gray-700 text-white rounded-full transition-colors"
-                          aria-label="View GitHub repository"
+                        <Tooltip content="Project Github URL" showArrow={true}>
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 bg-gray-800/80 hover:bg-gray-700 text-white rounded-full transition-colors"
+                            aria-label="View GitHub repository"
                           >
-                          <Github size={20} />
-                        </a>
-                          </Tooltip>
+                            <Github size={20} />
+                          </a>
+                        </Tooltip>
                       )}
                       {project.demoUrl && (
-                             <Tooltip content="Explore this project" showArrow={true}>
-
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 bg-indigo-600/80 hover:bg-indigo-500 text-white rounded-full transition-colors"
-                          aria-label="View live demo"
+                        <Tooltip
+                          content="Explore this project"
+                          showArrow={true}
+                        >
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 bg-indigo-600/80 hover:bg-indigo-500 text-white rounded-full transition-colors"
+                            aria-label="View live demo"
                           >
-                          <ExternalLink size={20} />
-                        </a>
-                      </Tooltip>
+                            <ExternalLink size={20} />
+                          </a>
+                        </Tooltip>
                       )}
                     </div>
                   </div>
