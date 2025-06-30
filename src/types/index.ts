@@ -23,6 +23,7 @@ export interface Project {
 export interface projectTag {
   id: string;
   imageUrl: string;
+  appName: string,
   title: string;
   description: string;
   tags: string[];
