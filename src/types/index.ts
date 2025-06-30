@@ -14,6 +14,7 @@ export interface Project {
   title: string;
   description: string;
   appName: string,
+  year: string,
   imageUrl: string;
   tags: string[];
   demoUrl?: string;
@@ -24,6 +25,7 @@ export interface projectTag {
   id: string;
   imageUrl: string;
   appName: string,
+  year: string,
   title: string;
   description: string;
   tags: string[];
