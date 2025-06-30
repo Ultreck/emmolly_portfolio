@@ -41,7 +41,7 @@ export const projects: Project[] = [
   },
  {
     id: 'project-2',
-    appName: "",
+    appName: "weather_app",
     title: 'Weather App',
     description: 'A real-time weather application that provides current conditions, forecasts, and interactive weather maps using live API data.',
     imageUrl: weatherImg,
@@ -51,7 +51,7 @@ export const projects: Project[] = [
   },
   {
     id: 'project-3',
-    appName: "",
+    appName: "movie_app",
     title: 'Movie Explorer App',
     description: 'A movie discovery platform that lets users search, browse, and save movies using TMDB API with ratings, trailers, and user reviews.',
     imageUrl: movieImg,
@@ -61,7 +61,7 @@ export const projects: Project[] = [
   },
   {
     id: 'project-4',
-    appName: "",
+    appName: "sms_app",
     title: 'School Management System',
     description: 'A full-featured platform for managing students, teachers, courses, attendance, and grading with secure role-based access.',
     imageUrl: smsImg,

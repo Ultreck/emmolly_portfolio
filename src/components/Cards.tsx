@@ -1,8 +1,8 @@
 import { Tooltip } from "@heroui/tooltip";
-import { all } from "axios";
 import { ExternalLink, Github } from "lucide-react";
 
 interface Project {
+    id: string;
   appName: string;
   imageUrl: string;
   title: string;
@@ -19,15 +19,8 @@ interface CardsProps {
 
 const Cards = ({ project, data }: CardsProps) => {
     const foundApp = data?.find((app) => app.appName === project.appName );
-    console.log(foundApp);
-interface AppData {
-    appName: string;
-    ips?: string[];
-    [key: string]: any;
-}
 
  const allIPs = foundApp?.countries?.flatMap((c: { ips: string[] }) => c?.ips );
- console.log(allIPs);
  
   return (
     <div className="w-[390px] h-[450px] shadow-lg perspective-1000 bg-transparent cursor-pointer group rounded-2xl">
