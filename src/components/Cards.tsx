@@ -34,7 +34,7 @@ const Cards = ({ project, data }: CardsProps) => {
         </div>
         <div className="w-full dark:bg-gray-800/95 p-10 bg-gray-100 rotate-y-180 backface-hidden absolute h-full rounded-2xl space-y-5 overflow-hidden">
             <span className="text-center absolute bg-red-500 -top-2 flex justify-center items-center -rotate-45 -left-24 h-16 w-60 font-bold text-3xl">
-          <Tooltip className="" content="Number of people visited this project" showArrow={true}>
+          <Tooltip className="text" content="Number of people visited this project" showArrow={true}>
               {allIPs?.length || 0}
           </Tooltip>
             </span>

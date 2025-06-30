@@ -12,7 +12,7 @@ interface ProjectsSectionProps {
 }
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
-  console.log(data);
+  console.log(data = []);
   
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById("contact");

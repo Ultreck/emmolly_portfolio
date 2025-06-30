@@ -12,7 +12,7 @@ const Routers = () => {
         <Route path="/" element={<HeroSection />} />
         <Route path="/about" element={<AboutSection />} />
         <Route path="/skills" element={<SkillsSection />} />
-        <Route path="/projects" element={<ProjectsSection />} />
+        <Route path="/projects" element={<ProjectsSection data={[]} />} />
         <Route path="/contacts" element={<ContactSection />} />
       </Routes>
     </div>
