@@ -32,7 +32,7 @@ const Cards = ({ project, data }: CardsProps) => {
           <img
             src={project.imageUrl}
             alt={project.title}
-            className="w-full h-full rounded-2x"
+            className="w-full h-full object-cover rounded-2x"
           />
           <span className="text bg-red-500 absolute h-12 w-20">Touch/click</span>
         </div>

@@ -79,7 +79,7 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
           </strong>
         </button>
       </Tooltip>
-      <Drawer isOpen={isOpen} size={"4xl"} onClose={onClose}>
+      <Drawer className="bg-gray-100 dark:bg-gray-800 h-full" isOpen={isOpen} size={"4xl"} onClose={onClose}>
         <DrawerContent>
           {(onClose) => (
             <>
@@ -88,7 +88,7 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
                 countries across the world who visited this portfolio.
               </DrawerHeader>
               <DrawerBody>
-                <div className="relative">
+                <div className="relative bg-gray-100 dark:bg-gray-800">
                   <button
                     className="absolute left-0 top-0 z-10 h-10 w-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-l-lg"
                     onClick={() => swiper?.slidePrev()}
