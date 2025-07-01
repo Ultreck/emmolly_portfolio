@@ -26,14 +26,15 @@ const Cards = ({ project, data }: CardsProps) => {
   const [hoverState, setHoverState] = useState<'github' | 'demo' | null>(null);
 
   return (
-    <div className="w-[390px] h-[450px] shadow-lg perspective-1000 bg-transparent  group rounded-2xl">
-      <div className="text relative duration-500 preserve-3d group-hover:rotate-y-180 w-full h-full">
+    <div className="lg:w-[390px] mx-auto h-[450px] shadow-lg perspective-1000 bg-transparent  group rounded-2xl">
+      <div className="text relative duration-500 preserve-3d group-hover:rotate-y-180 hover:z-20 w-full h-full">
         <div className="text bg-gray-100 dark:bg-gray-800/95 w-full h-full absolute rounded-2xl overflow-hidden">
           <img
             src={project.imageUrl}
             alt={project.title}
             className="w-full h-full rounded-2x"
           />
+          <span className="text bg-red-500 absolute h-12 w-20">Touch/click</span>
         </div>
         <div className={`w-full p-10 rotate-y-180 backface-hidden absolute h-full rounded-2xl space-y-5 overflow-hidden transition-colors duration-300
           ${hoverState === 'demo' ? 'bg-indigo-700 text-white' : ''}

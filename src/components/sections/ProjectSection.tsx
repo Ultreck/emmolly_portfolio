@@ -42,9 +42,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
           </motion.h2>
           <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
         </div>
-        <div className="text grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project: projectTag) => (
-            <div className="" key={project.id}>
+            <div className="mb-5 w-full mx-auto" key={project.id}>
               <Cards data={data} project={project} />
             </div>
           ))}
