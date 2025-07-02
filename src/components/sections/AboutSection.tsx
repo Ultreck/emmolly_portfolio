@@ -15,7 +15,7 @@ const AboutSection: React.FC = () => {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ margin: "-20%" }}
+            viewport={{ margin: "-10%" }}
             variants={fadeIn("up", "spring", 0.2, 1.2)}
             className="text w-full"
           >

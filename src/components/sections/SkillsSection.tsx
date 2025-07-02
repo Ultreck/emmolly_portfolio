@@ -22,7 +22,7 @@ const SkillsSection: React.FC = () => {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ margin: "-20%" }}
+        viewport={{ margin: "-10%" }}
         variants={fadeIn("up", "spring", 0.2, 1.2)}
         className="container mx-auto relative sm:px-4 lg:px-8"
       >
@@ -87,7 +87,7 @@ const SkillsSection: React.FC = () => {
                 <motion.p
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
+                  viewport={{ margin: "-10%" }}
                   variants={fadeIn("right", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300"
                 >
@@ -124,7 +124,7 @@ const SkillsSection: React.FC = () => {
                 <motion.p 
                  initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
+                  viewport={{ margin: "-10%" }}
                   variants={fadeIn("left", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   Optimizing websites for speed and accessibility.
@@ -160,7 +160,7 @@ const SkillsSection: React.FC = () => {
                 <motion.p 
                  initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
+                  viewport={{ margin: "-10%" }}
                   variants={fadeIn("down", "spring", 1.0, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   Optimizing websites for search engines with clean code, fast
@@ -198,7 +198,7 @@ const SkillsSection: React.FC = () => {
                 <motion.p 
                  initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
+                  viewport={{ margin: "-10%" }}
                   variants={fadeIn("right", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   Developing intelligent chatbots that automate support and
@@ -237,7 +237,7 @@ const SkillsSection: React.FC = () => {
                 <motion.p 
                  initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
+                  viewport={{ margin: "-10%" }}
                   variants={fadeIn("right", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   <ul className="text">
@@ -277,7 +277,7 @@ const SkillsSection: React.FC = () => {
                 <motion.p 
                  initial="hidden"
                   whileInView="show"
-                  viewport={{ margin: "-20%" }}
+                  viewport={{ margin: "-10%" }}
                   variants={fadeIn("down", "spring", 0.3, 1.2)}
                   className="text-gray-600 dark:text-gray-300">
                   Designing intuitive interfaces and seamless user experiences.

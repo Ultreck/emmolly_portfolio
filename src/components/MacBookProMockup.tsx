@@ -45,7 +45,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                   <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "-20%" }}
+                    viewport={{ margin: "-10%" }}
                     variants={fadeIn("up", "spring", 0.6, 1.2)}
                     className="text md:mt-10 mt-5 gap-2 flex justify-between md:grid lg:grid-cols-1 md:gap-10"
                   >
@@ -109,7 +109,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <motion.h2
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ margin: "-20%" }}
+                        viewport={{ margin: "-10%" }}
                         variants={fadeIn("left", "spring", 0.3, 1.3)}
                         className="text-3xl hidden lg:block sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
                       >
@@ -474,7 +474,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <motion.h2
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ margin: "-20%" }}
+                        viewport={{ margin: "-10%" }}
                         variants={fadeIn("left", "spring", 0.2, 1.3)}
                         className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
                       >
@@ -483,7 +483,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <motion.p
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ margin: "-20%" }}
+                        viewport={{ margin: "-10%" }}
                         variants={fadeIn("up", "spring", 0.3, 1.3)}
                         className="text hidden lg:block"
                       >
@@ -501,7 +501,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <motion.h2
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ margin: "-20%" }}
+                        viewport={{ margin: "-10%" }}
                         variants={fadeIn("left", "spring", 0.2, 1.3)}
                         className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
                       >
@@ -510,7 +510,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <motion.p
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ margin: "-20%" }}
+                        viewport={{ margin: "-10%" }}
                         variants={fadeIn("up", "spring", 0.3, 1.3)}
                         className="text gap-5"
                       >
@@ -535,7 +535,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       <motion.p
                         initial="hidden"
                         whileInView="show"
-                        viewport={{ margin: "-20%" }}
+                        viewport={{ margin: "-10%" }}
                         variants={fadeIn("right", "spring", 0.1, 1.3)}
                         className="text hidden lg:block"
                       >

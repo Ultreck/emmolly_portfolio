@@ -6,18 +6,18 @@ import { fadeIn } from "@/utils/variant";
 import { Tooltip } from "@heroui/tooltip";
 import Cards from "../Cards";
 import { useState } from "react";
-import {Swiper as SwiperClass} from "swiper";
-import {Swiper, SwiperSlide} from 'swiper/react';
-import { Navigation } from "swiper/modules";
-
+import { Swiper as SwiperClass } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface ProjectsSectionProps {
   data: any[]; // Replace 'any' with a more specific type if available
 }
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
-const [hoveredProject, setHoveredProject] = useState<string | null>(null)
-  const [swiper, setSwiper] = useState<SwiperClass | null>(null)
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [swiper, setSwiper] = useState<SwiperClass | null>(null);
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById("contact");
     if (aboutSection) {
@@ -25,14 +25,12 @@ const [hoveredProject, setHoveredProject] = useState<string | null>(null)
     }
   };
 
-  const handleSlideChanges = () => {
-
-  };
+  const handleSlideChanges = () => {};
   return (
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ margin: "-20%" }}
+      viewport={{ margin: "-10%" }}
       variants={fadeIn("right", "spring", 0.2, 1.3)}
       id="projects"
       className="mx-auto w-[85%] py-20 bg-white dark:bg-gray-900"
@@ -58,35 +56,51 @@ const [hoveredProject, setHoveredProject] = useState<string | null>(null)
           ))}
         </div> */}
 
-        <div className="">
-          <Swiper 
-          modules={[Navigation]}
-          spaceBetween={20}
-          slidesPerView={'auto'}
-          onSwiper={setSwiper}
-          onSlideChange={handleSlideChanges}
-          className="!overflow-hidden"
+        <div className="relative hidden lg:flex">
+          <button
+            onClick={() => swiper?.slidePrev()}
+            className="text absolute -left-11 top-1/2 z-10 h-10 w-10 flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white dark:text-black dark:bg-pink-500 dark:hover:bg-pink-600 rounded-full"
           >
-
-          {projects.map((project: projectTag) => (
-            <SwiperSlide
-            key={project.id}
-            className="!w-auto"
-            >
-            <div className="mb-5 w-full mx-auto" key={project.id}>
-              <Cards data={data} project={project} />
-            </div>
-            </SwiperSlide>
-          ))}
+            <FaChevronLeft />
+          </button>
+          <button
+            onClick={() => swiper?.slideNext()}
+            className="text absolute -right-11 top-1/2 z-10 h-10 w-10 flex items-center justify-center bg-blue-500 hover:bg-blue-500 text-white dark:text-black dark:bg-pink-500 dark:hover:bg-pink-600 rounded-full"
+          >
+            <FaChevronRight />
+          </button>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            loop={true}
+            spaceBetween={50}
+            slidesPerView={"auto"}
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            onSwiper={setSwiper}
+            onSlideChange={handleSlideChanges}
+            className="!overflow-hidden"
+          >
+            {projects.map((project: projectTag) => (
+              <SwiperSlide key={project.id} className="!w-auto">
+                <div className="mb-5 w-full mx-auto" key={project.id}>
+                  <Cards data={data} project={project} />
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
 
         <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project: projectTag, index) => (
+          {projects.slice(0, 4).map((project: projectTag, index) => (
             <motion.div
               initial="hidden"
               whileInView="show"
-              viewport={{ margin: "-10%" }}
+              viewport={{ margin: "-5%" }}
               variants={fadeIn(
                 index % 2 === 0 ? "left" : "right",
                 "spring",
@@ -165,6 +179,7 @@ const [hoveredProject, setHoveredProject] = useState<string | null>(null)
             </motion.div>
           ))}
         </div>
+        <button className="text w-full text-end my-2 font-bold hover:text-blue-500">See all...</button>
         <button
           onClick={scrollToNextSection}
           className="absolute bottom-0 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"

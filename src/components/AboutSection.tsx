@@ -23,7 +23,7 @@ const AboutSectionPart = () => {
             <motion.p
               initial="hidden"
               whileInView="show"
-              viewport={{ margin: "-20%" }}
+              viewport={{ margin: "-10%" }}
               variants={fadeIn(
                 index % 2 === 0 ? "right" : "left",
                 "spring",

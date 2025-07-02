@@ -141,7 +141,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                   <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "-20%" }}
+                    viewport={{ margin: "-10%" }}
                     variants={fadeIn("down", "spring", 0.4, 1.0)}
                   >
                     <label
@@ -202,7 +202,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                   <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "-20%" }}
+                    viewport={{ margin: "-10%" }}
                     variants={fadeIn("right", "spring", 0.5, 1.0)}
                   >
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -225,7 +225,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                   <motion.div
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ margin: "-20%" }}
+                    viewport={{ margin: "-10%" }}
                     variants={fadeIn("down", "spring", 0.3, 1.0)}
                   >
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">

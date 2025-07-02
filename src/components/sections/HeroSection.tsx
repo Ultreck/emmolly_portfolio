@@ -83,7 +83,7 @@ const HeroSection: React.FC = () => {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ margin: "-20%" }}
+        viewport={{ margin: "-10%" }}
         variants={fadeIn("down", "spring", 0.2, 1.2)}
         id="home"
         className="min-h-screen mx-auto w-full lg:w-[85%] relative overflow-hidden bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-indigo-950 grid grid-cols-1 md:grid-cols-5"
@@ -97,14 +97,14 @@ const HeroSection: React.FC = () => {
             <motion.h1
               initial="hidden"
               whileInView="show"
-              viewport={{ margin: "-20%" }}
+              viewport={{ margin: "-10%" }}
               variants={fadeIn("right", "spring", 0.3, 1.3)}
               className="text-4xl sm:text-5xl font-extrabold text-center md:text-left text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-indigo-400 dark:to-blue-300 mb-6"
             >
               <motion.span
                 initial="hidden"
                 whileInView="show"
-                viewport={{ margin: "-20%" }}
+                viewport={{ margin: "-10%" }}
                 variants={fadeIn("left", "spring", 0.3, 1.3)}
                 className="block font-mono dark:text-white text-black"
               >
@@ -120,7 +120,7 @@ const HeroSection: React.FC = () => {
             <motion.div
               initial="hidden"
               whileInView="show"
-              viewport={{ margin: "-20%" }}
+              viewport={{ margin: "-10%" }}
               variants={fadeIn("up", "spring", 0.2, 1.2)}
               className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl lg:my-3 mb-5 lg:mb-0 font-semibold md:text-start px-4"
             >
@@ -150,7 +150,7 @@ const HeroSection: React.FC = () => {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ margin: "-20%" }}
+            viewport={{ margin: "-10%" }}
             variants={fadeIn("right", "spring", 1.0, 1.3)}
             className="text xl:mt-8 flex items-center lg:gap-5 justify-center xl:gap-8 gap-1"
           >
@@ -344,7 +344,7 @@ const HeroSection: React.FC = () => {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ margin: "-20%" }}
+          viewport={{ margin: "-10%" }}
           variants={fadeIn("left", "spring", 0.4, 1.5)}
           className="mt-20 hidden col-span-2 md:block p-10 h-[80vh] relative"
         >

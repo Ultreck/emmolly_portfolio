@@ -73,7 +73,7 @@ const ContactSection: React.FC = () => {
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ margin: "-20%" }}
+      viewport={{ margin: "-10%" }}
       variants={fadeIn("left", "spring", 0.2, 1.0)}
       id="contact"
       className=" mx-auto w-[85%] py-20 bg-gray-50 dark:bg-gray-900"
@@ -127,12 +127,12 @@ const ContactSection: React.FC = () => {
                     viewport={{ margin: "-5%" }}
                     variants={fadeIn("right", "spring", 0.3, 1.0)}
                   >
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {/* <p className="text-sm text-gray-500 dark:text-gray-400">
                       Email
                     </p>
                     <p className="text-gray-800 dark:text-gray-200">
                       adetutuemmanueloluwatayese@gmail.com
-                    </p>
+                    </p> */}
                   </motion.div>
                 </div>
               </div>
