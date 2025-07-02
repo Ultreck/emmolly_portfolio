@@ -99,7 +99,7 @@ const MacBookProMockup: React.FC<React.PropsWithChildren<{}>> = () => {
                       onClick={() => setTab(3)}
                       className={`text lg:px-0 px-2 ${tab === 3 ? "bg-blue-600 text-white" : "border border-gray-400"} py-2 md:py-3 rounded-lg`}
                     >
-                      About Me
+                      About
                     </motion.button>
                   </motion.div>
                 </div>
