@@ -1,24 +1,32 @@
 import { projects } from "../../constants";
-// import { ArrowDown, ExternalLink, Github } from "lucide-react";
+import { ArrowDown, ExternalLink, Github } from "lucide-react";
 import type { projectTag } from "../../types";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
-// import { Tooltip } from "@heroui/tooltip";
+import { Tooltip } from "@heroui/tooltip";
 import Cards from "../Cards";
-import { ArrowDown } from "lucide-react";
+import { useState } from "react";
+import {Swiper as SwiperClass} from "swiper";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import { Navigation } from "swiper/modules";
+
 
 interface ProjectsSectionProps {
   data: any[]; // Replace 'any' with a more specific type if available
 }
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
-
-  
+const [hoveredProject, setHoveredProject] = useState<string | null>(null)
+  const [swiper, setSwiper] = useState<SwiperClass | null>(null)
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById("contact");
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleSlideChanges = () => {
+
   };
   return (
     <motion.section
@@ -42,15 +50,38 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
           </motion.h2>
           <div className="w-20 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto mb-6"></div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        {/* <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project: projectTag) => (
             <div className="mb-5 w-full mx-auto" key={project.id}>
               <Cards data={data} project={project} />
             </div>
           ))}
+        </div> */}
+
+        <div className="">
+          <Swiper 
+          modules={[Navigation]}
+          spaceBetween={20}
+          slidesPerView={'auto'}
+          onSwiper={setSwiper}
+          onSlideChange={handleSlideChanges}
+          className="!overflow-hidden"
+          >
+
+          {projects.map((project: projectTag) => (
+            <SwiperSlide
+            key={project.id}
+            className="!w-auto"
+            >
+            <div className="mb-5 w-full mx-auto" key={project.id}>
+              <Cards data={data} project={project} />
+            </div>
+            </SwiperSlide>
+          ))}
+          </Swiper>
         </div>
 
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project: projectTag, index) => (
             <motion.div
               initial="hidden"
@@ -133,7 +164,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
               </div>
             </motion.div>
           ))}
-        </div> */}
+        </div>
         <button
           onClick={scrollToNextSection}
           className="absolute bottom-0 z-20 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 animate-bounce"
