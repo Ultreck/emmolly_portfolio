@@ -152,7 +152,7 @@ function App() {
           {isScrolled && (
             <button
               onClick={scrollToTop}
-              className="fixed flex justify-center items-center text-white right-2 bottom-0 mb-10 -ml-5 rounded-full w-10 h-10 bg-blue-600 hover:bg-blue-500"
+              className="fixed flex justify-center items-center text-white right-2 bottom-0 mb-10 -ml-5 rounded-full w-10 h-10 bg-blue-600 hover:bg-blue-500 dark:bg-pink-500 dark:hover:bg-pink-600"
             >
               <FaArrowUp className="text-xl animate-bounce" />
             </button>
