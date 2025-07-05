@@ -9,7 +9,7 @@ const RatingReminder = () => {
   const el = useRef<HTMLSpanElement>(null);
   const [destroyTyping, setDestroyTyping] = useState(false);
   const typedInstance = useRef<Typed | null>(null);
-  const [isOpened, setIsOpened] = useState(false);
+  const [isOpened] = useState(false);
   const toastIdRef = useRef<import("react-toastify").Id | null>(null);
 
   const startTyping = () => {

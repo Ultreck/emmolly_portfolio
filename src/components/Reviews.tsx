@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Stack from "@mui/material/Stack";
 import Rating from "@mui/material/Rating";
 import { FaCircleUser } from "react-icons/fa6";

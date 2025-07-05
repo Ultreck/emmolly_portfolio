@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import NumberOfUsers from "./components/NumberOfUsers";
 import axios from "axios";
-import RatingReminder from "./components/RatingReminder";
+// import RatingReminder from "./components/RatingReminder";
 import Reviews from "./components/Reviews";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -32,7 +32,7 @@ interface CountryInfo {
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [ipInformations, setIpInformations] = useState<CountryInfo[]>([]);
-  const [showToast, setShowToast] = useState(0);
+  // const [showToast, setShowToast] = useState(0);
   const [allReviews, setAllReviews] = useState([]);
   const { baseUrl, apiUrl, appName } = usePort();
   const [allAppsIps, setAllAppsIps] = useState([]);
@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     const handleIsScrolled = () => {
       setIsScrolled(window.scrollY > 30);
-      setShowToast(window.scrollY);
+      // setShowToast(window.scrollY);
     };
     window.addEventListener("scroll", handleIsScrolled);
     return () => window.removeEventListener("scroll", handleIsScrolled);

@@ -16,9 +16,6 @@ import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
 import usePort from "@/hooks/usePort";
 
-interface RatingModalProps {
-  setIsOpened: (isOpen: boolean) => void;
-}
 
 const RatingModal = () => {
   const [value, setValue] = useState<number | null>(0.5);
