@@ -281,8 +281,8 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
                   Cancel
                 </Button>
                 <Button
-                  color="primary"
                   type="submit"
+                  className="dark:bg-pink-500 dark:hover:bg-pink-600 bg-blue-500 hover:bg-blue-600 text-white"
                   isDisabled={form.formState.isSubmitting}
                 >
                   {form.formState.isSubmitting

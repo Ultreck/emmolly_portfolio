@@ -64,7 +64,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
   return (
     <div className="mx-auto w-[85%] bg-gray-50 dark:bg-gray-900">
       <div className="text flex items-center justify-between">
-        <h1 className="text">Reviews</h1>
+        <h1 className="text font-bold text-lg">Reviews</h1>
         <RatingModal setIsOpened={setIsOpened} />
       </div>
       <div className="relative w-full overflow-x-hidden">
