@@ -7,57 +7,67 @@ import { FaCircleUser } from "react-icons/fa6";
 interface ReviewsProps {
   data: { reviews: any[] }[];
 }
+const SLIDE_WIDTH = 1000;
 
 const Reviews: React.FC<ReviewsProps> = ({ data }) => {
   const controls = useAnimation();
   const sliderRef = useRef<HTMLDivElement>(null);
-  const SLIDE_WIDTH = 1000;
 
   useEffect(() => {
+    if (!data?.[0]?.reviews?.length || data[0].reviews.length <= 3) return;
+
     const totalWidth = sliderRef.current
       ? sliderRef.current.scrollWidth / 2
-      : 0;
+      : SLIDE_WIDTH;
 
     const loopAnimation = async () => {
       await controls.start({
-        x: data[0]?.reviews?.length > 3? -totalWidth : 0,
+        x: -totalWidth,
         transition: {
-          duration: data[0]?.reviews?.length * 4,
+          duration: data[0].reviews.length * 4,
           ease: "linear",
         },
       });
-
       controls.set({ x: 0 });
       loopAnimation();
     };
 
     loopAnimation();
-  }, [controls]);
+  }, [controls, data]);
 
-  const handleMouseEnter = () => {
-    controls.stop();
-  };
+  // const handleMouseEnter = () => {
+  //   controls.stop();
+  // };
 
-  const handleMouseLeave = () => {
-    controls.start({
-     x: data[0]?.reviews?.length > 3? -SLIDE_WIDTH : 0,
-      transition: {
-        duration: data[0]?.reviews?.length * 4,
-        ease: "linear",
-        repeat: Infinity,
-      },
-    });
-  };
+  // const handleMouseLeave = () => {
+  //   if (!data?.[0]?.reviews?.length || data[0].reviews.length <= 3) return;
+
+  //   const totalWidth = sliderRef.current
+  //     ? sliderRef.current.scrollWidth / 2
+  //     : SLIDE_WIDTH;
+
+  //   controls
+  //     .start({
+  //       x: -totalWidth,
+  //       transition: {
+  //         duration: data[0].reviews.length * 4,
+  //         ease: "linear",
+  //       },
+  //     })
+  //     .then(() => {
+  //       controls.set({ x: 0 });
+  //       handleMouseLeave();
+  //     });
+  // };
   return (
     <div className="mx-auto w-[85%] bg-gray-50 dark:bg-gray-900">
       <div className="relative w-full overflow-x-hidden">
         <motion.div
           className="flex gap-5 w-full py-10 justify-center"
-          initial={{ x: 50 }}
           ref={sliderRef}
           animate={controls}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          // onMouseEnter={handleMouseEnter}
+          // onMouseLeave={handleMouseLeave}
         >
           {[...(data[0]?.reviews || []), ...(data[0]?.reviews || [])]?.map(
             (item, index) => (
@@ -70,15 +80,15 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
                              before:border-r-[11px] dark:before:border-gray-900 before:border-white
                             before:rounded-tr-3xl before:translate-y-[14px] after:content-[' '] after:w-7 after:h-7 after:bg-gray-100 dark:after:bg-gray-700 after:absolute after:translate-x-[47px] after:rotate-[37deg]  after:border-l-[11px] after:border-white dark:after:border-gray-900 after:rounded-tl-3xl  after:translate-y-[13px] w-14 h-14 rounded-full border-4 -mt-10 border-white dark:border-gray-900 mx-auto flex"
                 >
-                  {item?.profile?.url? 
-                  <img
-                    src={item?.profile?.url}
-                    alt=""
-                    className="w-full h-full rounded-full z-50 "
-                  />
-                  :
-                  <FaCircleUser className="w-full h-full border-8 text-gray-900 dark:text-white border-white dark:border-gray-900 rounded-full" />
-                  }
+                  {item?.profile?.url ? (
+                    <img
+                      src={item?.profile?.url}
+                      alt=""
+                      className="w-full h-full rounded-full z-50 "
+                    />
+                  ) : (
+                    <FaCircleUser className="w-full h-full border-8 text-gray-900 dark:text-white border-white dark:border-gray-900 rounded-full" />
+                  )}
                 </div>
                 <div className="text flex items-center gap-2">
                   <h1 className="mt-1 text-4xl font-semibold">
