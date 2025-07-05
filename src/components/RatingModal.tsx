@@ -77,7 +77,7 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
   return (
     <>
       <Button
-        className="px-3 py-1 bg-pink-500 text-white rounded hover:bg-pink-600"
+        className="px-3 py-1 dark:bg-pink-500 bg-blue-500 text-white rounded hover:bg-blue-600 dark:hover:bg-pink-600"
         onPress={onOpen}
       >
         Rate Now

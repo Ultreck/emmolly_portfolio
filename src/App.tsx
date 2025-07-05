@@ -141,7 +141,7 @@ function App() {
         <div className="min-h-screen overflow-visible bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white transition-colors duration-300">
           <Header />
           <main className="bg-gray-50 dark:bg-gray-900  text-gray-900 dark:text-white">
-            {showToast >= 4100 && <RatingReminder />}
+            {/* {showToast >= 4100 && <RatingReminder />} */}
             <HeroSection />
             <SkillsSection />
             <AboutSection />
