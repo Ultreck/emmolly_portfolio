@@ -13,7 +13,6 @@ const SLIDE_WIDTH = 1000;
 const Reviews: React.FC<ReviewsProps> = ({ data }) => {
   const controls = useAnimation();
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [isOpened, setIsOpened] = useState(false)
 
   useEffect(() => {
     if (!data?.[0]?.reviews?.length || data[0].reviews.length <= 3) return;
@@ -65,7 +64,7 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
     <div className="mx-auto w-[85%] bg-gray-50 dark:bg-gray-900">
       <div className="text flex items-center justify-between">
         <h1 className="text font-bold text-lg">Reviews</h1>
-        <RatingModal setIsOpened={setIsOpened} />
+        <RatingModal />
       </div>
       <div className="relative w-full overflow-x-hidden">
         <motion.div

@@ -20,7 +20,7 @@ interface RatingModalProps {
   setIsOpened: (isOpen: boolean) => void;
 }
 
-const RatingModal = ({ setIsOpened }: RatingModalProps) => {
+const RatingModal = () => {
   const [value, setValue] = useState<number | null>(0.5);
   const [hover, setHover] = useState(-1);
   const {
@@ -40,13 +40,12 @@ const RatingModal = ({ setIsOpened }: RatingModalProps) => {
   console.log(message, isFailed);
 
   useEffect(() => {
-    setIsOpened(isOpen);
     if (isOpen) {
       toast.pause();
     } else {
       toast.play();
     }
-  }, [isOpen, setIsOpened]);
+  }, [isOpen]);
 
   const handleClose = () => {
     form.reset();

@@ -67,7 +67,7 @@ const NumberOfUsers = ({ data, ip }: NumberOfUsersProps) => {
       >
         <button
           onClick={onOpen}
-          className="fixed text-white shadow-lg lg:ml-2 lg:p-2 top-0 mt-24 rounded lg:bg-blue-600 hover:bg-blue-500"
+          className="fixed text-white shadow-lg lg:ml-2 lg:p-2 top-0 mt-24 rounded lg:bg-blue-600 hover:bg-blue-500 dark:lg:bg-pink-500 dark:hover:bg-pink-600"
         >
           <img
             src="/assets/blinking.gif"

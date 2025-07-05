@@ -66,7 +66,7 @@ const RatingReminder = () => {
           <div className="p-2">
             <span className="" ref={el} />
             <div className="flex gap-3 mt-1" id="rating-buttons">
-              <RatingModal setIsOpened={setIsOpened} />
+              <RatingModal />
               <button
                 onClick={handleRating}
                 className="px-2 py-1 bg-gray-500 rounded hover:bg-gray-600"
