@@ -44,14 +44,14 @@ const Cards = ({ project, data }: CardsProps) => {
           className={`w-full p-10 rotate-y-180 backface-hidden absolute h-full rounded-2xl space-y-5 overflow-hidden transition-colors duration-300
           ${hoverState === "demo" ? "bg-indigo-700 text-white" : ""}
           ${hoverState === "github" ? "bg-gray-800 text-white" : ""}
-          ${hoverState === "num" ? "bg-pink-500 text-white" : ""}
+          ${hoverState === "num" ? "dark:bg-pink-600 bg-blue-600 text-white" : ""}
           ${!hoverState ? "dark:bg-gray-800/95 bg-gray-100" : ""}
         `}
         >
           <button
             onMouseEnter={() => setHoverState("num")}
             onMouseLeave={() => setHoverState(null)}
-            className="text-center absolute bg-pink-500 hover:border hover:border-white -top-2 flex justify-center items-center -rotate-45 -left-24 h-16 w-60 font-bold text-3xl"
+            className="text-center text-white absolute dark:bg-pink-500 dark:hover:bg-pink-600 bg-blue-500 hover:bg-blue-600 hover:border hover:border-white -top-2 flex justify-center items-center -rotate-45 -left-24 h-16 w-60 font-bold text-3xl"
           >
             <Tooltip
               className="bg-white w-full px-2 text-black"
@@ -127,7 +127,7 @@ const Cards = ({ project, data }: CardsProps) => {
                   className={`px-3 py-1 rounded-full text-sm font-medium transition-colors duration-300
                     ${hoverState === "demo" ? "bg-indigo-500 text-white" : ""}
                     ${hoverState === "github" ? "bg-gray-700 text-white" : ""}
-                    ${hoverState === "num" ? "bg-pink-400 text-white" : ""}
+                    ${hoverState === "num" ? "dark:bg-pink-500 bg-blue-500 text-white" : ""}
                     ${!hoverState ? "bg-blue-100 dark:bg-blue-900/30 text-pink-600 dark:text-pink-400" : ""}
                   `}
                 >
