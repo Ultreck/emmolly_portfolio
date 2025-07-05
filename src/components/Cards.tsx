@@ -51,7 +51,7 @@ const Cards = ({ project, data }: CardsProps) => {
           <button
             onMouseEnter={() => setHoverState("num")}
             onMouseLeave={() => setHoverState(null)}
-            className="text-center absolute bg-pink-500 -top-2 flex justify-center items-center -rotate-45 -left-24 h-16 w-60 font-bold text-3xl"
+            className="text-center absolute bg-pink-500 hover:border hover:border-white -top-2 flex justify-center items-center -rotate-45 -left-24 h-16 w-60 font-bold text-3xl"
           >
             <Tooltip
               className="bg-white w-full px-2 text-black"
@@ -127,6 +127,7 @@ const Cards = ({ project, data }: CardsProps) => {
                   className={`px-3 py-1 rounded-full text-sm font-medium transition-colors duration-300
                     ${hoverState === "demo" ? "bg-indigo-500 text-white" : ""}
                     ${hoverState === "github" ? "bg-gray-700 text-white" : ""}
+                    ${hoverState === "num" ? "bg-pink-400 text-white" : ""}
                     ${!hoverState ? "bg-blue-100 dark:bg-blue-900/30 text-pink-600 dark:text-pink-400" : ""}
                   `}
                 >
